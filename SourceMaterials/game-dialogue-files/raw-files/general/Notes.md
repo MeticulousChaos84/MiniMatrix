@@ -31,15 +31,29 @@ See `/home/user/MiniMatrix/SourceMaterials/game-dialogue-files/general/act1/` fo
 
 ### Act 2
 **Total Files:** 79
-**Processed:** 0
+**Processed:** 79 ✓ COMPLETE
 **Skipped (Copyright):** 0
 **Skipped (Size):** 0
 
 #### Processed Files:
-(none yet)
+All 79 files extracted via parallel processing with 3 subagents.
+See `/home/user/MiniMatrix/SourceMaterials/game-dialogue-files/general/act2/` for all markdown summaries.
+
+#### Notable Gale Quotes Found:
+- "If what is happening is what I think is happening, and it's because you licked a dead spider - the time might just have come when you and I should split ways."
+- "This corpse... It's Arabella's father. The horror of his end I daren't contemplate."
+- "Music's a powerful source of memories..." (Art Cullagh hint)
+- "Behold, the consequences of your actions." (Last Light siege)
+- Orb detonation choice and Crown of Karsus revelation at Ketheric showdown
+
+#### Notable Astarion Quotes Found:
+- Full scars reveal: "Cazador worked on it from dusk until dawn, all with an ancient blade he called his 'needle'. Cutting and tearing..."
+- "It was a rough night." (understatement of the century)
+- "Rotten meat? That's what gets you going? Well, to each their own."
+- Hospital bypass: "My dear lady - look at my complexion. I am at death's door."
 
 #### Skipped Files:
-(none yet)
+(none)
 
 ---
 
