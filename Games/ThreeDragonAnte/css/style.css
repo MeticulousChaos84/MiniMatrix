@@ -1,0 +1,774 @@
+/*
+============================================================================
+THREE DRAGON ANTE - STYLESHEET
+============================================================================
+
+Welcome to the visual design of our card game! This CSS creates the look
+and feel of sitting at a tavern table with Gale, firelight flickering,
+playing cards into the night.
+
+Color scheme is dark and warm - think "camp at night in BG3" vibes.
+Cards have distinct colors based on dragon type (chromatic vs metallic).
+
+============================================================================
+*/
+
+/* ==========================================================================
+   CSS VARIABLES - Our Design Tokens
+   ==========================================================================
+   These are like the "constants" of our stylesheet. Change them here and
+   they update everywhere. It's like having a central config file for colors.
+*/
+
+:root {
+  /* ----- BACKGROUND COLORS ----- */
+  /* Dark tavern/camp aesthetic */
+  --bg-primary: #1a1a2e;        /* Deep navy - main background */
+  --bg-secondary: #16213e;      /* Slightly lighter - panels */
+  --bg-tertiary: #0f3460;       /* Accent areas */
+  --bg-card: #2a2a4a;           /* Card backs and neutral cards */
+
+  /* ----- TEXT COLORS ----- */
+  --text-primary: #e8e8e8;      /* Main text */
+  --text-secondary: #a0a0a0;    /* Muted text */
+  --text-accent: #ffd700;       /* Gold - for important stuff */
+  --text-gale: #7eb8da;         /* Gale's dialogue color */
+
+  /* ----- DRAGON COLORS ----- */
+  /* Chromatic (evil) dragons */
+  --dragon-black: #2d2d2d;
+  --dragon-blue: #1e3a5f;
+  --dragon-green: #2d5a27;
+  --dragon-red: #8b0000;
+  --dragon-white: #e8e8e8;
+
+  /* Metallic (good) dragons */
+  --dragon-brass: #b5a642;
+  --dragon-bronze: #cd7f32;
+  --dragon-copper: #b87333;
+  --dragon-gold: #ffd700;
+  --dragon-silver: #c0c0c0;
+
+  /* Special cards */
+  --card-legendary: #9966cc;    /* Purple for legendaries */
+  --card-mortal: #4a6fa5;       /* Blue-grey for mortals */
+
+  /* ----- UI COLORS ----- */
+  --btn-primary: #e94560;       /* Action buttons */
+  --btn-primary-hover: #ff6b6b;
+  --btn-disabled: #4a4a4a;
+  --border-color: #3d3d5c;
+  --highlight: #ffd700;
+  --success: #4ade80;
+  --warning: #fbbf24;
+  --danger: #ef4444;
+
+  /* ----- SPACING ----- */
+  --spacing-xs: 4px;
+  --spacing-sm: 8px;
+  --spacing-md: 16px;
+  --spacing-lg: 24px;
+  --spacing-xl: 32px;
+
+  /* ----- CARD DIMENSIONS ----- */
+  --card-width: 80px;
+  --card-height: 120px;
+  --card-radius: 8px;
+
+  /* ----- TRANSITIONS ----- */
+  --transition-fast: 0.15s ease;
+  --transition-normal: 0.3s ease;
+}
+
+/* ==========================================================================
+   BASE STYLES
+   ==========================================================================
+*/
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* ==========================================================================
+   GAME CONTAINER - The Whole Shebang
+   ==========================================================================
+*/
+
+#game-container {
+  display: grid;
+  grid-template-columns: 1fr 280px;
+  grid-template-rows: auto 1fr;
+  grid-template-areas:
+    "header header"
+    "table panel";
+  min-height: 100vh;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: var(--spacing-md);
+  gap: var(--spacing-md);
+}
+
+/* ==========================================================================
+   HEADER
+   ==========================================================================
+*/
+
+#game-header {
+  grid-area: header;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--spacing-md);
+  background: var(--bg-secondary);
+  border-radius: var(--card-radius);
+  border: 1px solid var(--border-color);
+}
+
+#game-header h1 {
+  font-size: 1.8rem;
+  color: var(--text-accent);
+  text-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
+}
+
+#game-info {
+  display: flex;
+  gap: var(--spacing-lg);
+  font-size: 1rem;
+}
+
+#game-info span {
+  padding: var(--spacing-xs) var(--spacing-md);
+  background: var(--bg-tertiary);
+  border-radius: var(--spacing-xs);
+}
+
+/* ==========================================================================
+   MAIN GAME TABLE
+   ==========================================================================
+*/
+
+#game-table {
+  grid-area: table;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+  background: var(--bg-secondary);
+  border-radius: var(--card-radius);
+  border: 1px solid var(--border-color);
+  padding: var(--spacing-md);
+}
+
+/* ==========================================================================
+   PLAYER AREAS (Both Gale and Human)
+   ==========================================================================
+*/
+
+.player-area {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+  padding: var(--spacing-md);
+  background: var(--bg-tertiary);
+  border-radius: var(--card-radius);
+}
+
+/* Gale's area at top */
+#gale-area {
+  border-bottom: 2px solid var(--border-color);
+}
+
+/* Player's area at bottom */
+#player-area {
+  border-top: 2px solid var(--border-color);
+}
+
+.player-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--spacing-sm);
+}
+
+.player-name {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: var(--text-accent);
+}
+
+.player-stakes {
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+}
+
+.gold-icon {
+  font-size: 1.2rem;
+}
+
+/* ==========================================================================
+   HANDS - Where Cards Live
+   ==========================================================================
+*/
+
+.hand {
+  display: flex;
+  gap: var(--spacing-sm);
+  padding: var(--spacing-md);
+  min-height: calc(var(--card-height) + var(--spacing-lg));
+  flex-wrap: wrap;
+  justify-content: center;
+  position: relative;
+}
+
+.hand-label {
+  position: absolute;
+  top: var(--spacing-xs);
+  left: var(--spacing-sm);
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Player's hand - cards are interactive */
+.player-hand .card {
+  cursor: pointer;
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.player-hand .card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+}
+
+.player-hand .card.selected {
+  transform: translateY(-15px);
+  box-shadow: 0 0 20px var(--highlight);
+}
+
+.player-hand .card.disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.player-hand .card.disabled:hover {
+  transform: none;
+}
+
+/* Opponent's hand - card backs */
+.opponent-hand .card {
+  cursor: default;
+}
+
+/* ==========================================================================
+   FLIGHTS - Cards Played This Gambit
+   ==========================================================================
+*/
+
+.flight {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-sm);
+  padding: var(--spacing-md);
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: var(--card-radius);
+  min-height: calc(var(--card-height) + var(--spacing-xl));
+}
+
+.flight-label {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.flight-cards {
+  display: flex;
+  gap: var(--spacing-md);
+  justify-content: center;
+}
+
+/* Empty flight slot placeholder */
+.flight-slot {
+  width: var(--card-width);
+  height: var(--card-height);
+  border: 2px dashed var(--border-color);
+  border-radius: var(--card-radius);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-secondary);
+  font-size: 2rem;
+}
+
+/* ==========================================================================
+   CARDS - The Stars of the Show
+   ==========================================================================
+   Cards are the main visual element. They have:
+   - A colored background based on dragon type
+   - The dragon/mortal name
+   - The value prominently displayed
+   - Visual feedback on hover/select
+*/
+
+.card {
+  width: var(--card-width);
+  height: var(--card-height);
+  border-radius: var(--card-radius);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--spacing-sm);
+  font-size: 0.7rem;
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Card back (for opponent's hidden hand) */
+.card.card-back {
+  background: linear-gradient(135deg, var(--bg-card) 0%, #3a3a5a 100%);
+  justify-content: center;
+}
+
+.card.card-back::after {
+  content: "🐉";
+  font-size: 2rem;
+  opacity: 0.3;
+}
+
+/* Card face elements */
+.card-name {
+  font-size: 0.6rem;
+  text-align: center;
+  font-weight: bold;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.card-value {
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.card-type {
+  font-size: 0.5rem;
+  text-transform: uppercase;
+  opacity: 0.8;
+}
+
+/* ----- DRAGON SUIT COLORS ----- */
+/* Each dragon type gets its own color scheme */
+
+.card.suit-black { background: linear-gradient(135deg, #2d2d2d 0%, #1a1a1a 100%); }
+.card.suit-blue { background: linear-gradient(135deg, #1e3a5f 0%, #0d1f3c 100%); }
+.card.suit-green { background: linear-gradient(135deg, #2d5a27 0%, #1a3518 100%); }
+.card.suit-red { background: linear-gradient(135deg, #8b0000 0%, #5c0000 100%); }
+.card.suit-white { background: linear-gradient(135deg, #e8e8e8 0%, #c0c0c0 100%); color: #1a1a1a; }
+
+.card.suit-brass { background: linear-gradient(135deg, #b5a642 0%, #8a7d32 100%); color: #1a1a1a; }
+.card.suit-bronze { background: linear-gradient(135deg, #cd7f32 0%, #a86428 100%); }
+.card.suit-copper { background: linear-gradient(135deg, #b87333 0%, #8a5627 100%); }
+.card.suit-gold { background: linear-gradient(135deg, #ffd700 0%, #ccac00 100%); color: #1a1a1a; }
+.card.suit-silver { background: linear-gradient(135deg, #c0c0c0 0%, #909090 100%); color: #1a1a1a; }
+
+/* Legendary cards - purple glow! */
+.card.type-legendary {
+  background: linear-gradient(135deg, #9966cc 0%, #6b4799 100%);
+  border-color: #cc99ff;
+  box-shadow: 0 0 10px rgba(153, 102, 204, 0.5);
+}
+
+/* Mortal cards - distinguished but not flashy */
+.card.type-mortal {
+  background: linear-gradient(135deg, #4a6fa5 0%, #365180 100%);
+  border-color: #6b8fc5;
+}
+
+/* ==========================================================================
+   CENTER AREA - Pot and Controls
+   ==========================================================================
+*/
+
+#center-area {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-md);
+  padding: var(--spacing-lg);
+  background: var(--bg-primary);
+  border-radius: var(--card-radius);
+}
+
+#pot-display {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  font-size: 1.5rem;
+  padding: var(--spacing-md) var(--spacing-xl);
+  background: var(--bg-tertiary);
+  border-radius: var(--card-radius);
+  border: 2px solid var(--text-accent);
+}
+
+.pot-label {
+  color: var(--text-secondary);
+  font-size: 1rem;
+}
+
+.pot-amount {
+  color: var(--text-accent);
+  font-weight: bold;
+  min-width: 40px;
+  text-align: center;
+}
+
+#action-buttons {
+  display: flex;
+  gap: var(--spacing-md);
+}
+
+.action-btn {
+  padding: var(--spacing-sm) var(--spacing-lg);
+  border: none;
+  border-radius: var(--spacing-xs);
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  background: var(--bg-tertiary);
+  color: var(--text-primary);
+}
+
+.action-btn:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.action-btn.primary {
+  background: var(--btn-primary);
+  color: white;
+}
+
+.action-btn.primary:hover:not(:disabled) {
+  background: var(--btn-primary-hover);
+}
+
+.action-btn:disabled {
+  background: var(--btn-disabled);
+  color: var(--text-secondary);
+  cursor: not-allowed;
+  transform: none;
+}
+
+#turn-indicator {
+  font-size: 1rem;
+  color: var(--text-accent);
+  padding: var(--spacing-sm);
+}
+
+/* ==========================================================================
+   GALE'S PANEL - Commentary and Log
+   ==========================================================================
+*/
+
+#gale-panel {
+  grid-area: panel;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+  background: var(--bg-secondary);
+  border-radius: var(--card-radius);
+  border: 1px solid var(--border-color);
+  padding: var(--spacing-md);
+}
+
+#gale-portrait {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-sm);
+}
+
+.portrait-placeholder {
+  font-size: 4rem;
+  background: var(--bg-tertiary);
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#gale-mood {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  font-style: italic;
+}
+
+#gale-dialogue {
+  background: var(--bg-tertiary);
+  border-radius: var(--card-radius);
+  padding: var(--spacing-md);
+  border-left: 3px solid var(--text-gale);
+}
+
+#gale-text {
+  color: var(--text-gale);
+  font-style: italic;
+  line-height: 1.5;
+}
+
+#game-log {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  background: var(--bg-tertiary);
+  border-radius: var(--card-radius);
+  overflow: hidden;
+}
+
+.log-label {
+  padding: var(--spacing-sm);
+  background: var(--bg-primary);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--text-secondary);
+}
+
+#log-entries {
+  flex: 1;
+  padding: var(--spacing-sm);
+  overflow-y: auto;
+  font-size: 0.8rem;
+  max-height: 200px;
+}
+
+.log-entry {
+  padding: var(--spacing-xs);
+  border-bottom: 1px solid var(--border-color);
+  color: var(--text-secondary);
+}
+
+.log-entry.highlight {
+  color: var(--text-accent);
+}
+
+/* ==========================================================================
+   CARD PREVIEW
+   ==========================================================================
+*/
+
+#card-preview {
+  position: fixed;
+  top: 50%;
+  right: var(--spacing-xl);
+  transform: translateY(-50%);
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: var(--card-radius);
+  padding: var(--spacing-md);
+  width: 200px;
+  z-index: 100;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+#card-preview.hidden {
+  display: none;
+}
+
+#preview-name {
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: var(--text-accent);
+  margin-bottom: var(--spacing-sm);
+}
+
+#preview-type {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  margin-bottom: var(--spacing-xs);
+}
+
+#preview-value {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: var(--spacing-sm);
+}
+
+#preview-effect {
+  font-size: 0.85rem;
+  color: var(--text-primary);
+  margin-bottom: var(--spacing-sm);
+  padding: var(--spacing-sm);
+  background: var(--bg-tertiary);
+  border-radius: var(--spacing-xs);
+}
+
+#preview-flavor {
+  font-size: 0.75rem;
+  font-style: italic;
+  color: var(--text-secondary);
+}
+
+/* ==========================================================================
+   GAME OVER MODAL
+   ==========================================================================
+*/
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.modal.hidden {
+  display: none;
+}
+
+.modal-content {
+  background: var(--bg-secondary);
+  border-radius: var(--card-radius);
+  padding: var(--spacing-xl);
+  max-width: 500px;
+  text-align: center;
+  border: 2px solid var(--text-accent);
+  box-shadow: 0 0 30px rgba(255, 215, 0, 0.3);
+}
+
+.modal-content h2 {
+  color: var(--text-accent);
+  margin-bottom: var(--spacing-lg);
+  font-size: 2rem;
+}
+
+#game-over-message {
+  margin-bottom: var(--spacing-lg);
+  font-size: 1.1rem;
+}
+
+#game-over-gale {
+  color: var(--text-gale);
+  font-style: italic;
+  padding: var(--spacing-md);
+  background: var(--bg-tertiary);
+  border-radius: var(--card-radius);
+  margin-bottom: var(--spacing-lg);
+}
+
+/* ==========================================================================
+   ANIMATIONS
+   ==========================================================================
+*/
+
+@keyframes cardDeal {
+  from {
+    opacity: 0;
+    transform: translateY(-50px) rotate(-10deg);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) rotate(0);
+  }
+}
+
+.card.dealing {
+  animation: cardDeal 0.3s ease forwards;
+}
+
+@keyframes goldPulse {
+  0%, 100% { text-shadow: 0 0 10px rgba(255, 215, 0, 0.3); }
+  50% { text-shadow: 0 0 20px rgba(255, 215, 0, 0.6); }
+}
+
+.pot-amount.pulsing {
+  animation: goldPulse 1s ease infinite;
+}
+
+@keyframes highlightWin {
+  0%, 100% { box-shadow: 0 0 10px var(--success); }
+  50% { box-shadow: 0 0 30px var(--success); }
+}
+
+.flight.winner {
+  animation: highlightWin 1s ease infinite;
+}
+
+/* ==========================================================================
+   RESPONSIVE DESIGN
+   ==========================================================================
+*/
+
+@media (max-width: 1024px) {
+  #game-container {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "header"
+      "table"
+      "panel";
+  }
+
+  #gale-panel {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  #game-log {
+    width: 100%;
+    max-height: 150px;
+  }
+}
+
+@media (max-width: 600px) {
+  :root {
+    --card-width: 60px;
+    --card-height: 90px;
+  }
+
+  #game-header h1 {
+    font-size: 1.2rem;
+  }
+
+  .card-value {
+    font-size: 1.2rem;
+  }
+
+  .card-name {
+    font-size: 0.5rem;
+  }
+}
+
+/* ==========================================================================
+   END OF STYLES
+   ==========================================================================
+
+   "The Weave is served best with a dash of eloquence."
+   — Gale, probably talking about CSS
+
+   ==========================================================================
+*/
