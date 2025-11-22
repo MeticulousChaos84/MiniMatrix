@@ -1,0 +1,1218 @@
+
+--- PAGE 1 ---
+
+Astarion's Book of Hungers for
+Dungeons and Dragons Fifth
+Edition
+,
+Printed by Eyenarr
+Printed with the BeyondPrinting-Chrome-Extension
+
+--- PAGE 3 ---
+
+Introduction
+Introduction
+Using This Supplement
+Chapter 1: Vampiric Character Options
+Character Backgrounds
+Carouser
+Vampire Devotee
+Vampire Survivor
+Character Species
+Dhampir
+Feats
+Feat List
+Origin Feats
+Tireless Reveler
+Vampire Hunter
+Vampire's Plaything
+General Feats
+Bloodlust
+Bomber
+Cloying Mists
+Delicious Pain
+Light Bringer
+Love Bites
+Putrefy
+Rebuke
+Treacherous Allure
+Vampire Touched
+Epic Boon Feats
+Boon of Blazing Dawn
+Boon of Looming Shadows
+Boon of Misty Escape
+Chapter 2: Crea tures of the Night
+Cazador Szarr's Family
+Fiendish Icon
+Harvester Devil
+Speaker Devil
+Vampire Infernalist
+Vampire Warden
+Chapter 3: Adventures With Astarion
+Rat's Run Adventures
+Rat's Run Plots
+Family Outreach
+The Wayward Son
+Rat's Run Tavern and Inn
+Mysterious Leadership
+Den of Villainy
+Tavern and Inn
+General Features
+
+--- PAGE 4 ---
+
+Rat's Run Locations
+Credits
+
+--- PAGE 5 ---
+
+INTRODUCTIONINTRODUCTION
+
+--- PAGE 6 ---
+
+↑ Vampires Own the Night
+But before the events of the video game, Astarion was the victim and unwilling servant of the vampire
+Cazador Szarr, a worshiper of the archdevil Mephistopheles. Each night, Astarion and Cazador’s other
+vampire spawn delivered victims their master would feed upon and kill. To cope with Szarr’s torments
+and the horrors of his undead life, Astarion armed himself with sardonic wit, flirtation, and a dark sense
+of humor. Decades of nocturnal hunts taught Astarion about all facets of vampiric life: secrets he’s
+divulged herein.
+For players and Dungeon Masters alike, Astarion’s Book of Hungers offers new character options and
+tools for those drawn to vampires, whether in Baldur’s Gate or wherever you set your Dungeons &
+Dragons adventures. Employing these details, Astarion fans can adventure alongside their favorite
+vampire spawn, while all players can discover what lurks in the seediest corners of the vampire
+underworld.
+THE ELF VAMPIRE SPAWN ASTARION ANCUNÍN CHARMED HIS WAY INTO THE HEARTS OF
+Forgotten Realms fans in the video game Baldur’s Gate 3. In that game, Astarion is an adventuring
+companion and potential paramour, and players can urge him toward redemption or tyranny.
+ARTIST: CLINT CEARLEY
+
+
+--- PAGE 8 ---
+
+Using This Supplement
+Chapter 1 is suitable for all players’ eyes, while chapters 2 and 3 are intended for Dungeon Masters only. The following is included
+in this supplement:
+Chapter 1 details the Dhampir species, plus backgrounds and feats suitable for D&D characters with an interest in or history
+related to vampires.
+Chapter 2 offers information about Cazador Szarr’s vampire family, as well as stat blocks for creatures tied to vampires or
+Mephistopheles.
+Chapter 3 presents examples of adventures that involve Astarion, as well as details and a map for Rat’s Run, an establishment
+Astarion frequented before the events of Baldur’s Gate 3.
+Astarion’s Timeline
+Below are important dates in Astarion’s life and unlife, presented in Dalereckoning (DR), the Forgotten Realms’ most common year
+measurement:
+1261 DR. Astarion Ancunín is born in Baldur’s Gate.
+1300 DR. The vampire Cazador Szarr turns Astarion into a vampire spawn.
+1492 DR. The events of Baldur’s Gate 3 occur.
+1501 DR. This is the date of events presented in Forgotten Realms: Heroes of Faerûn and Forgotten Realms: Adventures in Faerûn.ASTARION PERUSES HIS WRITTEN INSIGHTS ABOUT SUNDRY CREATURES OF THE NIGHT.
+
+
+--- PAGE 9 ---
+
+Hello, darlings!
+Let’s cut straight to the heart of the matter, shall we? Yes, this tome reveals
+vampiric secrets. Yes, one might use these details to kill vampires, as well as sundry
+creatures of the night. And yes, I, Astarion Ancunín, one afflicted with a thirst for
+blood, provided every detail you’re about to read.
+Isn’t the irony delicious?
+As always, I have my reasons. You see, many vampires are particularly loathsome,
+and any of them might pose a threat to yours truly. So when I saw a vampire hunter
+stride into Rat’s Run, my favorite little hovel of a tavern in Baldur’s Gate, I concocted
+a brilliant plan. I charmed her, using all the old-fashioned techniques: the honeyed
+voice, the cocked brow, the hip swivel. And then I smiled, and the hunter glimpsed
+my fangs. Oh, you should have seen her face!
+Once we established that, yes, she could try to kill me with her nasty, little stake, we
+agreed on one thing: I’m a delight, but I’m not a real threat. And I have information
+that could help her bag some impressive bloodsuckers.
+So I told her every word you’ll read in this tome. And then another brilliant idea
+dawned on me. I put quill to scroll.
+After all, don’t my words deserve to echo in the hearts and minds of vampire
+hunters for generations? Gods be praised, we might finally be rid of the worst of our
+kind: the indiscreet, the devil worshipers, the demon harbingers, and the boring!
+I’ve consulted with scholarly types in Baldur’s Gate, and they’ve suggested the
+formatting, editorial conventions, and other such mundanities you’ll read in this
+tome. The result is a bit dry, so I’ve taken the liberty of punctuating the academia
+with some of my more arresting insights.
+Only time will tell if the existence of this tome dooms a significant number of my
+brethren to oblivion. Even if not, at least I’m entertained and at least you’ve
+
+--- PAGE 10 ---
+
+received the gift of my wit.
+You’re quite welcome, darlings!
+All my love,
+Astarion
+
+--- PAGE 11 ---
+
+CHAPTER 1CHAPTER 1
+
+--- PAGE 12 ---
+
+↑ Vampiric Character Options
+ARTIST: CYNTHIA SHEPPARD
+
+
+--- PAGE 14 ---
+
+REVELERS AT THIS DECADENT BALL IN BALDUR’S GATE DON’T REALIZE THAT VAMPIRES ARE IN THEIR MIDST AND
+ON THE PROWL
+THIS CHAPTER INCLUDES RULES TO FLESH OUT CHARACTERS WHO HAVE TIES TO THE VAMPIRIC UNDERWORLD,
+whether in Baldur’s Gate or another setting of your choosing.
+
+--- PAGE 15 ---
+
+Character Backgrounds
+The backgrounds in this section are suitable for those whose past is intertwined with vampires or the company such creatures
+tend to keep.
+Each feat referenced is described in the “Feats” section later in this chapter. Backgrounds are further explained in the Player’s
+Handbook.
+Carouser
+Ability Scores: Dexterity, Intelligence, Charisma
+Feat:Tireless Reveler
+Skill Proficiencies:Deception and Persuasion
+Tool Proficiency:Choose one kind of Gaming Set
+Equipment:Choose A or B: (A) Dagger, Gaming Set (same as above), Fine Clothes, Glass Bottle, Mirror, Perfume, Pouch,
+Tinderbox, 19 GP; or (B) 50 GP
+You grew to adulthood in the beating heart of a large city, such as Baldur’s Gate. You spent countless evenings in taverns,
+playhouses, parlors, and gambling dens, savoring all the city had to offer. You’re a natural at interacting with people to learn their
+secrets, whether over a high-stakes game or at a high-class soiree. You might have been thrown out of an establishment or ten, but
+only by people who don’t know how to party.
+Vampire Devotee
+Ability Scores: Strength, Constitution, Charisma
+Feat:Vampire’s Plaything
+Skill Proficiencies:Persuasion and Stealth
+Tool Proficiency:Cook’s Utensils
+Equipment:Choose A or B: (A) Cook’s Utensils, Fine Clothes, 2 Glass Bottles, Healer’s Kit, Perfume, Lamp, Oil (3 flasks),
+Waterskin, 19 GP; or (B) 50 GP
+You were in service to a vampire or a small group of vampires lairing together. The Undead drank your blood more times than you
+can count. You might have served willingly, perhaps with aspirations of one day becoming a vampire yourself. Or you might have
+been magically charmed and retain only a few muddled memories of your time as a vampire familiar. In either case, your time in
+the vampire den is over.
+Vampire Sur vivor
+Ability Scores: Dexterity, Constitution, Wisdom
+
+
+--- PAGE 16 ---
+
+Feat:Vampire Hunter
+Skill Proficiencies:Insight and Religion
+Tool Proficiency:Woodcarver’s Tools
+Equipment:Choose A or B: (A) Woodcarver’s Tools, Crowbar, Hooded Lantern, Holy Symbol (reliquary), Holy Water, Mirror, Oil (3
+flasks), Tinderbox, Traveler’s Clothes, Waterskin, 4 GP; or (B) 50 GP
+You witnessed or survived a vampire attack. You might have been directly involved in this confrontation, or perhaps you were
+frozen in terror by what you saw. Regardless, you remain vigilant for monster attacks and pride yourself on being ready for
+anything. No vampire will catch you or your allies by surprise again.
+“The streets at night teem with all types: the misguided, the oblivious, the
+depraved. And then there are the drunken louts, the world-weary lovers, and the
+harried survivors. I like to think of them each as a unique vintage.”
+—ASTARION, NOCTURNAL SOMMELIER
+A VAMPIRE DEVOTEEARTIST: LUCA BANCONE
+
+--- PAGE 17 ---
+
+Character Species
+The Dhampir species is presented below.
+Dhampir
+Dhampirs are living people who possess vampiric prowess but are cursed with macabre hunger. Most dhampirs thirst for blood,
+but some gain sustenance from dreams, life energy, or other vital sources. Dhampirs must choose whether to fight to control their
+hunger or give in to predatory urges.
+Dhampirs often arise from encounters with vampires; some are the descendants of a powerful vampire, while others are partially
+transformed by a vampire’s bite. All manner of macabre bargains and necromantic influences might also give rise to a dhampir.
+Regardless of their origins, dhampirs exhibit their vampiric nature in various ways, including increased speed and a life-draining
+bite.
+Dhampir Traits
+Creature Type: Humanoid
+Size: Medium (about 4–7 feet tall) or Small (about 2–4 feet tall), chosen when you select this species
+Speed: 35 feet
+As a Dhampir, you have these special traits.
+Darkvision. You have Darkvision with a range of 60 feet.
+Spider Climb. You have a Climb Speed equal to your Speed. When you reach character level 3, you can move up, down, and across
+vertical surfaces and along ceilings while leaving your hands free.
+Trace of Undeath. You have Resistance to Necrotic damage.
+Vampiric Bite. When you use your Unarmed Strike and deal damage, you can choose to bite with your fangs. You deal Piercing
+damage equal to 1d4 plus your Constitution modifier instead of the normal damage of an Unarmed Strike.
+In addition, when you deal this damage to a creature that isn’t a Construct or an Undead, you can empower yourself in one of the
+following ways:
+Drain. You regain Hit Points equal to the Piercing damage dealt.
+Strengthen. You gain a bonus to the next ability check or attack roll you make within the next minute; the bonus is equal to the
+Piercing damage dealt.
+You can empower yourself with this trait a number of times equal to your Proficiency Bonus, and you regain all expended uses
+when you finish a Long Rest.
+ARTIST: DAVID ASTRUGA
+
+--- PAGE 18 ---
+
+A DHAMPIR GAINS THE UPPER HAND AGAINST AN ENEMY
+
+--- PAGE 19 ---
+
+Feats
+This section’s feats are organized by category—Origin, General, or Epic Boon—and alphabetized in each category. All the feats are
+listed alphabetically in the Feat List table.
+Fea t List
+Feat Category
+Bloodlust General
+Bomber General
+Boon of Blazing Dawn Epic Boon
+Boon of Looming Shadows Epic Boon
+Boon of Misty Escape Epic Boon
+Cloying Mists General
+Delicious Pain General
+Light Bringer General
+Love Bites General
+Putrefy General
+Rebuke General
+Tireless Reveler Origin
+Treacherous Allure General
+Vampire Hunter Origin
+Vampire’s Plaything Origin
+Vampire Touched General
+
+--- PAGE 20 ---
+
+Origin Fea ts
+These feats are in the Origin category.
+Tireless Reveler
+Origin Feat
+When an ally you can see within 60 feet of yourself expends Heroic Inspiration, you can gain Heroic Inspiration if you lack it. You
+can use this benefit a number of times equal to your Proficiency Bonus, and you regain all expended uses when you finish a Short
+or Long Rest.
+Vampire Hunter
+Origin Feat
+You gain the following benefits.
+Adroit Escape. You have Advantage on checks to escape from nonmagical restraints or the Grappled condition.
+Vitality Ward. When you take Necrotic damage, you can take a Reaction to mitigate the damage. Roll a number of d6s equal to
+your Proficiency Bonus, and add them together. Reduce the Necrotic damage you take by this total. Once you use this benefit, you
+can’t use it again until you finish a Short or Long Rest.
+Vampire’s Pla ything
+Origin Feat
+You gain the following benefits.
+Decanting. When you finish a Long Rest, you can create one Potion of Healing or an Antitoxin, as long as you have an empty vial or
+flask. These liquids evaporate when you finish another Long Rest.
+Timely Retreat. You can take a Bonus Action to take the Dash action or the Disengage action. You can use this benefit a number
+of times equal to your Proficiency Bonus, and you recover all expended uses when you finish a Long Rest.
+Vampiric Connection. The DM determines the fate of your former vampire master. While you and your former vampire master are
+on the same plane of existence, the vampire can communicate with you telepathically, and you can choose to allow the vampire to
+perceive through your senses.
+
+
+--- PAGE 21 ---
+
+You might ask: Are these tricks best for fighting or for seduction?
+I say, my darlings, why not both?
+—ASTARION THE MULTITALENTED
+
+--- PAGE 22 ---
+
+General Fea ts
+These feats are in the General category.
+Bloodlust
+General Feat (Prerequisite: Level 4+)
+You gain the following benefits.
+Ability Score Increase. Increase your Strength, Dexterity, or Constitution score by 1, to a maximum of 20.
+Powerful Recovery. When you roll a Hit Point Die to regain Hit Points, you can treat any roll of 1 or 2 as a 3.
+Sanguine Feast. Once per turn when you hit a Bloodied creature that isn’t a Construct or Undead with an attack roll, you can
+expend a Hit Point Die, roll it, and regain a number of Hit Points equal to the number rolled plus your Constitution modifier.
+You can use this feature a number of times equal to your Proficiency Bonus, and you regain all expended uses when you finish a
+Long Rest.
+Bomber
+General Feat (Prerequisite: Level 4+)
+You gain the following benefits.
+Ability Score Increase. Increase your Dexterity score by 1, to a maximum of 20.
+Far Lobber. When you use the Attack action to throw a vial or flask, you can target an object or creature you can see within 40 feet
+of yourself.
+Long Shots. Attacking at long range doesn’t impose Disadvantage on your attack rolls with Thrown weapons.
+Cloying Mists
+General Feat (Prerequisite: Level 4+)
+You gain the following benefits.
+Ability Score Increase. Increase your Intelligence, Wisdom, or Charisma score by 1, to a maximum of 20.
+Arise, Fog. You always have the Fog Cloud spell prepared. You can cast it without a spell slot, and you must finish a Long Rest
+before you can cast it in this way again. You can also cast it using spell slots you have of the appropriate level. Your spellcasting
+ability for the spell is the ability increased by this feat.
+Grasping Mist. Whenever you cast Fog Cloud, nonmagical flames in the spell’s Sphere are extinguished, and creatures other than
+you and your allies have their Speed reduced by 5 feet while in the spell’s Sphere.
+
+
+--- PAGE 23 ---
+
+Delicious P ain
+General Feat (Prerequisite: Level 4+)
+You gain the following benefits.
+Ability Score Increase. Increase one ability score of your choice by 1, to a maximum of 20.
+Toughened Flesh. Immediately after you take Bludgeoning, Piercing, or Slashing damage, you can take a Reaction to gain
+Resistance to Bludgeoning, Piercing, and Slashing damage until the start of your next turn. Once you use this benefit, you can’t use
+it again until you finish a Short or Long Rest.
+Light Bringer
+General Feat (Prerequisite: Level 4+)
+You gain the following benefits.
+Ability Score Increase. Increase your Intelligence, Wisdom, or Charisma score by 1, to a maximum of 20.
+Sacred Magic. You learn the Light spell and can cast it without Material components. If you already know that cantrip, you learn a
+different Cleric cantrip of your choice. The spell’s spellcasting ability is the ability increased by this feat.
+Solar Luminance. When you cast Light, you can have the light from the spell be sunlight. Once you use this benefit, you can’t use it
+again until you finish a Long Rest.
+Sun’s Healing. As a Bonus Action while within sunlight, you can expend one of your Hit Point Dice, roll the die, and regain a number
+of Hit Points equal to the roll. Once you use this benefit, you can’t use it again until you finish a Short or Long Rest.
+Love Bites
+General Feat (Prerequisite: Level 4+)
+You gain the following benefits.
+Ability Score Increase. Increase one ability score of your choice by 1, to a maximum of 20.
+Endearing Pain. Immediately after you damage a creature with a Melee weapon or an Unarmed Strike, you can take a Bonus Action
+to give the target the Charmed condition until the start of your next turn or until you or your allies damage it. Once you use this
+benefit, you can’t use it again until you finish a Short or Long Rest.
+Putrefy
+General Feat (Prerequisite: Level 4+)
+
+
+--- PAGE 24 ---
+
+You gain the following benefits.
+Ability Score Increase. Increase one ability score of your choice by 1, to a maximum of 20.
+Necrosis. When you make a damage roll that deals Necrotic damage, you can cause one creature taking that damage to have the
+Poisoned condition until the start of your next turn. Once you use this benefit, you can’t use it again until you finish a Short or Long
+Rest.
+Rebuke
+General Feat (Prerequisite: Level 4+)
+You gain the following benefits.
+Ability Score Increase. Increase one ability score of your choice by 1, to a maximum of 20.
+Radiant Strike. When you make a damage roll that deals Radiant damage, you can cause one Huge or smaller creature taking the
+damage to have the Prone condition. Once you use this benefit, you can’t use it again until you finish a Short or Long Rest.
+Treacherous Allure
+General Feat (Prerequisite: Level 4+)
+You gain the following benefits.
+Ability Score Increase. Increase your Intelligence, Wisdom, or Charisma score by 1, to a maximum of 20.
+Enchanting Presence. You always have the Charm Person spell prepared. You can cast it without a spell slot, and you must finish
+a Long Rest before you can cast it in this way again. You can also cast it using spell slots you have of the appropriate level. Your
+spellcasting ability for the spell is the ability increased by this feat.
+Inevitable Betrayal. You have Advantage on attack rolls against creatures with the Charmed condition.
+Vampire Touched
+General Feat (Prerequisite: Level 4+)
+You gain the following benefits.
+Ability Score Increase. Increase your Intelligence, Wisdom, or Charisma score by 1, to a maximum of 20.
+Vampire Magic. Choose one level 1 spell from the Enchantment or Illusion school of magic. You always have that spell and the
+Spider Climb spell prepared. You can cast each of these spells without expending a spell slot, but when you cast Spider Climb this
+way, you must target yourself, and you must finish a Long Rest before you can cast each spell in this way again. You can also cast
+either spell using spell slots you have of the appropriate level. Your spellcasting ability for the spells is the ability increased by this
+feat.
+
+
+--- PAGE 25 ---
+
+Cultivate these delightful talents to drive your enemies to their knees—or your
+paramours.
+—ASTARION, RELATIONSHIP COACH
+
+--- PAGE 26 ---
+
+Epic Boon Fea ts
+These feats are in the Epic Boon category.
+Boon of Blazing Da wn
+Epic Boon Feat (Prerequisite: Level 19+)
+You gain the following benefits.
+Ability Score Increase. Increase one ability score of your choice by 1, to a maximum of 30.
+Beloved of the Sun. You have Immunity to Radiant damage.
+Blazing Strike. When you hit a creature with a weapon attack, the damage can be Radiant or the weapon’s normal damage type
+(your choice).
+Burst of Sunlight. Once per turn when you hit a creature with an attack that deals Radiant damage, you can emit Bright Light in a
+30-foot radius from yourself and Dim Light for an additional 30 feet until the start of your next turn. This light is sunlight.
+Boon of Looming Shadows
+Epic Boon Feat (Prerequisite: Level 19+)
+You gain the following benefits.
+Ability Score Increase. Increase one ability score of your choice by 1, to a maximum of 30.
+Shadowy Stretch. When you take the Attack action, your reach for your Melee weapon attacks increases by 10 feet until the end of
+your turn.
+Dancing Silhouette. You can take the Dodge action as a Bonus Action.
+Boon of Misty Escape
+Epic Boon Feat (Prerequisite: Level 19+)
+You gain the following benefits.
+Ability Score Increase. Increase your Intelligence, Wisdom, or Charisma score by 1, to a maximum of 30.
+Gaseous Form. If you drop to 0 Hit Points but aren’t killed outright, you can instead drop to 1 Hit Point and cast Gaseous Form
+without expending a spell slot (no action required). When you cast this spell this way, you can target only yourself, your Fly Speed
+is 20 feet, and you regain 10 Hit Points at the start of each of your turns for the spell’s duration. The spell’s spellcasting ability is
+the ability increased by this feat.
+Once you use this benefit, you can’t do so again until you finish a Long Rest.
+ARTIST: DAVID ASTRUGA
+
+--- PAGE 27 ---
+
+A VAMPIRE HUNTER TANGLES WITH A VAMPIRE
+
+--- PAGE 28 ---
+
+CHAPTER 2CHAPTER 2
+
+--- PAGE 29 ---
+
+↑ Creatures of the Night
+
+--- PAGE 30 ---
+
+ARTIST: BRAM SELS
+
+
+--- PAGE 32 ---
+
+Consult the Monster Manual for additional details about monsters.AN EXASPERATED ASTARION WATCHES HIS SISTER VIOLET FLIRT WITH A HARVESTER DEVIL
+THIS CHAPTER DESCRIBES CREATURES ASSOCIATED WITH ASTARION, HIS MEPHISTOPHELES-WORSHIPING VAMPIRE
+master, and the vampiric underworld. Some of these stat blocks appear in the adventures presented in chapter 3. You can
+also use these creatures to populate your own vampire- or devil-themed adventures.
+
+--- PAGE 33 ---
+
+Cazador Szarr’s F amily
+The vampire Cazador Szarr worships Mephistopheles, archduke of Cania in the Nine Hells. Cazador has created several vampire
+spawn, including Astarion, who nocturnally roam the streets of Baldur’s Gate looking for victims to bring to their master. Cazador’s
+“children” use the Vampire Spawn stat block and are Medium unless otherwise noted. Cazador is a Medium Vampire Infernalist.
+Cazador’s Sp awn
+Before the events of Baldur’s Gate 3, Cazador’s spawn included the following:
+Antwun Dufay, once a human, is Cazador’s trusted chamberlain.
+Astarion Ancunín, once an elf magistrate, is Cazador’s second spawn.
+Aurelia, once a tiefling, is Cazador’s first spawn. Her calm surface demeanor conceals countless secrets.
+Dalyria, once an elf and physician general to the Parliament of Baldur’s Gate, seeks to reverse her vampirism through desperate
+medical measures.
+Leon, once a human, was Cazador’s most recent spawn. He is desperate to protect his young daughter, Victoria, from the evils of
+the palace.
+Pale Petras, once a human, is Cazador’s third spawn and is known for his arrogance and stubbornness.
+Violet, once an elf, is Cazador’s fourth spawn. She relishes tormenting her siblings and strives to please her master.
+Yousen, who is Small, was once a gnome. He hunts victims for Cazador.
+It may seem terrible, but I assure you, my family engages in no more devil
+worshiping or murder than any other upstanding noble clan in Baldur’s Gate. And
+at least our dinner guests have a screaming good time.
+—ASTARION, SOCIAL COMMENTATOR
+
+--- PAGE 34 ---
+
+Fiendish Icon
+Effigy Animated by Hellish Magic
+Habitat: Urban; Treasure: None
+Fiendish icons are grotesque, sapient statues depicting fearsome fiends.
+These creatures gain life as a result of sinister rituals. Fiendish icons can
+explode with hellfire to roast their foes, and they often pretend to be
+ordinary statues until they leap up to ambush invaders.
+Roll on or choose a result from the Fiendish Icon Appearances table to
+inspire what a particular fiendish icon resembles.
+Fiendish Icon Appearances
+1d6 The Fiendish Icon Depicts …
+1 A muscular, fiendish figure holding a lit candelabra.
+2 A rotund imp licking a serrated knife.
+3 A squat, robed figure with a forked tail poking from beneath its garments.
+4 A cherub with sharp fangs and a hand outstretched in welcome.
+5 Six crows perched atop each other in a roughly humanoid shape.
+6 A horned fiend that bears an uncanny resemblance to one of the characters.
+FIENDISH ICONARTIST: JOHN TEDRICK
+
+
+--- PAGE 35 ---
+
+Fiendish Icon
+Small Construct, Lawful Evil
+AC 13 Initiative +1 (11)
+HP 22 (5d6 + 5)
+Speed 30 ft.
+Mod Save
+Str15 +2 +2
+Dex12 +1 +1
+Con13 +1 +1
+Mod Save
+Int6 –2 –2
+Wis11 +0 +0
+Cha6 –2 –2
+SkillsStealth +5
+Immunities Fire, Poison; Charmed, Deafened, Exhaustion, Frightened, Paralyzed, Petrified, Poisoned
+SensesDarkvision 60 ft.; Passive Perception 10
+Languages Understands Common and Infernal but can’t speak
+CR 1 (XP 200; PB +2)
+Traits
+Magic Resistance. The icon has Advantage on saving throws against spells and other magical effects.
+Actions
+The only thing uglier than these wretched statues are my siblings and I when the
+servants forget to secure our blackout curtains.
+—ASTARION ON FIENDISH ICONS
+
+--- PAGE 36 ---
+
+Multiattack. The icon makes two Slam attacks and uses Fiery Eruption.
+Slam.Melee Attack Roll: +4, reach 5 ft. Hit: 4 (1d4 + 2) Bludgeoning damage.
+Fiery Eruption.Dexterity Saving Throw: DC 11, each creature in a 5-foot Emanation originating from the icon. Failure: 7 (2d6) Fire
+damage.
+
+--- PAGE 37 ---
+
+Harvester Devil
+Devil of Guile and Temptation
+Habitat: Planar (Nine Hells); Treasure:Implements
+With a name that hints at their skill at gathering souls for the
+Nine Hells, harvester devils are smooth-talking creatures that
+resemble tieflings. Also known as falxugons among the ranks
+of the Nine Hells, harvester devils have short horns and
+expressive tails. Most harvester devils dress in flattering finery.
+They promise wealth or influence to corruptible mortals, often
+securing a deal with a contract they produce in a flash of
+brimstone. This contract binds the mortal signatory’s soul to
+the Nine Hells.
+Harvester devils’ contracts are lengthy and convoluted, but
+these devils are quick to make deals and might leave loopholes
+that can save a signatory’s soul. Roll on or choose a result from
+the Contract Loopholes table to inspire a loophole an astute
+reader might discover.
+Contract Loopholes
+1d6 The Contract Is Void if the Signatory …
+1 Delivers ninety nine other souls to Mephistopheles.
+2 Stands under the light of a full moon and a half-moon simultaneously.
+3 Renounces the contract while in the Abyss.
+4 Is under the protection of another fiend.
+5 Has an identical twin or clone.
+6 Tricks the devil into signing any other contract.
+HARVESTER DEVILARTIST: JOHN TEDRICK
+
+
+--- PAGE 38 ---
+
+Har vester Devil
+Medium Fiend (Devil), Lawful Evil
+AC 14 Initiative +3 (13)
+HP 65 (10d8 + 20)
+Speed 30 ft.
+Mod Save
+Str12 +1 +1
+Dex17 +3 +3
+Con14 +2 +4
+Mod Save
+Int14 +2 +2
+Wis13 +1 +3
+Cha19 +4 +4
+SkillsPerception +3, Persuasion +8, Stealth +5
+Resistances Cold
+Immunities Fire, Poison; Charmed, Poisoned
+SensesDarkvision 120 ft. (unimpeded by magical Darkness); Passive Perception 13
+Languages Common, Infernal; telepathy 120 ft.
+CR 3 (XP 700; PB +2)
+Traits
+Unfortunately, finding these dandyish devils’ contractual loopholes is not nearly as
+much fun as I had hoped.
+—ASTARION ON HARVESTER DEVILS
+
+--- PAGE 39 ---
+
+Diabolic Ward. Attack rolls against the devil have Disadvantage. If the devil makes an attack roll, this trait is suppressed until the
+start of its next turn.
+Diabolical Restoration. If the devil dies outside the Nine Hells, its body disappears in sulfurous smoke, and it gains a new body
+instantly, reviving with all its Hit Points somewhere in the Nine Hells.
+Magic Resistance. The devil has Advantage on saving throws against spells and other magical effects.
+Actions
+Multiattack. The devil makes two attacks, using Infernal Blade or Confounding Ray in any combination.
+Infernal Blade.Melee Attack Roll: +5, reach 5 ft. Hit: 6 (1d6 + 3) Slashing damage and 7 (2d6) Fire damage.
+Confounding Ray.Ranged Attack Roll: +5, range 120 ft. Hit: 13 (2d12) Psychic damage. If the target is a creature, it can’t make
+Opportunity Attacks until the start of the devil’s next turn.
+Compelling Contract (1/Day).Charisma Saving Throw: DC 14, one creature within 30 feet of the devil. Failure: The target has the
+Charmed condition. While it is Charmed, it has the Stunned condition, except the target can speak. If the target agrees to the
+devil’s contract, the effect ends. Otherwise, the target repeats the save whenever it takes damage and at the end of each of its
+turns, ending the effect on itself on a success. After 1 minute, it succeeds automatically.
+
+--- PAGE 40 ---
+
+Speaker Devil
+Devil of Spoken Compulsion
+Habitat: Planar (Nine Hells), Urban; Treasure:Armaments
+Speaker devils are hulking, four-armed devils who discover the
+secrets of creatures they then compel to perform wicked
+deeds. Despite their large tongues, speaker devils speak with
+clear and pleasing voices. Among the ranks of the Nine Hells,
+they are known as logokrons.
+Many speaker devils are loyal to the archdevil Mephistopheles.
+These devils record the secrets they uncover in Mephistar,
+Mephistopheles’s vast library in Cania. While greedy to uncover
+other creatures’ secrets, speaker devils diligently redact any
+evidence of their own secrets, lest such knowledge be used
+against them.
+Speaker Devil
+Large Fiend (Devil), Lawful Evil
+AC 17 Initiative +4 (14)
+HP 189 (18d10 + 90)
+Speed 30 ft., Fly 30 ft.
+SPEAKER DEVILARTIST: JOHN TEDRICK
+I know what you’re thinking, and it’s simply a terrible idea. Yes, yes, I know. That
+enormous tongue! And four arms! Oh, the possibilities! But trust me when I say it’ll
+only end in tears.
+—ASTARION ON SPEAKER DEVILS
+
+--- PAGE 41 ---
+
+Mod Save
+Str21 +5 +5
+Dex19 +4 +4
+Con20 +5 +9
+Mod Save
+Int22 +6 +10
+Wis18 +4 +8
+Cha17 +3 +7
+SkillsArcana +10, History +10, Perception +8
+Resistances Cold
+Immunities Fire, Poison; Poisoned
+SensesDarkvision 120 ft. (unimpeded by magical Darkness); Passive Perception 18
+Languages Infernal; telepathy 120 ft.
+CR 12 (XP 8,400; PB +4)
+Traits
+Diabolical Restoration. If the devil dies outside the Nine Hells, its body disappears in sulfurous smoke, and it gains a new body
+instantly, reviving with all its Hit Points somewhere in the Nine Hells.
+Magic Resistance. The devil has Advantage on saving throws against spells and other magical effects.
+Actions
+Multiattack. The devil makes two Thundering Halberd attacks.
+Thundering Halberd.Melee Attack Roll: +9, reach 10 ft. Hit: 16 (2d10 + 5) Slashing damage plus 14 (4d6) Thunder damage.
+Spellcasting. The devil casts one of the following spells, requiring no Material components and using Intelligence as the
+spellcasting ability (spell save DC 18):
+At Will:Detect Magic, Detect Thoughts
+2/Day Each:Dimension Door, Modify Memory
+Bonus Actions
+
+--- PAGE 42 ---
+
+Utterance of Pain.Wisdom Saving Throw: DC 18, each creature in a 20-foot Emanation originating from the devil. Failure: The
+target has the Stunned condition until the end of the devil’s next turn.
+Utterance of Unmaking.Constitution Saving Throw: DC 18, each creature in a 20-foot Emanation originating from the devil. Failure:
+22 (4d10) Force damage. Success: Half damage.
+
+--- PAGE 43 ---
+
+Vampire Infernalist
+Vampire Arcanist of the Nine Hells
+Habitat: Planar (Nine Hells), Underdark, Urban; Treasure:Arcana
+While mortal wizards tend to hesitate before bartering their souls to devils for magical power, vampire wizards often believe their
+immortality will exempt them from any infernal claim to their souls. The archdevil Mephistopheles happily exploits such hubris and
+proves that even undead aren’t immune to the laws of the Nine Hells.
+The greatest hell-bound vampires are masters of hellfire called infernalists, who prey on mages. Vampire infernalists are usually
+too arrogant to work together; even a large city isn’t likely to harbor more than one vampire infernalist. Vampire infernalists are
+dormant during the day, retreating to resting places hidden from the sun’s searing rays before emerging at night to commit
+unsavory deeds.
+Vampire Infernalist Lairs
+Vampire infernalists lurk in gloomy libraries or ritual chambers, far from the sun’s light.
+The region containing an infernalist’s lair is warped by its presence, creating the following effects, all of which happen at the
+vampire’s discretion:
+Diabolic Beasts. Animals in the vampire’s domain serve the vampire’s will. From dusk until dawn, Medium or smaller Beasts have
+the Charmed condition while within 1 mile of the lair.
+THE VAMPIRE CAZADOR SZARR DINES ON A VICTIM WHO VIOLET AND AURELIA, CAZADOR’S VAMPIRE SPAWN,
+LURED TO HIS MANORARTIST: ANDREA PIPARO
+
+--- PAGE 44 ---
+
+Drained Essence. Grasping shadows within 1 mile of the lair sap the body and mind. Creatures (excluding the vampire and its
+allies) that finish a Short or Long Rest while within 1 mile of the lair make a DC 15 Wisdom saving throw. On a failed save, a
+creature can’t spend Hit Point Dice at the end of the rest and doesn’t regain Hit Points, Hit Point Dice, or spell slots at the end of
+the rest.
+Tenacious Lore. Within 1 mile of the lair, flame doesn’t burn written material.
+If the infernalist dies or moves its lair elsewhere, these effects end immediately.
+Vampire Infernalist
+Medium or Small Undead (Wizard), Lawful Evil
+AC 16 Initiative +13 (23)
+HP 172 (23d8 + 69)
+Speed 40 ft., Fly 40 ft. (hover)
+Mod Save
+Str19 +4 +4
+Dex16 +3 +3
+Con17 +3 +8
+Mod Save
+Int20 +5 +10
+Wis16 +3 +3
+Cha18 +4 +4
+SkillsArcana +10, Perception +8, Religion +10, Stealth +8
+Resistances Fire, Necrotic, Poison
+Wha t?! A vampire who’s sold their soul to Mephistopheles for even more power?
+Wound not my unbeating heart. Tell me it’s not true!
+Oh, wait. Of course it is.
+—ASTARION ON VAMPIRE INFERNALISTS
+
+--- PAGE 45 ---
+
+ImmunitiesPoisoned
+GearOrb
+SensesDarkvision 120 ft. (unimpeded by magical Darkness); Passive Perception 18
+Languages Common, Infernal
+CR 14 (XP 11,500, or 13,000 in its lair; PB +5)
+Traits
+Legendary Resistance (3/Day, or 4/Day in Lair). If the vampire fails a saving throw, it can choose to succeed instead.
+Misty Escape. If the vampire drops to 0 Hit Points outside its resting place, the vampire uses Shape-Shift to become mist (no
+action required). If it can’t use Shape-Shift, it is destroyed.
+While it has 0 Hit Points in mist form, it can’t return to its vampire form, and it must reach its resting place within 2 hours or be
+destroyed. Once in its resting place, it returns to its vampire form and has the Paralyzed condition until it regains any Hit Points,
+and it regains 1 Hit Point after spending 1 hour there.
+Vampire Weakness. The vampire has these weaknesses:
+Forbiddance. The vampire can’t enter a residence without an invitation from an occupant.
+Running Water. The vampire takes 20 Acid damage if it ends its turn in running water.
+Stake to the Heart. If a weapon that deals Piercing damage is driven into the vampire’s heart while the vampire has the
+Incapacitated condition in its resting place, the vampire has the Paralyzed condition until the weapon is removed.
+Sunlight. The vampire takes 20 Radiant damage if it starts its turn in sunlight. While in sunlight, it has Disadvantage on attack rolls
+and ability checks.
+Actions
+Multiattack (Vampire Form Only). The vampire makes two Hellfire Claw attacks and uses Bite.
+Hellfire Claw (Vampire Form Only).Melee Attack Roll: +9, reach 5 ft. Hit: 13 (2d8 + 4) Slashing damage plus 10 (3d6) Fire damage.
+If the target is a Medium or smaller creature, it has the Grappled condition (escape DC 17) from one of two claws.
+Bite (Imp or Vampire Form Only).Constitution Saving Throw: DC 18, one creature within 5 feet that is willing or that has the
+Grappled, Incapacitated, or Restrained condition. Failure: 6 (1d4 + 4) Piercing damage plus 16 (3d10) Necrotic damage and the
+creature loses its highest-level available spell slot (if any). The target’s Hit Point maximum decreases by an amount equal to the
+Necrotic damage taken, and the vampire regains Hit Points equal to that amount. A Humanoid reduced to 0 Hit Points by this
+damage and then buried rises the following sunset as a Vampire Spawn under the vampire’s control.
+Spellcasting. The vampire casts one of the following spells, using Intelligence as the spellcasting ability (spell save DC 18):
+At Will:Detect Magic, Detect Thoughts, Dispel Magic, Fireball (level 4 version), Mage Hand, Prestidigitation
+2/Day:Scrying
+1/Day:Wall of Fire
+Bonus Actions
+Shape-Shift. If the vampire isn’t in sunlight or running water, it shape-shifts into a Tiny imp (Speed 20 ft., Fly Speed 40 ft.), or a
+Medium cloud of mist (Speed 5 ft., Fly Speed 20 ft. [hover]), or it returns to its vampire form. Anything it is wearing transforms with
+
+--- PAGE 46 ---
+
+it.
+While in imp form, the vampire’s game statistics, other than its size and Speed, are unchanged.
+While in mist form, the vampire can’t take any actions, speak, or manipulate objects. It is weightless and can enter an enemy’s
+space and stop there. If air can pass through a space, the mist can do so, but it can’t pass through liquid. It has Resistance to all
+damage, except the damage it takes from sunlight.
+Legendary Actions
+Legendary Action Uses: 3 (4 in Lair). Immediately after another creature’s turn, the vampire can expend a use to take one of the
+following actions. The vampire regains all expended uses at the start of each of its turns.
+Hellfire Strike. The vampire moves up to half its Speed, and it makes one Hellfire Claw attack.
+Infernal Majesty.Charisma Saving Throw: DC 17, each creature in a 20-foot Emanation originating from the vampire. Failure: 9
+(2d8) Psychic damage, and the target has the Frightened condition until the start of its next turn. Success: Half damage only.
+Failure or Success: The vampire can’t take this action again until the start of its next turn.
+Teleport. The vampire teleports up to 30 feet to an unoccupied space it can see.
+
+--- PAGE 47 ---
+
+Vampire Warden
+Stone-Skinned, Blood-Drinking Guardian
+Habitat: Underdark, Urban; Treasure: Any
+Vampires need trusted guards for their lairs, minions, and treasures. After all, vampire familiars don’t live for long and are
+inattentive while sleeping or simpering. Monstrous servants are often too unpredictable or simply unreliable. To keep their lairs
+safe, some vampires create more durable spawn to serve as watchful guardians. These vampire wardens appear to have the same
+pallid flesh as most vampires but, through sheer force of will, can shrug off blows that might fell others. When most vampires
+would be destroyed, a warden turns to stone, heals itself, and is ready for service once again.
+Vampire Warden
+Medium Undead, Neutral Evil
+AC 18 Initiative +6 (16)
+HP 190 (21d8 + 96)
+Speed 30 ft.
+Mod Save
+Str21 +5 +5
+Dex15 +2 +2
+Con18 +4 +8
+Mod Save
+Int10 +0 +0
+Wis14 +2 +6
+Cha17 +3 +3
+SkillsAthletics +9, Perception +10
+Ah, these stony-skinned prats: the insufferable watchdogs of vampirekind.
+I once tried to play fetch with one of ours. It didn’t go well.
+—ASTARION ON VAMPIRE WARDENS
+
+--- PAGE 48 ---
+
+Resistances Necrotic
+ImmunitiesExhaustion, Frightened
+SensesDarkvision 120 ft.; Passive Perception 20
+Languages Common
+CR 10 (XP 5,900; PB +4)
+Traits
+Magic Resistance. The vampire has Advantage on saving throws against spells and other magical effects.
+Vampire Weakness. The vampire has these weaknesses:
+Forbiddance. The vampire can’t enter a residence without an invitation from an occupant.
+Running Water. The vampire takes 20 Acid damage if it ends its turn in running water.
+Stake to the Heart. If a weapon that deals Piercing damage is driven into the vampire’s heart while the vampire has the
+Incapacitated condition, the vampire has the Paralyzed condition until the weapon is removed.
+Sunlight. The vampire takes 20 Radiant damage if it starts its turn in sunlight. While in sunlight, it has Disadvantage on attack rolls
+and ability checks.
+Immobile Restoration. If the vampire drops to 0 Hit Points while it doesn’t have the Petrified condition, it turns to stone, regains 50
+Hit Points, and has the Petrified condition for 1 hour.
+Actions
+Multiattack. The vampire makes two Claw attacks and uses Bite or Guardian’s Command.
+Claw.Melee Attack Roll: +9, reach 5 ft. Hit: 14 (2d8 + 5) Slashing damage plus 7 (2d6) Necrotic damage. If the target is a Large or
+smaller creature, it has the Grappled condition (escape DC 16) from one of two claws.
+Bite.Constitution Saving Throw: DC 16, one creature within 5 feet that is willing or that has the Grappled, Incapacitated, or
+Restrained condition. Failure: 7 (1d4 + 5) Piercing damage plus 7 (2d6) Necrotic damage. The target’s Hit Point maximum
+decreases by an amount equal to the Necrotic damage taken, and the vampire regains Hit Points equal to that amount.
+Guardian’s Command. The vampire casts Compulsion, requiring no spell components and using Charisma as the spellcasting
+ability (spell save DC 15).
+Reactions
+Resilient Flesh.Trigger: The vampire is hit by a melee attack roll from an attacker the vampire can see. Response: The vampire
+reduces the damage it takes from the attack by 11 (2d6 + 4).
+
+--- PAGE 49 ---
+
+CHAPTER 3CHAPTER 3
+
+--- PAGE 50 ---
+
+↑ Adventures with Astarion
+ARTIST: CLINT CEARLEY
+
+
+--- PAGE 52 ---
+
+This chapter provides all the tools you need to set adventures in Rat’s Run. The details herein assume your game unfolds prior to
+the events of Baldur’s Gate 3 and that your players wish to adventure alongside Astarion. However, you can set your game in Rat’s
+Run during any period, with or without involving Astarion.THE MANAGER OF RAT’S RUN, LIEF CLOUDSWELL, MAKES IT KNOWN THAT THE TAVERN IS A REFUGE FOR SAILORS
+AND SCOUNDRELS ALIKE
+ASTARION HAS FREQUENTED SEVERAL SEEDY ESTABLISHMENTS DURING HIS TIME IN BALDUR’S GATE, BUT THE INN
+and tavern called Rat’s Run was one of his favorite hunting grounds. Here, he hunted undetected, blending into the crowds of
+inebriated patrons and luring victims into darkened alleys. He’d drag these unfortunate souls back to Cazador’s palace, where the
+vampire master would feast on the victims’ blood.
+
+--- PAGE 53 ---
+
+Rat’s Run Adventures
+This section presents short adventures in Rat’s Run. In these adventures, characters should be Astarion’s associates or infamous
+by reputation in the seedier parts of Baldur’s Gate. The characters might be mercenaries, bodyguards, fixers, or other agents for
+hire. The characters needn’t be wicked, but law-abiding citizens might find their ethics challenged by these adventures.
+When encounters take place in locations with NPCs described in the “Rat’s Run Locations” section later in this chapter, those
+NPCs take cover or run when combat breaks out. All encounters take place on Map: Rat's Run, found later in this chapter. Monster
+stat blocks referenced appear in chapter 2 of the Monster Manual.
+If you’d rather create your own adventures involving Astarion at Rat’s Run, roll on or choose from the Rat’s Run Plots table to
+inspire your games.
+Ra t’s Run Plots
+1d4 Astarion …
+1 Realizes several regular Rat’s Run customers have disappeared recently. The culprit is Celia (Medium Vampire
+Nightbringer), who is Cazador Szarr’s enemy. Celia was once a human.
+2Wants to hire the gnome Braig Littletoe (Small Bandit) to source a powerful magic item Astarion believes will temporarily
+free him from Cazador’s control.
+3Has hired a pair of human vampire hunters named Tarena and Tali (Medium Bandit Captains) to assassinate Violet.
+Unfortunately, Violet has discovered this plan and has turned the vampire hunters on Astarion.
+4Has lured too many customers to their death, and the manager of Rat’s Run has placed a bounty on Astarion. Astarion
+visits the tavern with the characters and doesn’t know the regulars plan to kill him.
+Family Outreach
+Adventure for Level 3 Characters
+Situation. Violet, the most recent vampire spawn in Cazador’s “family,” is trying to kill Astarion. Violet has sown the seeds of
+several plots to ensure Astarion dies at Rat’s Run, which she knows he frequents. Violet awaits the results of her plan at Cazador’s
+palace; she fears Cazador’s wrath should Astarion’s death be tied to her, so she won’t try to kill him herself.
+Hook. Astarion recognized Violet in disguise days ago and eavesdropped on her conversation with the leader of the Bloody Knives,
+a local gang. Astarion asks the characters to join him at Rat’s Run and help him thwart the threat, as he assumes Violet is plotting
+his destruction at the tavern he frequents. Astarion (Medium Vampire Spawn) is willing to pay each character 150 GP apiece plus
+the promise of a future favor.
+Encounters
+The adventure consists of these encounters. At your discretion, Astarion fights alongside the characters.
+First Blood. Five human members of the Bloody Knives confront Astarion and the characters near the bar (area R2a) and begin
+combat. These include the leaders Bretta and Sorven (Medium, Neutral Evil Bandit Captains) and their lackeys, three Toughs. Other
+patrons scatter when the Bloody Knives begin combat.
+If the characters capture any of these assailants, the foes admit Violet hired them. Violet told the gang members that she wishes
+to eliminate Astarion quietly without participating in the crime herself.
+Ambush. A hooded figure slips a note into Astarion’s hand. The note asks him to meet a friend upstairs. The courier, if accosted,
+reveals himself to be a human named Chase (Medium Commoner), who doesn’t know the identity of the person who paid him 10
+
+--- PAGE 54 ---
+
+GP to deliver the note. After receiving the note, Astarion heads upstairs and beckons the characters to follow.
+Lurking on the inn’s walkway (area R6) are two Fiendish Icons and a Helmed Horror, all of which Violet stealthily brought from
+Cazador’s palace. The monsters are attempting to pass as decor and ambush the characters when they enter the area. If the
+characters don’t intend to go upstairs, the monsters head downstairs to fight them.
+Final Foe. Two Harvester Devils lurk in one of the inn’s rooms (area R9a). Summoned by Violet to ensure Astarion and any allies
+die, the devils creep out of their hiding place to fight. If the characters and Astarion are ambushed on the walkway, the devils join
+the fight on Initiative count 0 of the second round (losing Initiative ties). Otherwise, the devils head downstairs to confront the
+characters after the Bloody Knives fall.
+Conclusion. If Astarion survives the adventure, each character earns a bonus 400 XP. Once the characters are at least level 4,
+consider running an encounter with Violet (Medium Vampire Spawn)and one or more Harvester Devil or Fiendish Icon allies.
+The Wayward Son
+Adventure for Level 12 Characters
+Situation. Cazador, Astarion’s vampire master, is fed up with Astarion’s disobedience. The vampire plans to find Astarion,
+incapacitate him, and take him back to his palace for punishment.
+Hook. Astarion (Medium Vampire Spawn) invites the characters to Rat’s Run to socialize. Astarion then notices several disguised
+members of Cazador’s “family” lurking among the crowd. Astarion suspects trouble and asks the characters to help protect him.
+Encounters
+The adventure consists of these encounters.
+Surrounded. While sitting at the bar (area R2a) with the characters, Astarion recognizes two Vampire Wardens from Cazador’s
+palace. The wardens are blocking the public exit to Rat’s Run. Certain that someone from the palace wants to kidnap him, Astarion
+sneaks upstairs to avoid the wardens until the trouble blows over.
+If the characters follow Astarion, they must remain inconspicuous while moving with him toward a staircase to area R6. Each
+character makes a DC 13 Dexterity (Stealth) check. If the checks are successful, the wardens don’t notice the group. On a failed
+check, the vampire wardens notice the group and begin combat.
+No Safe Spaces. If the characters fight the wardens downstairs, the two Speaker Devils lurking upstairs hear the fray. The devils
+head downstairs and join the fight on Initiative count 0 of the second round (losing Initiative ties).
+If the characters and Astarion make it upstairs without alerting the wardens, Astarion suggests picking the lock to one of the inn
+rooms (area R9c) to lie low inside. The doors are made of wood. The lock is Simple (1 action to pick) and Good quality (DC 15).
+When the characters enter a room, the two Speaker Devils are hiding within and begin combat without hesitation. If the characters
+don’t enter a room, the devils attack after 1 minute.
+Ever since she crawled out of her grave, my sniveling sister Violet has been
+murderously jealous of me. She thinks I want to humiliate her at every turn.
+It’s laughable, but if she won’t leave me be, I’ll need to dig her a deeper grave—this
+time, one she’ll never leave.
+—ASTARION, SIBLING RIVAL
+
+--- PAGE 55 ---
+
+Angry Vampire. After the characters defeat the devils, they encounter Cazador (Medium Vampire Infernalist) when they try to
+leave Rat’s Run. The vampire is accompanied by two of his Vampire Spawn. If the characters reduce Cazador to 40 HP, the vampire
+screams promises to punish Astarion later, uses Shape-Shift to turn into mist, and escapes.
+Conclusion. If Astarion escapes, he rewards the characters with a Manual of Gainful Exercise, and each character also earns a
+bonus 4,700 XP.
+If the characters are killed or knocked unconscious, Astarion is subdued and brought back to Cazador’s palace.
+A particularly reckless breed of sailors frequents Rat’s Run.To them, death lurks
+around every corner, whether it’s on the stormy sea or here among an ocean of
+criminals. Some might say these sailors have a death wish—one I’m more than
+happy to fulfill.
+—ASTARION, GRIM NAVIGATOR
+ASTARION’S MANY ENEMIES KNOW HE FREQUENTS RAT’S RUN AND MIGHT TRY TO AMBUSH HIM THEREARTIST: ANDREA PIPARO
+
+--- PAGE 56 ---
+
+Rat’s Run Tavern and Inn
+Rat’s Run lies a stone’s throw away from Gray Harbor in Baldur’s Gate. A tavern and inn of questionable repute, this Seatower
+neighborhood establishment has been a home for centuries to rowdy crowds of sailors and those who prefer to ply their trades in
+the shadows. At first glance, Rat’s Run is a disheveled place where shady elements loom large. Deeper down, the establishment is
+more sinister.
+Mysterious Leadership
+The staff members of Rat’s Run include retired sailors as well as those working off debts to various overlords. The staff members
+report to a manager, who runs the establishment and is loyal to its mysterious owner.
+Reigra Cla wcroft
+For the past two hundred years, a Rakshasa named Reigra Clawcroft has owned Rat’s Run. Reigra was once a fearsome pirate
+captain who took the guise of a tattooed tiefling. When she won ownership of Rat’s Run from a drunken merchant, the rakshasa
+saw an opportunity to expand her power. She retired from privateering, intent on easier paydays.
+To distance herself from her previous identity, Reigra now disguises herself as a stalwart human woman. The rakshasa has tasked
+the manager of Rat’s Run with encouraging villainy from which Reigra stands to profit. Reigra lives in a palatial abode in the Upper
+City, though the rakshasa occasionally stays at Rat’s Run on business or to check on her employees. When staff members report a
+problematic patron, sometimes Reigra takes it on herself to solve the issue—luring her victim into a shadowy alley, revealing her
+true nature, and consuming her prey.
+Lief Cloudswell
+For the past fifteen years, the manager of Rat’s Run has been the goliath Lief Cloudswell (Medium, Chaotic Neutral Pirate). With
+emerald eyes and a heavy smattering of tattoos, Lief is a former sailor expelled from her crew for stealing from her shipmates. On
+the run from those seeking vengeance, Lief long ago made a deal with Reigra: The rakshasa protects Lief from her enemies, and in
+exchange Lief follows orders unquestioningly. Lief is gruff but outwardly kind; she has an especially soft spot for outlaws.
+Curious about the owner of Rat’s Run? All I’ll say is that kitty’s got claws—the
+backward claws of a rakshasa, that is.
+—ASTARION, SCANDALOUS REPORTER
+
+--- PAGE 57 ---
+
+If your game takes place after the events of Baldur’s Gate 3, another individual from the Rat’s Run Managers table should oversee
+the establishment.
+Rat’s Run Managers
+1d4 Name Description Stat Block
+1 Kyral Blacksteel Dwarf retired assassin’s guild lieutenant; cruel (Medium, Neutral Evil Assassin)
+2Dirk “Scarbrow” Jenkins Human retired sailor; sadistic (Medium, Chaotic Evil Pirate)
+3 Yerna Goldtooth Orc retired pirate; joyful (Medium, Chaotic Neutral Pirate)
+4 Gerry Undretide Black-scaled dragonborn retired sailor; wise(Medium, Chaotic Neutral Tough Boss)
+Rowdy Watering Hole
+On the surface, all are welcome at Rat’s Run. For sailors, Rat’s Run offers fresher ale, tastier grub, and warmer beds than any ship.
+Despite the shadowy characters who often lurk in the tavern’s snug booths, the camaraderie is tight knit at Rat’s Run. For some
+wayward sailors, the regulars and staff at the establishment are the closest thing they have had to a family.
+Den of Villainy
+Underneath the veneer of Rat’s Run, reality is harsh. Thieves, smugglers, racketeers, and other criminals see Rat’s Run as a haven,
+and for good reason. Staff members warn any patron associated with law enforcement to leave and never return; those who defy
+these instructions become Reigra’s victims.
+Further, representatives of criminal organizations make regular payments of coins, valuables, or magic items to the
+establishment’s manager. In exchange, staff members hide these patrons’ wrongdoings, including holding smuggled goods in
+secret rooms, destroying evidence of crimes, and ensuring that no witnesses ever speak to the authorities. Each week, the
+manager gives these bribes to a hooded, ever-changing courier who, of course, knows nothing about their boss.
+Haven for Preda tors
+The rampant criminality at Rat’s Run means purses frequently disappear from drunken patrons, bar fights occasionally turn deadly,
+and sometimes individuals go missing and never return. For the latter reason, Astarion considers Rat’s Run a diamond in the
+rough: a place from which he can lure victims to Cazador’s palace and assume no one will care to investigate their disappearance.
+Astarion is also friendly with Roka, a tavern patron and kenku agent for the Guild (see area R2d in “Rat’s Run Locations”). The
+vampire spawn occasionally hunts individuals Roka has designated for elimination.
+Tavern and Inn
+Characters can rent a room, order food, and buy a drink at Rat’s Run.
+Inn
+Characters who wish to rent a room must speak with the manager. They can be found at the main bar (area R2a) during the day
+and in the manager’s administrative office or bedroom (areas R10 and R11) at night. A room costs 5 SP per day.
+Tavern
+Ale, rum, whiskey, and wine are available all day from the main bar (area R2a) for 4 CP per drink. Meals are available for order
+during the day at the kitchen (area R3). Each meal costs 1 SP.
+ARTIST: MIKE SCHLEY
+
+--- PAGE 59 ---
+
+RAT'S RUN(DM-VERSION ABOVE, PLAYER-VERSION BELOW)
+
+
+--- PAGE 61 ---
+
+General Fea tures
+Hundreds of years old, Rat’s Run is built from weathered wooden timbers reinforced with red brick. Its floors are made of grimy
+wood. The building’s other features are described below:
+Ceilings. On the first and second floors, the establishment’s ceilings are 15 feet high. Ceilings on the third floor are 8 feet high.
+Doors. As a 24-hour establishment, Rat’s Run features first-floor front and side doors that are always unlocked. Interior doors on
+the first floor are always unlocked. Doors on the second-floor inn are made of wood and locked. Locks are Simple (1 action to pick)
+and Good quality (DC 15).
+Lighting. On the first two floors, most areas are lit with Continual Flame spells placed on sconces shaped like ship figureheads.
+Areas R12 and R13 on the third floor are unlit.
+Rat’s Run Loca tions
+Rat’s Run consists of a tavern and kitchen on the first floor, an inn on the second floor, and hideaways on the third floor.
+The following locations are keyed to the Rat’s Run map.
+R1: Entr yway
+This entryway is decorated with nautical equipment the patrons of Rat’s Run have donated over the years, along with graffitied
+messages. Phrases in Common include “Scalawags live here” and “No law but the sea’s,” as well as other choice declarations and
+illegible scribbles.
+Security Guards. At night, two humans work as security guards at Rat’s Run. Ferock and Deitre Grensworth (Medium Toughs), who
+are married, sit on the benches that flank this area.
+Ferock and Deitre deny entry to anyone who is visibly a member of any law enforcement organization, claiming the establishment
+is full even if it’s not. The guards fight any creature denied entrance that tries to enter the main hall (area R2), calling to other staff
+members and friendly sailors for help if needed. If a brawl breaks out in the main hall, Ferock and Deitre join the fray after 1 minute
+and attempt to quell the violence.
+During the day, Ferock and Deitre are off duty. They typically can be found eating and drinking in the main hall or sleeping in an
+unoccupied inn room (area R9).
+R2: Main HallSplintered oars, frayed ropes, and torn sails adorn these walls, along with writing scribbled in chalk. Steps lead
+down into a hall from which the din of carousing sailors echoes.
+Rough-and-tumble sailors make merry in this sprawling hall, whether it’s at the large, central wooden bar or at the
+large tables arranged around it. Private booths populated with quieter, dark-cloaked individuals surround the
+hectic clientele.
+
+--- PAGE 62 ---
+
+Open at all hours, the main hall is a key gathering spot for sailors in Baldur’s Gate and a prime location where criminals discuss
+shady deals.
+R2a. The bar is well stocked with dozens of varieties of ale, rum, whiskey, and wine of varying quality. Individuals drown their
+sorrows on the stools around the bar, while more boisterous groups use to the east and west.
+The primary daytime bartender is the gruff goliath Lief Cloudswell (Medium, Chaotic Neutral Pirate), who also rents rooms in the
+inn upstairs to customers. Lief carries a key to the lockbox in area R10 and to her drawer in area R11. At any time, if Lief suspects
+anyone is an agent of the law, she instructs them to leave. She shouts for help from Ferock and Deitre, both in area R1, if anyone
+gives her too much trouble.
+At night, Lief retires to her administrative office or bedroom (areas R10 and R11). The evening bartenders are two dwarf sisters,
+Sera and Grenda Stonecrusher (Medium, Chaotic Neutral Bandits), who are cheerful and unwaveringly loyal to Lief.
+R2b. These long tables are reserved for patrons who wish to play cards, dice, or other games of chance. A regular, fast-talking
+patron known as Palm-Slicer (Small Mage Apprentice) runs games of Three-Dragon Ante here every day. A halfling, Palm-Slicer’s
+real name is Finkus Berrybranch. Unknown to the other staff members, Palm-Slicer is in Lief Cloudswell’s private employ and
+informs the manager of all rumors he hears.
+R2c. Thin, sliding wooden doors allow patrons in each of these booths a measure of privacy. Criminals, many of whom are high-
+ranking members of powerful outfits, often meet here to discuss illegal deals.
+The shifty gnome fenceBraig Littletoe (Small Bandit) uses this area as his base of operations. Although not part of a larger
+organization, Braig has fenced valuable and embarrassing spoils for some of the most prominent players in Baldur’s Gate. Braig
+knows powerful secrets and is willing to ally with anyone who will protect him from his enemies.
+R2d. This collection of small tables is a favorite gathering place for members of the Guild, a powerful criminal organization in the
+city. Every day, the elegant but taciturn Kenku Roka Glimmerbeak enjoys an ale and a meat pie from their reserved table in the
+corner. Roka delivers messages to Guild operatives and entertains those who wish to contact the elusive Guildmaster as well,
+though only the worthiest messages make it to the leader.
+R2e. The table and booths here are more comfortably furnished than the rest of the main hall. Ship captains often relax here, the
+corner offering a minor buffer from the hall’s rowdy sailors.
+R3: Kit chen
+Behind the closed doors of the main hall’s private booths, you’d be shocked how
+easily I can entice fools into wandering home with me. I always promise they’ll
+experience the feast of a lifetime—and I always deliver.
+—ASTARION, MORBID MAÎTRE D’
+The main hall is separated from the kitchen by a wide, low bar, behind which aproned staff busily prepare meals.
+A chalkboard hung over the bar reads “Meat pie, fish stew, peas with mash: 1 SP each.”
+
+--- PAGE 63 ---
+
+Patrons line up along the bar here to order food from the kitchen. Staff members place cooked meals on the bar, where patrons
+pick them up.
+Staff. The head cook is Heska “Biggles” Tusktooth (Medium Pirate), an orc with a wide grin and a commanding voice. Biggles
+carries a key to the cabinet in area R4.
+Helping Biggles as assistant cooks are Darius Winters (Medium Commoner), a talkative tiefling; Alexia Bonderbath (Medium
+Bandit), a no-nonsense human; and Filona Truescale (Medium, Chaotic Neutral Bandit), an effusive dragonborn. If the kitchen is
+slow, Biggles sends her assistant cooks into the main hall to take food orders, run drinks to tables, or do other tasks as Lief sees
+fit.
+Treasure. The cabinets in the northeast corner hold pots, pans, baking trays, utensils, and other kitchen equipment. In addition,
+there are six butcher knives that function as Daggers.
+The shelves below the central prep table holds cooking supplies, including three candles and three different containers that
+function as a Vial of Acid, Alchemist’s Fire, and Oil. On the table is an enchanted knife that functions as a +1 Dagger.
+R4: P antr y
+These shelves contain flour, sugar, spices, lard, salted meat, and other bulk ingredients.
+Treasure. As a Utilize action, a character can try to pick the padlock using Thieves’ Tools, doing so with a successful DC 15
+Dexterity (Sleight of Hand) check. On a successful check, the cabinet opens, revealing three Potions of Healing and a purse with
+50 GP in it.
+R5: Privies
+These privies connect to the city’s sewers. At nightfall each day, a staff member wipes down the wash basin and each makeshift
+stall.
+R6: Inn Walkw ay
+This upper-floor walkway is accessible from the main hall (area R2) via three sets of stairs.Boxes and jars of ingredients line the walls. In a corner next to stacked kegs of ale and shanks of salted meat, a
+tall cabinet is padlocked.
+Running the lengths of this small enclosure are tattered black curtains, behind which are holes in the floorboards
+used as privies. A small wash basin abuts the room’s west end.
+This narrow, wooden walkway provides access to the inn’s guest rooms. A railing made of narrow slats separates
+this floor from the main hall below.
+
+--- PAGE 64 ---
+
+R7: Sp acious Inn Rooms
+These rooms are more comfortable than the inn’s others. Lief reserves them for patrons who command respect or who are in her
+good graces.
+When Reigra infrequently spends the night at Rat’s Run, the rakshasa occupies one of these rooms.
+Secret Door. Each of these rooms has a secret door hidden behind the wooden panels in the south wall. A character in one of
+these rooms can take the Search action and make a DC 15 Wisdom (Perception) check, finding the secret door on a successful
+check. Behind each door lies a narrow, wooden corridor (area R8).
+R8: Secret Corridor
+This claustrophobic space is empty save for the ladder, which leads to area R13.
+R9: Inn Rooms
+Lief rents these rooms to anyone who will pay and seems unbothered by any shady affairs they might witness.
+R10: Administra tive Office
+Lief handles the organizational affairs of Rat’s Run from this office. She also stores bribes from criminals here.
+At night, the manager works on paperwork or sleeps in her bedroom in area R11. She keeps the door locked while she’s in here.
+During the day, the room is unoccupied and locked.
+Treasure. On the desk are records related to the inventory, room reservations, and staff payroll.This spacious, wooden-paneled room contains a fireplace, bed, desk, chair, washing basin, trunk, and closet.
+Rumpled curtains frame a window to the south.
+Near the center of the ceiling in this narrow wooden corridor is a five-foot-square gap. A ladder leading from the
+ground up into the gap leans against the wall.
+Brick-and-wood walls encase this modest room, which contains a bed, trunk, washing basin, and fireplace. A
+small window is devoid of affectation.
+A wooden sign hung on this room’s door reads “Private! Keep out!”
+
+--- PAGE 65 ---
+
+Inside a desk drawer, a lockbox holds bribes for Reigra that a courier hasn’t yet retrieved. As a Utilize action, a character can try to
+pick the lock using Thieves’ Tools, doing so with a successful DC 20 Dexterity (Sleight of Hand) check.
+The lockbox contains the following:
+310 GP
+One amethyst worth 100 GP
+Three pure black onyxes worth 50 GP each
+Spell Scroll of Blur
+Spell Scroll of Color Spray
+Spell Scroll of Fear
+Wand of Fireballs
+R11: Manager’s Bedroom
+These are Lief’s personal quarters. The wardrobe contains assorted, nondescript clothing.
+Secret Door. Behind wooden paneling in the west wall is a secret door. A character in the bedroom can take the Search action and
+make a DC 15 Wisdom (Perception) check, finding the secret door on a successful check. Behind the door lies a staircase leading
+up to area R12.
+Bed Frame Drawer. The bed frame drawer is locked. As a Utilize action, a character can try to pick the lock using Thieves’ Tools,
+doing so with a successful DC 20 Dexterity (Sleight of Hand) check.
+Treasure. The drawer contains Lief’s personal savings: a purse with 500 GP in it. It also contains a Potion of Vitality, a personal
+gift a patron gave Lief in exchange for protection from Luskan assassins.
+R12: Attic
+This attic serves as storage as well as a convenient hiding spot for smuggled goods. Most of the boxes contain supplies for the
+tavern and inn, such as furniture repair tools, extra metal flatware and cutlery, bed linens, and cleaning implements. The northwest
+shelves bear tattered sails, fishing nets, and other donations Lief eventually plans to display in the establishment’s entryway (area
+R1).Tucked into this small, wood-paneled room is a modest but comfortable bed with a drawer built into its frame.
+An ornate wooden wardrobe and washing basin, each carved with nautical-themed designs, are nestled in the
+corner.
+Wooden storage crates are stacked in groups throughout this low-ceilinged attic. A thin layer of dusts covers all
+but the northeasternmost stack of boxes. Discarded nautical equipment sits along shelves to the northwest,
+while grime obscures the view out of the southern window.
+
+--- PAGE 66 ---
+
+Dustless Boxes. The northeast boxes are labeled in bold capital letters as containing flour. Inside the boxes are cotton drawstring
+sacks with similar labels. However, inside each sack are carefully wrapped paper packages containing a rare and beautiful variety
+of basilisk scales used for decorating high-end clothing. The boxes contain thirty packages altogether, and each package contains
+2 pounds of scales and is worth 15 GP.
+Lief is hiding these basilisk scales, stolen from an import ship that originated from Waterdeep, for a high-ranking human member
+of the Guild, Jhera Gothill (Medium, Neutral Evil Assassin). Jhera is a regular at the first-floor tavern, where the stern woman meets
+with unscrupulous sea captains.
+R13: Hidea way
+This area serves as a hideout for individuals who need a place to lay low while avoiding enemies or the authorities. No one is
+staying here now; the bedclothes are left from a previous tenant.This tiny room has a rumpled bedroll and pillows strewn across its wooden floor, which contains an opening to
+the second floor below.
+
+--- PAGE 67 ---
+
+↑ Credits
+Lead Designer: Amanda Hamon
+Designers: Ron Lundeen, Stephen Rooney, Sarra Scherb
+Rules Developers: Patrick Renie (lead), Makenzie De Armas, Ben Petrisor
+Editors: Adrian Ng Di Spaltro (lead), Sadie Lowry, F. Wesley Schneider, Hans Ziegler
+Art Director: Josh Herman
+Graphic Designers: Trystan Falcone (lead), Matt Cole
+Cover Illustrator: Magali Villeneuve
+Interior Illustrators: David Astruga, Luca Bancone, Clint Cearley, Andrea Piparo, Bram Sels, Cynthia Sheppard, John Tedrick
+Cartographer: Mike Schley
+Consultants: Sameer Joseph, Alyssa Visscher
+Producers: Rob Hawkey (lead), Dan Tovar (lead), Bill Benham, Siera Bruggeman, Vanessa Hoskins
+ARTIST: MAGALI VILLENEUVE
+
+
+--- PAGE 68 ---
+
+FRONT COVER
+DUNGEONS & DRAGONS, D&D, Wizards of the Coast, the dragon ampersand, Forgotten Realms, Player’s Handbook,
+Monster Manual, Dungeon Master’s Guide, all other Wizards of the Coast product names, their respective logos,
+and The World’s Greatest Roleplaying Game are trademarks of Wizards of the Coast in the USA and other
+countries. All characters and their distinctive likenesses are property of Wizards of the Coast. This material is
+protected under the copyright laws of the United States of America. Any reproduction or unauthorized use of the
+material or artwork contained herein is prohibited without the express written permission of Wizards of the Coast.
+©2025 Wizards of the Coast LLC, PO Box 707, Renton, WA 98057-0707, USA. Manufactured by: Hasbro SA, Rue
+Emile-Boéchat 31, 2800 Delémont. CH.

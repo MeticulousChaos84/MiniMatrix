@@ -1,0 +1,3 @@
+# Deciphering the Scars
+
+**Astarion:** This is the first chance I've had to decipher my scars. Be a dear, don't get in my way. The orthon is dead. Aren't you pleased? So, there's a monster hunter after you? Not anymore. Which is all that matters, really. Not anymore. Which is all that matters, really. That monster hunter we met in the swamp - he's looking for you, isn't he? So it would seem. Hopefully he bumps into some gnolls while stumbling around at night and that's the last we hear from him. What if he reappears? Then we kill him. I thought that would've been obvious. There may be others, of course. If Cazador sent one peon after me, he'll send more.
