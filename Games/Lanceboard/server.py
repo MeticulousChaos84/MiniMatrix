@@ -60,6 +60,9 @@ server = Server("lanceboard")
 # here. When the server restarts, the game is lost (like a Dark Souls death
 # but for chess), but that's fine for now.
 #
+# Unlike a certain orb-carrying wizard, this memory won't explode if it gets
+# too full. It'll just... forget. Which is arguably worse for a chess game.
+#
 # In Phase 3 we could add persistence (save to file), but for now this works.
 
 game_state = {
@@ -81,7 +84,12 @@ game_state = {
     # Game result - None while game is ongoing
     # '1-0' = White wins, '0-1' = Black wins, '1/2-1/2' = Draw
     # Like the end of a D&D campaign but less emotional
-    'result': None
+    'result': None,
+
+    # Move history - so we can show the game record
+    # Every move in Standard Algebraic Notation (e4, Nf3, O-O, etc.)
+    # Like the combat log but for chess nerds
+    'move_history': []
 }
 
 
