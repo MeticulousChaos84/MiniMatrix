@@ -1,0 +1,13 @@
+# Lanceboard MCP Server Dependencies
+# ====================================
+# These are the magical ingredients needed to make the chess server work.
+# Install with: pip install -r requirements.txt
+
+# python-chess: The chess logic library that handles all the rules
+# Move validation, check detection, castling, en passant - it does EVERYTHING
+# We're not reinventing the wheel here, we're making the wheel play chess
+python-chess>=1.9.0
+
+# mcp: Model Context Protocol - how Claude Desktop talks to our server
+# This is the communication layer between Claude and our chess game
+mcp>=0.1.0
