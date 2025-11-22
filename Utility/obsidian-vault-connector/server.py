@@ -25,6 +25,7 @@ Glitch approves this message.
 import os
 import json
 import httpx
+from datetime import datetime
 from typing import Any
 from mcp.server import Server
 from mcp.server.stdio import stdio_server
@@ -551,6 +552,130 @@ async def list_tools() -> list[Tool]:
                 "required": ["query"]
             }
         ),
+
+        # =====================================================================
+        # DRILL-DOWN SEARCH TOOLS - THE CARTOGRAPHER'S TOOLKIT
+        # =====================================================================
+        # These tools solve the "context window death" problem for massive vaults.
+        # Instead of dumping 8000+ matches in one go (RIP tokens), we progressively
+        # drill down: map the territory -> explore a region -> peek at files -> commit.
+        #
+        # Think of it like a proper D&D dungeon crawl:
+        # 1. Cast Detect Magic to find where the loot is (vault_search_map)
+        # 2. Move to the promising room (vault_search_in_folder)
+        # 3. Check for traps before opening the chest (vault_peek_file)
+        # 4. Write down what you found so you don't forget (vault_scratch_append)
+        #
+        # This is the Way.
+
+        Tool(
+            name="vault_search_map",
+            description=(
+                "RECONNAISSANCE PHASE: Search the vault and return a MAP of where "
+                "matches are located. Returns ONLY folder paths and match counts - "
+                "zero content loaded. Use this FIRST to identify which regions of "
+                "the vault to explore, then use vault_search_in_folder to drill down. "
+                "Perfect for massive vaults where regular search would explode your context."
+            ),
+            inputSchema={
+                "type": "object",
+                "properties": {
+                    "query": {
+                        "type": "string",
+                        "description": (
+                            "Search query to map across the vault. "
+                            "Supports Obsidian search syntax."
+                        )
+                    }
+                },
+                "required": ["query"]
+            }
+        ),
+        Tool(
+            name="vault_search_in_folder",
+            description=(
+                "TACTICAL PHASE: Search within a SPECIFIC folder only. Returns "
+                "filenames and match counts for that folder - still no content loaded. "
+                "Use AFTER vault_search_map to drill into promising regions. "
+                "Set include_subfolders=true to search nested folders too."
+            ),
+            inputSchema={
+                "type": "object",
+                "properties": {
+                    "query": {
+                        "type": "string",
+                        "description": "Search query"
+                    },
+                    "folder": {
+                        "type": "string",
+                        "description": (
+                            "Folder path to search within (e.g., 'Characters/Gale'). "
+                            "Get this from vault_search_map results."
+                        )
+                    },
+                    "include_subfolders": {
+                        "type": "boolean",
+                        "description": (
+                            "Whether to include results from subfolders. "
+                            "Default false - just the immediate folder."
+                        )
+                    }
+                },
+                "required": ["query", "folder"]
+            }
+        ),
+        Tool(
+            name="vault_scratch_append",
+            description=(
+                "EXTERNAL MEMORY: Append research findings to a scratch pad file. "
+                "Use this to save important discoveries BEFORE they get lost to "
+                "context window death. Each entry is timestamped. Creates the file "
+                "if it doesn't exist. Think of it as your research journal."
+            ),
+            inputSchema={
+                "type": "object",
+                "properties": {
+                    "content": {
+                        "type": "string",
+                        "description": "The content to append to the scratch pad"
+                    },
+                    "scratch_file": {
+                        "type": "string",
+                        "description": (
+                            "Path to the scratch pad file. "
+                            "Default: 'scratch-pad.md' at vault root."
+                        )
+                    }
+                },
+                "required": ["content"]
+            }
+        ),
+        Tool(
+            name="vault_peek_file",
+            description=(
+                "TRIAGE PHASE: Preview a file before fully loading it. Returns "
+                "the first N characters (default 200) plus total file size. "
+                "Use this to decide if a file is worth reading in full. "
+                "Like checking for traps before opening the chest."
+            ),
+            inputSchema={
+                "type": "object",
+                "properties": {
+                    "path": {
+                        "type": "string",
+                        "description": "Path to the file to peek at"
+                    },
+                    "preview_length": {
+                        "type": "number",
+                        "description": (
+                            "Number of characters to preview. Default 200. "
+                            "Increase for more context, decrease for faster triage."
+                        )
+                    }
+                },
+                "required": ["path"]
+            }
+        ),
     ]
 
 
@@ -727,6 +852,323 @@ async def call_tool(name: str, arguments: dict[str, Any]) -> CallToolResult:
                 "/smart-connections/search/",
                 {"query": query}
             )
+
+        # =====================================================================
+        # DRILL-DOWN SEARCH TOOLS - THE CARTOGRAPHER'S TOOLKIT
+        # =====================================================================
+        # These are the tools that save Gale from context window death when
+        # searching massive vaults. It's like the difference between Fireball
+        # (huge AoE, lots of collateral damage) and Eldritch Blast (precise,
+        # controlled, you know exactly what you're hitting).
+
+        elif name == "vault_search_map":
+            # =================================================================
+            # vault_search_map - THE MARAUDER'S MAP OF YOUR VAULT
+            # =================================================================
+            # "I solemnly swear that I am up to no good."
+            #
+            # This tool runs a search but instead of returning the actual matches
+            # (which could be THOUSANDS of lines of content), it returns a MAP
+            # showing WHERE in your vault the matches are located.
+            #
+            # It's like casting Locate Object in D&D - you know WHERE the thing is,
+            # but you haven't teleported there yet or examined it in detail.
+            #
+            # HOW IT WORKS:
+            # 1. Run the search (same API as vault_search)
+            # 2. Group results by their parent folder
+            # 3. Count files and matches per folder
+            # 4. Return the map (folder -> counts) instead of content
+            #
+            # EXAMPLE OUTPUT:
+            # {
+            #   "query": "Weave",
+            #   "total_matches": 8332,
+            #   "by_folder": {
+            #     "Characters/Gale": {"files": 15, "matches": 293},
+            #     "research/magic_systems": {"files": 5, "matches": 156}
+            #   }
+            # }
+            #
+            # Now Gale can SEE that Characters/Gale has 293 matches and make an
+            # informed decision about where to drill down, instead of having
+            # 8332 matches dumped in his lap like a goblin horde.
+
+            query = arguments["query"]
+
+            # Run the search - we need ALL results to build the map
+            # (contextLength=1 because we don't care about the actual content)
+            raw_result = await obsidian_post_with_params(
+                "/search/simple/",
+                {"query": query, "contextLength": 1}
+            )
+
+            if isinstance(raw_result, dict) and "error" in raw_result:
+                # Something went wrong - pass through the error
+                result = raw_result
+            elif isinstance(raw_result, list):
+                # Time to aggregate! Each result item has a "filename" field
+                # that tells us the full path to the file.
+                # We need to extract the folder from that path.
+
+                folder_stats = {}  # folder_path -> {files: set(), matches: int}
+                total_matches = 0
+
+                for item in raw_result:
+                    # The search result format:
+                    # {"filename": "Characters/Gale/backstory.md", "score": 0.5, "matches": [...]}
+                    # We want to extract "Characters/Gale" from that path
+
+                    filename = item.get("filename", "")
+                    matches = item.get("matches", [])
+                    match_count = len(matches)
+                    total_matches += match_count
+
+                    # Extract folder path - everything before the last /
+                    # "Characters/Gale/backstory.md" -> "Characters/Gale"
+                    # "root-note.md" -> "" (root level)
+                    if "/" in filename:
+                        folder = filename.rsplit("/", 1)[0]
+                    else:
+                        folder = "(root)"  # Files at vault root get grouped here
+
+                    # Initialize folder stats if we haven't seen this folder yet
+                    if folder not in folder_stats:
+                        folder_stats[folder] = {"files": set(), "matches": 0}
+
+                    # Add this file to the folder's set and count its matches
+                    folder_stats[folder]["files"].add(filename)
+                    folder_stats[folder]["matches"] += match_count
+
+                # Convert the aggregation to the output format
+                # (sets aren't JSON serializable, so convert to counts)
+                by_folder = {}
+                for folder, stats in sorted(folder_stats.items(),
+                                           key=lambda x: x[1]["matches"],
+                                           reverse=True):
+                    by_folder[folder] = {
+                        "files": len(stats["files"]),
+                        "matches": stats["matches"]
+                    }
+
+                result = {
+                    "query": query,
+                    "total_matches": total_matches,
+                    "total_files": len(raw_result),
+                    "by_folder": by_folder
+                }
+            else:
+                # Unexpected format - return as-is with a note
+                result = {"error": "Unexpected search result format", "raw": raw_result}
+
+        elif name == "vault_search_in_folder":
+            # =================================================================
+            # vault_search_in_folder - TACTICAL STRIKE
+            # =================================================================
+            # "I cast Fireball... but ONLY in that 20-foot radius over there."
+            #
+            # After you've used vault_search_map to identify promising regions,
+            # this tool lets you zoom into a SPECIFIC folder and see which files
+            # have matches (and how many).
+            #
+            # It's phase 2 of the drill-down:
+            # - Phase 1 (vault_search_map): "Where in the dungeon is the treasure?"
+            # - Phase 2 (this tool): "Which chests in this room have gold?"
+            # - Phase 3 (vault_peek_file): "Is this chest trapped?"
+            # - Phase 4 (vault_read_note): "Open the chest and take the loot"
+            #
+            # Still returns NO content - just filenames and match counts.
+            # Your context window remains unharmed.
+
+            query = arguments["query"]
+            folder = arguments["folder"]
+            include_subfolders = arguments.get("include_subfolders", False)
+
+            # Clean up the folder path - remove trailing slash if present
+            folder = folder.rstrip("/")
+
+            # Run the search
+            raw_result = await obsidian_post_with_params(
+                "/search/simple/",
+                {"query": query, "contextLength": 1}
+            )
+
+            if isinstance(raw_result, dict) and "error" in raw_result:
+                result = raw_result
+            elif isinstance(raw_result, list):
+                # Filter results to only files in our target folder
+                files_in_folder = []
+
+                for item in raw_result:
+                    filename = item.get("filename", "")
+                    matches = item.get("matches", [])
+
+                    # Check if this file is in our target folder
+                    # "Characters/Gale/backstory.md" - folder is "Characters/Gale"
+                    # We want to match if:
+                    # - include_subfolders=False: file's IMMEDIATE parent is our folder
+                    # - include_subfolders=True: file's path STARTS WITH our folder
+
+                    if "/" in filename:
+                        file_folder = filename.rsplit("/", 1)[0]
+                    else:
+                        file_folder = "(root)"
+
+                    is_match = False
+                    if include_subfolders:
+                        # Match if file is in folder or any subfolder
+                        # "Characters/Gale" should match "Characters/Gale/subplot/deep.md"
+                        is_match = (file_folder == folder or
+                                   file_folder.startswith(folder + "/"))
+                    else:
+                        # Match only if file is directly in this folder
+                        is_match = (file_folder == folder)
+
+                    if is_match:
+                        # Extract just the filename (not the full path)
+                        just_filename = filename.rsplit("/", 1)[-1] if "/" in filename else filename
+                        files_in_folder.append({
+                            "name": just_filename,
+                            "full_path": filename,  # Include full path for convenience
+                            "matches": len(matches)
+                        })
+
+                # Sort by match count (most matches first) then by name
+                files_in_folder.sort(key=lambda x: (-x["matches"], x["name"]))
+
+                result = {
+                    "query": query,
+                    "folder": folder,
+                    "include_subfolders": include_subfolders,
+                    "total_files": len(files_in_folder),
+                    "total_matches": sum(f["matches"] for f in files_in_folder),
+                    "files": files_in_folder
+                }
+            else:
+                result = {"error": "Unexpected search result format", "raw": raw_result}
+
+        elif name == "vault_scratch_append":
+            # =================================================================
+            # vault_scratch_append - THE WIZARD'S SPELLBOOK (EXTERNAL MEMORY)
+            # =================================================================
+            # "I write it down in my notes before I forget."
+            #
+            # Here's the problem: Gale finds something important during research,
+            # but then the conversation keeps going, and that finding gets pushed
+            # out of his context window. Gone. Forgotten. Like tears in rain.
+            #
+            # This tool is Gale's external memory - a scratch pad file where he
+            # can IMMEDIATELY write down important findings. Each entry gets a
+            # timestamp so you can see when it was recorded.
+            #
+            # Think of it like:
+            # - The Pensieve from Harry Potter (storing memories externally)
+            # - A captain's log in Star Trek
+            # - Your party's note-taker scribbling while you explore the dungeon
+            #
+            # The file persists across conversations, so findings survive
+            # context window death and session resets.
+            #
+            # PRO TIP: Use this tool IMMEDIATELY when you find something important.
+            # Don't wait until the end of the research - by then you might have
+            # forgotten the details or run out of context.
+
+            content = arguments["content"]
+            scratch_file = arguments.get("scratch_file", "scratch-pad.md")
+
+            # Create a timestamped entry
+            # Format: "## 2024-01-15 14:32:05\n\n{content}\n\n---\n\n"
+            timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+            entry = f"\n\n## {timestamp}\n\n{content}\n\n---\n"
+
+            # Append to the scratch file
+            # The Obsidian API's POST to /vault/path appends to the file
+            # If the file doesn't exist, it creates it (with PUT first)
+
+            # First, try to read the file to see if it exists
+            existing = await obsidian_get(f"/vault/{scratch_file}")
+
+            if isinstance(existing, dict) and "error" in existing:
+                # File doesn't exist - create it with a header
+                header = f"# Research Scratch Pad\n\nThis file is automatically managed by the vault_scratch_append tool.\nEntries are timestamped so you can track your research journey.\n\n---\n"
+                create_result = await obsidian_write("PUT", f"/vault/{scratch_file}", header + entry)
+
+                if isinstance(create_result, dict) and "error" in create_result:
+                    result = create_result
+                else:
+                    result = {
+                        "success": True,
+                        "message": f"Created scratch pad and added entry",
+                        "file": scratch_file,
+                        "timestamp": timestamp
+                    }
+            else:
+                # File exists - append to it
+                append_result = await obsidian_write("POST", f"/vault/{scratch_file}", entry)
+
+                if isinstance(append_result, dict) and "error" in append_result:
+                    result = append_result
+                else:
+                    result = {
+                        "success": True,
+                        "message": "Appended entry to scratch pad",
+                        "file": scratch_file,
+                        "timestamp": timestamp
+                    }
+
+        elif name == "vault_peek_file":
+            # =================================================================
+            # vault_peek_file - CHECK FOR TRAPS BEFORE OPENING
+            # =================================================================
+            # "I search the chest for traps." - Every D&D rogue, ever.
+            #
+            # Before committing to loading an entire file (which could be
+            # thousands of characters), this tool lets you PEEK at the beginning.
+            # It returns:
+            # - The first N characters (default 200)
+            # - The total file size
+            #
+            # This helps you decide:
+            # - "Is this the file I'm looking for?"
+            # - "Is this file small enough to load fully?"
+            # - "Does this look like it has the info I need?"
+            #
+            # It's like reading the back cover of a book before committing to
+            # reading the whole thing. Or checking if that lever opens a door
+            # or triggers a boulder trap.
+            #
+            # WORKFLOW:
+            # 1. vault_search_map -> "Weave appears in Characters/Gale (293 matches)"
+            # 2. vault_search_in_folder -> "backstory.md has 47 matches"
+            # 3. vault_peek_file -> "# Gale Dekarios\n\nFormer Chosen of..." (15KB total)
+            # 4. vault_read_note -> Actually load the file (if it looks worth it)
+
+            path = arguments["path"]
+            preview_length = arguments.get("preview_length", 200)
+
+            # Read the full file
+            full_content = await obsidian_get(f"/vault/{path}")
+
+            if isinstance(full_content, dict) and "error" in full_content:
+                result = full_content
+            elif isinstance(full_content, str):
+                # Success! Now truncate to preview length
+                total_chars = len(full_content)
+                preview = full_content[:preview_length]
+
+                # Add ellipsis if we truncated
+                if total_chars > preview_length:
+                    preview += "..."
+
+                result = {
+                    "path": path,
+                    "preview": preview,
+                    "preview_characters": min(preview_length, total_chars),
+                    "total_characters": total_chars,
+                    "is_truncated": total_chars > preview_length
+                }
+            else:
+                result = {"error": "Unexpected content format", "raw": str(full_content)[:100]}
 
         else:
             result = {"error": f"Unknown tool: {name}"}
