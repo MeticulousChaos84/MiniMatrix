@@ -4,7 +4,7 @@
 
 ### Act 1
 **Total Files:** 85
-**Processed:** 15
+**Processed:** 19
 **Skipped (Copyright):** 0
 **Skipped (Size):** 0
 
@@ -24,6 +24,10 @@
 - GOB_GoblinPriest_Chapel.html → priestess_gut_chapel.md
 - DEN_Prodigy.html → rolan_prodigy_apprenticeship.md
 - PLA_KarlachRecruitment_Karlach_PostEA.html → karlach_recruitment.md
+- DEN_ShadowDruid_SnakesCourt.html → arabella_snake_court.md
+- GOB_DrunkGoblin.html → crusher_drunk_goblin.md
+- UND_ArguingGnomes.html → arguing_gnomes_grymforge.md
+- FOR_PriestOfTheConqueringGod_Cultists.html → bane_cultists_true_soul.md
 
 #### Skipped Files:
 (none yet)
