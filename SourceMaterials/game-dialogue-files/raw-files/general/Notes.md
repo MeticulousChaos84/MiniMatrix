@@ -4,7 +4,7 @@
 
 ### Act 1
 **Total Files:** 85
-**Processed:** 11
+**Processed:** 15
 **Skipped (Copyright):** 0
 **Skipped (Size):** 0
 
@@ -20,6 +20,10 @@
 - UND_KuoToaGod_SpeakWithBOOOAL.html → boooal_kuotoa_god_encounter.md
 - HAG_GurHunter.html → gandrel_gur_monster_hunter.md
 - UND_MyconidCircle_SocietyOfBrilliance_MindFlayer.html → omeluum_society_of_brilliance.md
+- UND_MyconidSovereign.html → sovereign_spaw_myconid_circle.md
+- GOB_GoblinPriest_Chapel.html → priestess_gut_chapel.md
+- DEN_Prodigy.html → rolan_prodigy_apprenticeship.md
+- PLA_KarlachRecruitment_Karlach_PostEA.html → karlach_recruitment.md
 
 #### Skipped Files:
 (none yet)
