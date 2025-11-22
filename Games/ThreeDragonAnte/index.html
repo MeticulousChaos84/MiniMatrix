@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Three Dragon Ante - Play Against Gale</title>
+
+  <!--
+  ============================================================================
+  THREE DRAGON ANTE - A Game for Erica
+  ============================================================================
+
+  This is the main game page! When you open this in a browser, you'll be
+  sitting across from Gale Dekarios, playing the card game he references
+  before facing Mystra.
+
+  "Perhaps I should treat this less like a negotiation and more like a
+  round of Three Dragon Ante."
+
+  The layout is designed to look like a card table:
+  - Gale's area at the top (his hand hidden, his flight visible)
+  - The pot in the middle
+  - Your area at the bottom (hand visible, flight building)
+  - Gale's commentary on the side
+
+  ============================================================================
+  -->
+
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <!--
+  ============================================================================
+  THE GAME CONTAINER
+  ============================================================================
+  Everything lives in here. It's like the battle map for our card game.
+  -->
+  <div id="game-container">
+
+    <!--
+    ============================================================================
+    HEADER - Game Title and Info
+    ============================================================================
+    -->
+    <header id="game-header">
+      <h1>Three Dragon Ante</h1>
+      <div id="game-info">
+        <span id="gambit-display">Gambit 1 of 3</span>
+        <span id="phase-display">Setup</span>
+      </div>
+    </header>
+
+    <!--
+    ============================================================================
+    MAIN GAME AREA - The Card Table
+    ============================================================================
+    This is laid out vertically:
+    1. Gale's side (top)
+    2. Center area with pot
+    3. Your side (bottom)
+    -->
+    <main id="game-table">
+
+      <!--
+      ===========================================================================
+      GALE'S AREA - The Opponent
+      ===========================================================================
+      His hand is face-down (we show card backs), but his flight is visible.
+      Also shows his stakes (gold) so you know if he's sweating.
+      -->
+      <section id="gale-area" class="player-area opponent">
+        <div class="player-info">
+          <span class="player-name">Gale</span>
+          <span class="player-stakes">
+            <span class="gold-icon">💰</span>
+            <span id="gale-stakes">50</span> gold
+          </span>
+        </div>
+
+        <!-- Gale's hand - shown as card backs -->
+        <div id="gale-hand" class="hand opponent-hand">
+          <!-- Cards will be rendered here by ui.js -->
+          <div class="hand-label">Gale's Hand</div>
+        </div>
+
+        <!-- Gale's flight - face up, building during play -->
+        <div id="gale-flight" class="flight">
+          <div class="flight-label">Gale's Flight</div>
+          <div class="flight-cards">
+            <!-- Flight cards rendered here -->
+          </div>
+        </div>
+      </section>
+
+      <!--
+      ===========================================================================
+      CENTER AREA - The Pot and Game Controls
+      ===========================================================================
+      Shows the current pot and action buttons.
+      Think of this as the middle of the table where the stakes pile up.
+      -->
+      <section id="center-area">
+        <div id="pot-display">
+          <span class="pot-label">Pot</span>
+          <span id="pot-amount" class="pot-amount">0</span>
+          <span class="gold-icon">💰</span>
+        </div>
+
+        <!-- Action buttons - context-sensitive based on game phase -->
+        <div id="action-buttons">
+          <button id="btn-new-game" class="action-btn primary">New Game</button>
+          <button id="btn-ante" class="action-btn" disabled>Draw Ante</button>
+          <button id="btn-resolve" class="action-btn" disabled>Resolve Gambit</button>
+        </div>
+
+        <!-- Turn indicator -->
+        <div id="turn-indicator">
+          <span id="turn-text">Click "New Game" to start!</span>
+        </div>
+      </section>
+
+      <!--
+      ===========================================================================
+      PLAYER'S AREA - That's You, Erica!
+      ===========================================================================
+      Your hand is fully visible (obviously), and you click cards to play them.
+      Your flight builds up as you play cards each turn.
+      -->
+      <section id="player-area" class="player-area human">
+        <!-- Your flight - shows cards you've played this gambit -->
+        <div id="player-flight" class="flight">
+          <div class="flight-label">Your Flight</div>
+          <div class="flight-cards">
+            <!-- Flight cards rendered here -->
+          </div>
+        </div>
+
+        <!-- Your hand - clickable cards! -->
+        <div id="player-hand" class="hand player-hand">
+          <div class="hand-label">Your Hand</div>
+          <!-- Cards will be rendered here by ui.js -->
+        </div>
+
+        <div class="player-info">
+          <span class="player-name">Erica</span>
+          <span class="player-stakes">
+            <span class="gold-icon">💰</span>
+            <span id="player-stakes">50</span> gold
+          </span>
+        </div>
+      </section>
+
+    </main>
+
+    <!--
+    ============================================================================
+    GALE'S COMMENTARY PANEL
+    ============================================================================
+    This is where Gale talks to you! His personality shines through here.
+    Shows his current mood and whatever witty/strategic thing he's saying.
+
+    Eventually this will play actual audio, but for now it's text.
+    -->
+    <aside id="gale-panel">
+      <div id="gale-portrait">
+        <!-- Placeholder for Gale's portrait -->
+        <div class="portrait-placeholder">🧙‍♂️</div>
+        <span id="gale-mood">Focused</span>
+      </div>
+
+      <div id="gale-dialogue">
+        <p id="gale-text">
+          "Ah, Three Dragon Ante. A game of strategy, bluffing, and knowing
+          when to show your flight. Shall we begin?"
+        </p>
+      </div>
+
+      <!-- Game log for history -->
+      <div id="game-log">
+        <div class="log-label">Game Log</div>
+        <div id="log-entries">
+          <!-- Log entries will appear here -->
+        </div>
+      </div>
+    </aside>
+
+    <!--
+    ============================================================================
+    CARD PREVIEW PANEL
+    ============================================================================
+    When you hover over a card, this shows details about it.
+    Like inspecting an item in your inventory!
+    -->
+    <div id="card-preview" class="hidden">
+      <div id="preview-name">Card Name</div>
+      <div id="preview-type">Type</div>
+      <div id="preview-value">Value: 0</div>
+      <div id="preview-effect">Effect description</div>
+      <div id="preview-flavor">Flavor text</div>
+    </div>
+
+    <!--
+    ============================================================================
+    GAME OVER MODAL
+    ============================================================================
+    Appears when someone wins. Shows final results and Gale's closing remarks.
+    -->
+    <div id="game-over-modal" class="modal hidden">
+      <div class="modal-content">
+        <h2 id="game-over-title">Game Over!</h2>
+        <div id="game-over-message">
+          <!-- Results will be shown here -->
+        </div>
+        <div id="game-over-gale">
+          <!-- Gale's final words -->
+        </div>
+        <button id="btn-play-again" class="action-btn primary">Play Again</button>
+      </div>
+    </div>
+
+  </div>
+
+  <!--
+  ============================================================================
+  SCRIPTS
+  ============================================================================
+  Loading order matters here! cards.js defines the deck, flights.js evaluates
+  hands, game.js runs the logic, and ui.js ties it all to the DOM.
+
+  Think of it like:
+  - cards.js = The Monster Manual (all the data)
+  - flights.js = The dice roller (evaluation)
+  - game.js = The DM (runs the game)
+  - ui.js = The battle map (visual representation)
+  - gale-dialog.js = The NPC's personality
+  - gale-ai.js = The NPC's brain
+  -->
+  <script src="js/cards.js"></script>
+  <script src="js/flights.js"></script>
+  <script src="js/game.js"></script>
+  <script src="js/gale-dialog.js"></script>
+  <script src="js/gale-ai.js"></script>
+  <script src="js/ui.js"></script>
+
+</body>
+</html>
