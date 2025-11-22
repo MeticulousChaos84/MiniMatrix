@@ -4,7 +4,7 @@
 
 ### Act 1
 **Total Files:** 85
-**Processed:** 19
+**Processed:** 25
 **Skipped (Copyright):** 0
 **Skipped (Size):** 0
 
@@ -28,6 +28,12 @@
 - GOB_DrunkGoblin.html → crusher_drunk_goblin.md
 - UND_ArguingGnomes.html → arguing_gnomes_grymforge.md
 - FOR_PriestOfTheConqueringGod_Cultists.html → bane_cultists_true_soul.md
+- CRE_GithInfirmary_Doctor.html → ghustil_stornugoss_doctor.md
+- DEN_CapturedGoblin.html → sazza_captured_goblin.md
+- FOR_OwlBear.html → owlbear_cave_encounter.md
+- DEN_TieflingBard_Bard.html → alfira_tiefling_bard.md
+- FOR_ThayanCellar_MagicMirror.html → thayan_cellar_magic_mirror.md
+- GOB_Checkpoint_Guard001.html → goblin_checkpoint_entry.md
 
 #### Skipped Files:
 (none yet)
