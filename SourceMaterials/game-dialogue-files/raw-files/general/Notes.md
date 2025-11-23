@@ -59,15 +59,33 @@ See `/home/user/MiniMatrix/SourceMaterials/game-dialogue-files/general/act2/` fo
 
 ### Act 3
 **Total Files:** 88
-**Processed:** 0
+**Processed:** 88 ✓ COMPLETE
 **Skipped (Copyright):** 0
 **Skipped (Size):** 0
 
 #### Processed Files:
-(none yet)
+All 88 files extracted via parallel processing with 3 subagents.
+See `/home/user/MiniMatrix/SourceMaterials/game-dialogue-files/general/act3/` for all markdown summaries.
+
+#### Notable Gale Quotes Found:
+- "I would be more than the greatest wizard who ever lived - I would be a god." (Crown of Karsus temptation)
+- "If this adventure has taught me anything, it's that there are things in this world far more valuable than power."
+- "Besides, I've grown quite fond of this merry band of ours, and I'd quite like to see what happens to it."
+- "Please... this will be so much easier knowing that my memory lives on with you." (sacrifice scene)
+- "*That's it. That's what I need.*" (whispered upon seeing The Annals of Karsus)
+- "I am involved! I'm taking notes. Making observations." (Dapper Drow projection - PEAK GALE)
+- "The Crown of Karsus cannot be handed over to this devil. Agree to nothing." (Raphael confrontation)
+
+#### Notable Astarion Quotes Found:
+- "It can be ours, my love. The whole world - we only have to take it."
+- "Don't look at me like that - Cazador's orders." (children in cells - devastating)
+- "I really forgot about them, felt nothing the moment I handed them over to him."
+- "I'd like to try doing things like this again, now I'm free to find my own desires." (Dapper Drow)
+- "All right sweethearts. You dare to dance with a professional, you'll get your desire."
+- "Call me cynical, but I'm not sure we can trust the god of tyranny's Chosen to happily share power."
 
 #### Skipped Files:
-(none yet)
+(none)
 
 ---
 
