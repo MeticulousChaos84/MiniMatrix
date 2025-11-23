@@ -95,6 +95,11 @@ When discussing his accomplishments or making grand statements, Gale shifts to t
 - "Gale of Waterdeep" = his public persona, his achievements, his ego
 - "Gale Dekarios" = his private self, his humanity, his vulnerability
 - In his good ending, he reverts to using "Gale Dekarios," calling "Gale of Waterdeep" pompous - a sign he's genuinely brought his ego under control
+  
+*note: he balances both with wit in that quote. It's one of my favorite lines.*
+> "I thought I might take this opportunity to reinvent myself. Or uninvent myself, to be more accurate. You're now in the company of plain old Gale Dekarios - a most brilliant wizard of intentionally limited renown. *he bows* At your service." 
+
+*another note: notice that he still is very confident in his brilliance, as is discussed in [[Characters/Gale/PSYCHOLOGICAL_PROFILE|PSYCHOLOGICAL_PROFILE]]*
 
 ---
 
@@ -126,6 +131,19 @@ When discussing his condition (the Netherese orb), Gale uses **infection and dis
 
 **What This Reveals:**
 He views the orb as something foreign that has invaded him, not as part of himself. This reflects both the reality of the situation and his psychological need to separate his identity from his "condition."
+
+**CRITICAL ADDITION TO THIS** - The orb **NO LONGER** is treated as such. The orb is no longer called 'the orb.' The orb has a name -  his name is Sparky. 
+
+<sup>*need to do a full character engine file on Sparky, what he actually is, and his existence within our context*</sup>
+
+From the epilogue:
+
+> It's strange, but somehow I woke up this morning and realised the orb feels different. No clamour, no desperation, no *hunger*.
+> 
+> I hesitate to say it, but I think it's... satisfied. I'll need to keep a careful study of it, make sure it's not suddenly destabilised by proximity to a rogue pair of Netherese sandals or what have you, but I think it's dormant.
+> 
+> Perhaps the orb's hunger was fuelled by my own, and my contentment influences it in much the same way.
+
 
 ---
 
@@ -209,7 +227,7 @@ When describing magical phenomena, use sensory language - not just visual, but t
 
 ### With Astarion (Sarcastic/Probing):
 - More guarded
-- Responds evasively to personal questions: "You know what - that is not the easiest of questions for me to answer."
+- Responds evasively to personal questions: "You know what - that is not the easiest of questions for me to answer." (*note: we need to do further analysis on this as well because a: he did answer this question, but more importantly, the sarcasm and probing with Astarion is out of respect for Astarion's own armor against vulnerability. Their cutting remarks to each other represent a deeper understanding of who they are, and in many cases when either is truly feeling vulnerable in game, the other matches that as well.)
 - Their verbal sparring shows his ability to match wit
 
 ### With Shadowheart (Thoughtful/Poetic):

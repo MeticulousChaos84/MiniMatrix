@@ -69,7 +69,7 @@ She was his:
 
 ### Grooming and Isolation
 
-The relationship likely began when Gale was around 17 (he's now in his early 30s). The analysis notes:
+The relationship likely began when Gale was in his early 20s. The analysis notes:
 
 > "It is a common tactic of abusers to isolate their victims from any outside influences so they can exert full control over them. And up to meeting Tav... every single soul he was close to was inevitably tied to Mystra in one way or another."
 
@@ -88,9 +88,11 @@ Gale demonstrates classic trauma responses:
 - Unreliable narrator about his own victimhood
 - Continues to seek her approval
 
-### The Command to Stab Himself
+### The Command to Detonate Himself
 
 Mystra's order for Gale to stab himself with a dagger is identified as **unnecessary cruelty** - she had the power to handle the orb herself. This was either punishment or "mere pettiness."
+
+*note: It was more than likely a chess play, actually. Mystra would have already known the crown had been stolen from Avernus, she was aware of the pending threat of the Absolute. She saw an opportunity with the orb, was well aware of Gale's psychological profile, his vulnerabilities, his insecurities and realized that she might have a way to put an end to the situation and possibly put the crown into her own hands. Whether or not one sees this as acceptable divine behavior because gods have their own agendas instead of seeing Mystra as the sort of monster this kind of 'planned manipulation' would be interpreted as if she were human - the psychological effect that it had on Gale, and HIS perspective of it being either punishment (for something he never intended to be bad) or pettiness is what matters. The traumatic experience is not wiped away even if one argues that Mystra wasn't so much abusive as she was operating from a purely divine protocol.
 
 ---
 
@@ -100,6 +102,7 @@ Mystra's order for Gale to stab himself with a dagger is identified as **unneces
 
 Mystra's abandonment didn't just hurt him - it **validated his core wound**. He wasn't enough, and the person who should have loved him most threw him away when he made a mistake.
 
+*note: coming from an early childhood development background - this core wound could very likely be attributed to his father being completely out of the picture, to the point that he doesn't even know who his father is. When children are raised with only one parent, no matter how good of a parent it is, the loss creates a wound so early in personality development that the person would likely argue that it didn't affect them at all. However, for Gale, considering the other aspects of his personality makeup being what they are anyway, it is safe to assume that as a very young boy (under 5 years) he had already begun internalizing that he hadn't been good enough for his father to have stayed. His mother's secrecy regarding his father would have compounded this belief even before he was old enough to have the cognitive understanding of what he was feeling.*
 ### How It Manifests:
 
 **Secretiveness:**
@@ -114,6 +117,8 @@ Despite his own abandonment trauma, Gale **refuses to abandon others**. He disap
 > "Gale has an ever-present need for clarity in his relationships, very likely due to the fact that this was something he couldn't request of Mystra."
 
 He needs to know where he stands because he never knew where he stood with her.
+
+*note: the childhood aspect of this wound manifests very clearly in his love for children. Every time you do something kind for a child in act 1 of the game, Gale not only approves of the act itself, but he responds with the reward of sharing a tale of his own pre-academy self. The stories told by Gale about his early childhood in these situations are some of the most honest and most vulnerable moments we see, very early in the game - every single story is about something he did that was "bad" and he finishes each with the reaffirmation that such transgressions are a part of childhood and needn't be punished. He even does this for the goblin children who have just killed someone (because that someone killed their parents). 
 
 ---
 
@@ -147,7 +152,9 @@ Gale experiences significant shame about:
 - His condition (the orb)
 - Needing help
 
-His response to shame is often to **frame himself as the villain** in his own story before anyone else can.
+His response to shame is often to **frame himself as the villain** in his own story before anyone else can. 
+
+*note: this is always done with a dose of wry humor as an additional deflection*
 
 ### Love and Devotion
 
@@ -199,7 +206,7 @@ He needs to feel both:
 **Agency:**
 - Anti-slavery absolutely
 - Opposes manipulation and control
-- ...despite having been controlled himself
+- ...despite having been controlled himself 
 
 ### Where He'll Compromise:
 
@@ -232,7 +239,7 @@ He'll die for others but it's partly because he doesn't value his own life prope
 ### Knowledge of His Flaws + Inability to Change Them
 > "Despite having his natural blind spots, he is fully aware of his flaws and imperfections."
 
-He knows he's hypocritical, impatient, bad at taking criticism, prone to passive-aggression. Knowing doesn't automatically mean he can stop.
+He knows he's hypocritical, impatient, bad at taking criticism, prone to passive-aggression. Knowing doesn't automatically mean he can stop. *note: on a deeper level, he knows these things about himself and chooses to accept rather than try to change them. This is two-fold: on one hand, these are fairly negative traits and he can get very manchild and moody - which fuels the negative self talk that says he's not worthy of love. On the other hand, his refusal to actively work on changing these traits is representative of his desire to find someone who will love him regardless. These things don't touch his competency, his intelligence, and his usefulness - those aspects his is always striving to improve. These moody 'wizard in a tower' moments are the areas where he allows himself to be 'not good enough' because he isn't measuring his worth on how patient he is, or if he can accept criticism with grace.*
 
 ### Teacher + Student
 He's a genuine expert who loves to share knowledge, but he's also still learning and growing. The "professor ending" is his best ending precisely because it lets him be both.
