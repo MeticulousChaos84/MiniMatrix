@@ -192,7 +192,7 @@ async def store_chain_in_postcortex(session: ClientSession, payload: dict) -> bo
         result = await session.call_tool(
             "update_conversation_context",
             {
-                "context": payload['content'],
+                "content": payload['content'],  # Note: it's 'content' not 'context'!
                 "interaction_type": "qa"
             }
         )
@@ -294,10 +294,15 @@ async def load_all_chains():
                 tools = await session.list_tools()
                 print(f"📦 Post-cortex has {len(tools.tools)} tools available")
 
-                # Find the update_conversation_context tool
+                # Find the update_conversation_context tool and show its schema
                 tool_names = [t.name for t in tools.tools]
                 if "update_conversation_context" in tool_names:
                     print("   ✓ Found update_conversation_context tool")
+                    # Print the schema so we know what parameters it needs
+                    for tool in tools.tools:
+                        if tool.name == "update_conversation_context":
+                            print(f"   📋 Required params: {tool.inputSchema}")
+                            break
                 else:
                     print("   ⚠️  update_conversation_context not found!")
                     print(f"   Available tools: {tool_names}")
