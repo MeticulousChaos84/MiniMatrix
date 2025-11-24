@@ -1,0 +1,293 @@
+/* =============================================================================
+   CALENDAR BETWEEN WORLDS - Styles
+   =============================================================================
+
+   Theme: "Candlelit Tome"
+   Dark background with gold/crimson accents, like reading a spellbook by candlelight.
+
+   ============================================================================= */
+
+/* -----------------------------------------------------------------------------
+   CSS Variables - The Color Palette
+   ----------------------------------------------------------------------------- */
+:root {
+  /* Background colors */
+  --bg-primary: #1a1a2e;
+  --bg-secondary: #16213e;
+  --bg-card: #0f3460;
+
+  /* Text colors */
+  --text-primary: #eaeaea;
+  --text-secondary: #a0a0a0;
+  --text-accent: #f5c518;
+
+  /* Accent colors */
+  --accent-primary: #e94560;
+  --accent-secondary: #f5c518;
+  --accent-moon: #c4b5fd;
+
+  /* Season colors */
+  --winter: #60a5fa;
+  --spring: #34d399;
+  --summer: #fbbf24;
+  --autumn: #f97316;
+
+  /* Spacing */
+  --spacing-xs: 0.25rem;
+  --spacing-sm: 0.5rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 1.5rem;
+  --spacing-xl: 2rem;
+
+  /* Border radius */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+}
+
+/* -----------------------------------------------------------------------------
+   Base Styles
+   ----------------------------------------------------------------------------- */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  line-height: 1.6;
+  min-height: 100vh;
+}
+
+/* -----------------------------------------------------------------------------
+   App Layout
+   ----------------------------------------------------------------------------- */
+.app {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  max-width: 600px;
+  margin: 0 auto;
+  padding: var(--spacing-md);
+}
+
+.app-header {
+  text-align: center;
+  padding: var(--spacing-lg) 0;
+  border-bottom: 1px solid var(--bg-card);
+}
+
+.app-header h1 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--text-accent);
+}
+
+.app-main {
+  flex: 1;
+  padding: var(--spacing-lg) 0;
+}
+
+.app-nav {
+  display: flex;
+  gap: var(--spacing-sm);
+  padding: var(--spacing-md) 0;
+  border-top: 1px solid var(--bg-card);
+}
+
+.app-nav button {
+  flex: 1;
+  padding: var(--spacing-sm) var(--spacing-md);
+  background: var(--bg-secondary);
+  border: 1px solid var(--bg-card);
+  border-radius: var(--radius-md);
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.app-nav button:hover {
+  background: var(--bg-card);
+  color: var(--text-primary);
+}
+
+.app-nav button.active {
+  background: var(--accent-primary);
+  color: var(--text-primary);
+  border-color: var(--accent-primary);
+}
+
+/* -----------------------------------------------------------------------------
+   Today View
+   ----------------------------------------------------------------------------- */
+.today-view {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-lg);
+}
+
+/* Dual Date Display */
+.dual-date-display {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+  padding: var(--spacing-lg);
+  background: var(--bg-secondary);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--bg-card);
+}
+
+.earth-side,
+.faerun-side {
+  text-align: center;
+  padding: var(--spacing-md);
+}
+
+.calendar-label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  color: var(--text-secondary);
+  margin-bottom: var(--spacing-sm);
+}
+
+.date-primary {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.faerun-side .date-primary {
+  color: var(--text-accent);
+}
+
+.date-secondary {
+  font-size: 0.875rem;
+  font-style: italic;
+  color: var(--text-secondary);
+  margin-top: var(--spacing-xs);
+}
+
+.year-name {
+  font-size: 0.875rem;
+  color: var(--accent-primary);
+  margin-top: var(--spacing-xs);
+}
+
+.divider {
+  text-align: center;
+  padding: var(--spacing-sm) 0;
+}
+
+.divider-symbol {
+  color: var(--text-secondary);
+  font-size: 1.5rem;
+}
+
+/* Moon Section */
+.moon-section {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+  padding: var(--spacing-lg);
+  background: var(--bg-secondary);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--bg-card);
+}
+
+.moon-emoji {
+  font-size: 2.5rem;
+  filter: drop-shadow(0 0 8px var(--accent-moon));
+}
+
+.moon-info {
+  flex: 1;
+}
+
+.moon-name {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--accent-moon);
+}
+
+.moon-details {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+}
+
+/* Events Section */
+.events-section {
+  padding: var(--spacing-lg);
+  background: var(--bg-secondary);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--bg-card);
+}
+
+.events-section h3 {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  margin-bottom: var(--spacing-md);
+}
+
+.events-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+}
+
+.event-item {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  padding: var(--spacing-sm);
+  background: var(--bg-card);
+  border-radius: var(--radius-sm);
+}
+
+.event-icon {
+  font-size: 1.25rem;
+}
+
+.event-title {
+  color: var(--text-primary);
+}
+
+/* Extra Info */
+.extra-info {
+  display: flex;
+  justify-content: center;
+  gap: var(--spacing-lg);
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+}
+
+.season,
+.tenday {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+}
+
+/* -----------------------------------------------------------------------------
+   Responsive
+   ----------------------------------------------------------------------------- */
+@media (min-width: 480px) {
+  .dual-date-display {
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .earth-side,
+  .faerun-side {
+    flex: 1;
+  }
+
+  .divider {
+    padding: 0 var(--spacing-md);
+  }
+}

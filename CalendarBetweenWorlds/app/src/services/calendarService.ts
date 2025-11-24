@@ -17,7 +17,7 @@
 //
 // =============================================================================
 
-import { FaerunianDate, CalendarEvent, DayMapEntry, MonthInfo } from '../types';
+import { FaerunianDate, DayMapEntry, MonthInfo } from '../types';
 
 // =============================================================================
 // THE SACRED CONSTANTS OF HARPTOS
