@@ -288,7 +288,12 @@ function AddEventForm({
           setError('Please select an Earth date.');
           return;
         }
-        const date = new Date(earthDate + 'T00:00:00');
+        // Parse the date string manually to avoid timezone parsing chaos
+        // The HTML date input gives us "YYYY-MM-DD" format
+        // Using new Date("1984-03-05T00:00:00") can be interpreted as UTC
+        // in some browsers, which shifts the day. This way is explicit.
+        const [yearNum, monthNum, dayNum] = earthDate.split('-').map(Number);
+        const date = new Date(yearNum, monthNum - 1, dayNum); // month is 0-indexed in JS
         newEvent = createEarthAnchoredEvent(
           title.trim(),
           type,
