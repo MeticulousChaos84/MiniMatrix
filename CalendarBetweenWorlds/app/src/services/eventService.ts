@@ -128,12 +128,22 @@ export function createEarthAnchoredEvent(
     faerunDayOfYear = faerunDateToDayNumber(faerunDate.month!, faerunDate.day, faerunDate.year);
   }
 
+  // Format the date using LOCAL time, not UTC!
+  // .toISOString() converts to UTC which can shift the day backwards
+  // depending on timezone. We want to preserve the user's LOCAL date.
+  // It's like when you tell someone your birthday is March 5th - you mean
+  // March 5th WHERE YOU ARE, not March 5th in Greenwich, England.
+  const year = earthDate.getFullYear();
+  const month = String(earthDate.getMonth() + 1).padStart(2, '0');
+  const day = String(earthDate.getDate()).padStart(2, '0');
+  const localDateString = `${year}-${month}-${day}`;
+
   return {
     id: generateId(),
     title,
     type,
     anchorCalendar: 'earth',
-    earthDate: earthDate.toISOString().split('T')[0], // Just the date part
+    earthDate: localDateString,
     faerunYear: faerunDate.year,
     faerunDayOfYear,
     description,
@@ -175,12 +185,18 @@ export function createFaerunAnchoredEvent(
   // Convert to Earth date
   const earthDate = faerunToEarth(faerunYear, faerunDayOfYear);
 
+  // Same timezone fix as above - use LOCAL date, not UTC
+  const year = earthDate.getFullYear();
+  const month = String(earthDate.getMonth() + 1).padStart(2, '0');
+  const dayNum = String(earthDate.getDate()).padStart(2, '0');
+  const localDateString = `${year}-${month}-${dayNum}`;
+
   return {
     id: generateId(),
     title,
     type,
     anchorCalendar: 'faerun',
-    earthDate: earthDate.toISOString().split('T')[0],
+    earthDate: localDateString,
     faerunYear,
     faerunDayOfYear,
     description,
