@@ -33,6 +33,11 @@ from typing import Optional
 from mcp import ClientSession
 from mcp.client.sse import sse_client
 
+# Our natural language trigger data
+# This is the translation layer between "how people actually talk" and
+# "abstract cognitive patterns" - the whole reason semantic search was failing
+from chain_triggers import CHAIN_TRIGGERS, get_trigger_data
+
 # Generate a consistent UUID for the Gale reasoning engine session
 # Using uuid5 with a namespace so it's always the same UUID for the same name
 GALE_SESSION_UUID = str(uuid.uuid5(uuid.NAMESPACE_DNS, "gale.reasoning.engine"))
@@ -124,28 +129,52 @@ def format_for_storage(chain: dict) -> dict:
     """
     Takes a parsed reasoning chain and formats it for post-cortex storage.
 
-    This is where we prepare the "metadata" - the tags and keywords that will
-    help post-cortex find this chain later when we need it.
+    THIS IS THE FIX FOR THE SEMANTIC SEARCH PROBLEM.
 
-    It's like... when you're organizing your bookshelf, you don't just shove
-    books in randomly. You might organize by genre, author, or topic. Same idea:
-    we're tagging each chain with its triggers so semantic search can find it.
+    The old version stored abstract patterns like "competence questioned"
+    but semantic search needs ACTUAL EXAMPLES of what people say, like
+    "You're not as smart as you think you are."
 
-    The chain becomes a "context" in post-cortex - a chunk of information that
-    can be retrieved based on meaning (semantic search), not just exact keywords.
+    We now pull from chain_triggers.py which has natural language examples
+    that will embed much closer to real user queries.
+
+    Think of it like... the difference between labeling a potion "augmentation
+    elixir" vs "makes you bigger and stronger." One is abstract, one is what
+    someone would actually say when asking for it.
     """
 
     chain_id = chain.get('chain_id', 'unknown')
 
-    # Extract trigger patterns and keywords for tagging
-    # These are what tell us "this chain is relevant when X happens"
-    triggers = chain.get('triggers', {})
-    trigger_patterns = triggers.get('patterns', [])
-    trigger_keywords = triggers.get('keywords', [])
+    # Get our natural language trigger data
+    # This is the key fix - we're using REAL examples of what people say
+    trigger_data = get_trigger_data(chain_id)
 
-    # Combine all the trigger info into a searchable string
-    # This helps the semantic search understand what this chain is FOR
-    trigger_text = " | ".join(trigger_patterns + trigger_keywords)
+    # Get natural language triggers (the actual phrases people use)
+    natural_triggers = trigger_data.get('natural_triggers', [])
+
+    # Get keywords (for potential keyword-first search later)
+    keywords = trigger_data.get('keywords', [])
+
+    # Also grab the original abstract patterns from the chain
+    # (we'll keep these as backup/context)
+    original_triggers = chain.get('triggers', {})
+    abstract_patterns = original_triggers.get('patterns', [])
+
+    # Build the searchable question field
+    # This is what semantic search will match against
+    # Format: Natural language examples first (most important for embedding),
+    # then keywords, then chain ID for reference
+    if natural_triggers:
+        # Use natural language - this is what fixes the embedding problem!
+        natural_text = ". ".join(natural_triggers)
+        keywords_text = ", ".join(keywords) if keywords else ""
+        question_field = f"{natural_text} | Keywords: {keywords_text} | Chain: {chain_id}"
+    else:
+        # Fallback to abstract patterns if no natural triggers defined
+        # (shouldn't happen, but defensive coding is wise)
+        trigger_text = " | ".join(abstract_patterns)
+        question_field = f"When {trigger_text} - chain_id: gale_chain_{chain_id}"
+        print(f"⚠️  No natural triggers for {chain_id}, using abstract patterns")
 
     # The full chain content as a formatted string
     # We're storing the ENTIRE reasoning process - that's the whole point
@@ -160,9 +189,12 @@ def format_for_storage(chain: dict) -> dict:
             "type": "reasoning_chain",
             "character": "gale",
             "chain_id": chain_id,
-            "triggers": trigger_text,
+            "natural_triggers_count": len(natural_triggers),
+            "keywords_count": len(keywords),
             "version": chain.get('version', '1.0')
-        }
+        },
+        # Store the formatted question for use in the storage call
+        "question_field": question_field
     }
 
     return storage_payload
@@ -194,11 +226,12 @@ async def store_chain_in_postcortex(session: ClientSession, payload: dict) -> bo
         # The tool name is 'update_conversation_context' based on post-cortex docs
         # Required fields: session_id, interaction_type, content
         # For 'qa' type, content needs 'question' and 'answer' fields
-        # The question contains searchable trigger patterns
+        # The question contains natural language triggers for semantic matching
         # The answer contains the full reasoning chain
 
-        # Get the trigger text for searchability
-        triggers = payload.get('metadata', {}).get('triggers', '')
+        # Get the question field we prepared (with natural language triggers!)
+        # This is the key fix - we're using actual phrases people say
+        question_field = payload.get('question_field', f"Chain: {chain_id}")
 
         result = await session.call_tool(
             "update_conversation_context",
@@ -206,7 +239,7 @@ async def store_chain_in_postcortex(session: ClientSession, payload: dict) -> bo
                 "session_id": GALE_SESSION_UUID,  # Our session for all Gale chains
                 "interaction_type": "qa",
                 "content": {
-                    "question": f"When {triggers} - chain_id: {chain_id}",  # Searchable trigger patterns
+                    "question": question_field,  # Natural language triggers for semantic matching!
                     "answer": payload['content']  # The full YAML chain data
                 }
             }

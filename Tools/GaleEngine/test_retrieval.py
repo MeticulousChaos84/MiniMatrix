@@ -33,58 +33,93 @@ POSTCORTEX_SSE_URL = "http://localhost:3737/sse"
 # ═══════════════════════════════════════════════════════════════════════════════
 
 # Each test case is a tuple: (stimulus, expected_chain_keywords)
-# The stimulus is what we're searching for
-# The expected_chain_keywords are words that should appear in the results
-# if the right chain was retrieved
+# The stimulus is what we're searching for - should be similar to natural triggers
+# The expected_chain_keywords are words that actually appear in the chain YAML
+#
+# IMPORTANT: These queries should be variations of our natural language triggers
+# to test if semantic search can find similar phrases. The keywords should be
+# words that actually exist in the chain content (not made-up keywords!)
 
 TEST_CASES = [
+    # ─────────────────────────────────────────────────────────────────────────
     # Test 1: Competence Criticism
-    # When someone questions his abilities, should trigger chain_competence_criticism
+    # Query similar to natural trigger, keywords from actual chain content
+    # ─────────────────────────────────────────────────────────────────────────
     (
-        "You're not as smart as you think you are",
-        ["competence", "criticism", "prowess", "questioned"]
+        "You're not as clever as you think you are",
+        ["competence", "criticism", "abilities", "worthless"]  # actual chain words
     ),
 
+    # ─────────────────────────────────────────────────────────────────────────
     # Test 2: Receiving Care
-    # When offered help/care, should trigger chain_receiving_care
+    # ─────────────────────────────────────────────────────────────────────────
     (
-        "Let me help you with that, you look exhausted",
-        ["receiving", "care", "help", "offered"]
+        "You should rest, I'll keep watch",
+        ["receiving", "care", "help", "burden"]  # actual chain words
     ),
 
-    # Test 3: Teaching Moment
-    # When there's an opportunity to share knowledge, should trigger teaching chain
+    # ─────────────────────────────────────────────────────────────────────────
+    # Test 3: Teaching Opportunity
+    # ─────────────────────────────────────────────────────────────────────────
     (
-        "How does that spell work? I've never understood the Weave",
-        ["teaching", "knowledge", "explain", "share"]
+        "How does that spell actually work?",
+        ["teaching", "opportunity", "knowledge", "enthusiasm"]  # actual chain words
     ),
 
+    # ─────────────────────────────────────────────────────────────────────────
     # Test 4: Vulnerability Request
-    # When asked to be emotionally open, should trigger vulnerability chain
+    # ─────────────────────────────────────────────────────────────────────────
     (
-        "Tell me how you really feel about what happened with Mystra",
-        ["vulnerability", "emotional", "feelings", "exposure"]
+        "What are you actually feeling right now?",
+        ["vulnerability", "request", "feelings", "hypothetical"]  # actual chain words
     ),
 
-    # Test 5: Abandonment Trigger
-    # When there's a hint of being left behind, should trigger abandonment chain
+    # ─────────────────────────────────────────────────────────────────────────
+    # Test 5: Abandonment Threat
+    # ─────────────────────────────────────────────────────────────────────────
     (
-        "Maybe it would be better if we went our separate ways",
-        ["abandonment", "leaving", "alone", "fear"]
+        "I think we should go our separate ways",
+        ["abandonment", "threat", "leaving", "Mystra"]  # actual chain words
     ),
 
+    # ─────────────────────────────────────────────────────────────────────────
     # Test 6: Genuine Appreciation
-    # When someone genuinely values him, should trigger appreciation chain
+    # ─────────────────────────────────────────────────────────────────────────
     (
-        "You're incredible and I don't know what I'd do without you",
-        ["appreciation", "genuine", "valued", "worth"]
+        "You matter to me, I need you to know that",
+        ["appreciation", "genuine", "worth", "touched"]  # actual chain words
     ),
 
-    # Test 7: Magic Discussion
-    # When there's technical magic talk, should trigger magic discussion chain
+    # ─────────────────────────────────────────────────────────────────────────
+    # Test 7: Mystra Discussion
+    # ─────────────────────────────────────────────────────────────────────────
     (
-        "What's the difference between evocation and transmutation?",
-        ["magic", "arcane", "technical", "Weave"]
+        "What happened with Mystra? Did you love her?",
+        ["mystra", "Chosen", "trauma", "goddess"]  # actual chain words
+    ),
+
+    # ─────────────────────────────────────────────────────────────────────────
+    # Test 8: Humor/Teasing
+    # ─────────────────────────────────────────────────────────────────────────
+    (
+        "There you go with the big words again",
+        ["humor", "teasing", "wit", "self-deprecating"]  # actual chain words
+    ),
+
+    # ─────────────────────────────────────────────────────────────────────────
+    # Test 9: Intimate Moments
+    # ─────────────────────────────────────────────────────────────────────────
+    (
+        "I love you, stay with me",
+        ["intimate", "moments", "love", "trust"]  # actual chain words
+    ),
+
+    # ─────────────────────────────────────────────────────────────────────────
+    # Test 10: Response to Children
+    # ─────────────────────────────────────────────────────────────────────────
+    (
+        "That child needs to be punished for what they did",
+        ["children", "protective", "transgression", "youth"]  # actual chain words
     ),
 ]
 
