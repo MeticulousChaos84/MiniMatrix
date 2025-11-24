@@ -292,8 +292,9 @@ function AddEventForm({
         // The HTML date input gives us "YYYY-MM-DD" format
         // Using new Date("1984-03-05T00:00:00") can be interpreted as UTC
         // in some browsers, which shifts the day. This way is explicit.
+        // We use NOON (12:00) to avoid DST issues - see calendarService ANCHOR comment.
         const [yearNum, monthNum, dayNum] = earthDate.split('-').map(Number);
-        const date = new Date(yearNum, monthNum - 1, dayNum); // month is 0-indexed in JS
+        const date = new Date(yearNum, monthNum - 1, dayNum, 12, 0, 0); // NOON local time
         newEvent = createEarthAnchoredEvent(
           title.trim(),
           type,

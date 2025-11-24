@@ -83,11 +83,14 @@ export const FESTIVALS = [
  * This is our clapper board moment. *CLAP*
  */
 export const ANCHOR = {
-  // Using explicit numbers creates LOCAL midnight, not UTC!
-  // new Date('1983-01-02T00:00:00') can be interpreted as UTC midnight,
-  // which is actually the previous evening in US timezones.
-  // new Date(year, month, day) is always local. Month is 0-indexed.
-  realDate: new Date(1983, 0, 2), // January 2, 1983 local time
+  // Using explicit numbers creates LOCAL time, not UTC!
+  // IMPORTANT: We use NOON (12:00) instead of midnight to avoid DST issues.
+  // When calculating days between dates using milliseconds, DST can cause
+  // the difference to be off by an hour. Using noon gives us a 12-hour buffer
+  // so even if DST shifts things, we're still solidly in the correct day.
+  // It's like meeting someone "around lunchtime" instead of "at the stroke of midnight" -
+  // much more forgiving if one of you is running an hour late.
+  realDate: new Date(1983, 0, 2, 12, 0, 0), // January 2, 1983 at NOON local time
   faerunYear: 1453,
   faerunDayOfYear: 1, // Hammer 1
 };

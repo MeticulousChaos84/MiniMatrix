@@ -84,8 +84,9 @@ function CalendarView() {
     }
 
     // Actual days of the month
+    // Use NOON to avoid DST calculation issues (see calendarService ANCHOR)
     for (let day = 1; day <= daysInMonth; day++) {
-      days.push(new Date(year, month, day));
+      days.push(new Date(year, month, day, 12, 0, 0));
     }
 
     // Trailing empty cells (to complete the grid)
