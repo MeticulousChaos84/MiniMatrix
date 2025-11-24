@@ -187,16 +187,17 @@ async def store_chain_in_postcortex(session: ClientSession, payload: dict) -> bo
     try:
         # Call the post-cortex tool to store our context
         # The tool name is 'update_conversation_context' based on post-cortex docs
-        # interaction_type can be: qa, decision, problem, code_change
-        # For 'qa' type, content needs to be a dict with question/answer structure
+        # Required fields: session_id, interaction_type, content
+        # content must be a dict with string key-value pairs
         result = await session.call_tool(
             "update_conversation_context",
             {
+                "session_id": "gale_reasoning_engine",  # Our session for all Gale chains
+                "interaction_type": "qa",
                 "content": {
-                    "question": f"Gale reasoning chain: {chain_id} - triggers and patterns",
-                    "answer": payload['content']  # The full YAML chain data
-                },
-                "interaction_type": "qa"
+                    "chain_id": chain_id,
+                    "data": payload['content']  # The full YAML chain data
+                }
             }
         )
 
