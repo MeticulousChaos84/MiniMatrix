@@ -213,6 +213,23 @@ async def run_all_tests():
                 except Exception as e:
                     print(f"   ⚠️ Could not check session: {e}")
 
+                # Get actual content summary - what did post-cortex capture?
+                try:
+                    summary = await session.call_tool(
+                        "get_structured_summary",
+                        {"session_id": GALE_SESSION_UUID}
+                    )
+                    if summary and not summary.isError:
+                        summary_text = summary.content[0].text if summary.content else "No summary"
+                        print(f"\n   📊 Session Summary:")
+                        # Show first 800 chars of summary
+                        for line in summary_text[:800].split('\n'):
+                            print(f"      {line}")
+                        if len(summary_text) > 800:
+                            print(f"      ... (truncated)")
+                except Exception as e:
+                    print(f"   ⚠️ Could not get summary: {e}")
+
                 # Also list available sessions to see what's there
                 try:
                     sessions_list = await session.call_tool("list_sessions", {})
