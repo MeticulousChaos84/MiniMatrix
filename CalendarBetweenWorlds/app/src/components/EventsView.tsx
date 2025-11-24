@@ -24,6 +24,7 @@ import {
   createEarthAnchoredEvent,
   createFaerunAnchoredEvent,
   getEventFaerunDate,
+  parseLocalDate,  // THE TIMEZONE BUG SLAYER - use this instead of new Date(string)!
 } from '../services/eventService';
 import {
   formatFaerunDate,
@@ -178,7 +179,11 @@ function EventCard({
   onDelete: () => void;
 }) {
   const faerunDate = getEventFaerunDate(event);
-  const earthDate = new Date(event.earthDate);
+  // CRITICAL FIX: Use parseLocalDate, NOT new Date(string)!
+  // new Date("1984-03-05") parses as UTC midnight which becomes
+  // March 4 at 6pm in Central Time. That's the bug!
+  // parseLocalDate treats the string as LOCAL noon time - always correct.
+  const earthDate = parseLocalDate(event.earthDate);
 
   const earthFormatted = earthDate.toLocaleDateString('en-US', {
     month: 'long',

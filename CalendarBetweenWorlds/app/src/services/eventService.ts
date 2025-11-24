@@ -31,6 +31,55 @@ import {
 } from './calendarService';
 
 // =============================================================================
+// DATE STRING PARSING - The Timezone Trap Slayer
+// =============================================================================
+
+/**
+ * Parse a date string like "1984-03-05" into a Date object using LOCAL time.
+ *
+ * THIS IS THE FIX FOR THE TIMEZONE BUG!
+ *
+ * The problem: new Date("1984-03-05") parses as UTC midnight.
+ * If you're in Central Time (UTC-6), that becomes March 4 at 6 PM local.
+ * Then when you call .getDate(), you get 4 instead of 5. WRONG!
+ *
+ * The solution: Parse the string manually and create a Date with explicit
+ * year/month/day, which JavaScript treats as LOCAL time.
+ *
+ * It's like the difference between:
+ * - "Meet me at midnight" (UTC - could be yesterday for you)
+ * - "Meet me at midnight YOUR time" (local - always correct)
+ *
+ * We use NOON (12:00) to avoid DST edge cases too - if DST shifts
+ * things by an hour, we're still solidly in the right day.
+ *
+ * @param dateStr - ISO date string like "1984-03-05"
+ * @returns Date object set to noon local time on that date
+ */
+export function parseLocalDate(dateStr: string): Date {
+  const [year, month, day] = dateStr.split('-').map(Number);
+  // Month is 0-indexed in JavaScript because... JavaScript.
+  // Also using noon to avoid DST issues - see calendarService ANCHOR comment.
+  return new Date(year, month - 1, day, 12, 0, 0);
+}
+
+/**
+ * Format a Date object to ISO date string using LOCAL time.
+ *
+ * The counterpart to parseLocalDate. Uses the date's local values,
+ * not UTC, so March 5 stays March 5 no matter your timezone.
+ *
+ * @param date - Date object to format
+ * @returns ISO date string like "1984-03-05"
+ */
+export function formatLocalDateString(date: Date): string {
+  const year = date.getFullYear();
+  const month = String(date.getMonth() + 1).padStart(2, '0');
+  const day = String(date.getDate()).padStart(2, '0');
+  return `${year}-${month}-${day}`;
+}
+
+// =============================================================================
 // LOCAL STORAGE - Our Database (the Simple Way)
 // =============================================================================
 
@@ -282,7 +331,9 @@ export function getAllEvents(): CalendarEvent[] {
  */
 export function getEventsForEarthDate(date: Date): CalendarEvent[] {
   const events = loadEvents();
-  const targetDateStr = date.toISOString().split('T')[0];
+  // Use LOCAL date formatting, not toISOString() which converts to UTC!
+  // The toISOString() trap is how March 5 becomes March 4 in the Americas.
+  const targetDateStr = formatLocalDateString(date);
   const targetMonth = date.getMonth();
   const targetDay = date.getDate();
 
@@ -294,7 +345,9 @@ export function getEventsForEarthDate(date: Date): CalendarEvent[] {
 
     // Recurring event match (same month and day, any year)
     if (event.recurring) {
-      const eventDate = new Date(event.earthDate);
+      // CRITICAL: Use parseLocalDate, not new Date(string)!
+      // new Date("1984-03-05") parses as UTC midnight = wrong day in local time
+      const eventDate = parseLocalDate(event.earthDate);
       return eventDate.getMonth() === targetMonth &&
              eventDate.getDate() === targetDay;
     }
@@ -356,7 +409,8 @@ export function getEventsByType(type: CalendarEvent['type']): CalendarEvent[] {
  */
 export function getEventEarthDate(event: CalendarEvent, forYear?: number): Date {
   if (event.anchorCalendar === 'earth') {
-    const date = new Date(event.earthDate);
+    // Use parseLocalDate to avoid the UTC midnight trap!
+    const date = parseLocalDate(event.earthDate);
     if (forYear) {
       date.setFullYear(forYear);
     }
@@ -364,7 +418,7 @@ export function getEventEarthDate(event: CalendarEvent, forYear?: number): Date 
   } else {
     // Faerûn-anchored: calculate Earth date
     const targetYear = forYear
-      ? event.faerunYear + (forYear - new Date(event.earthDate).getFullYear())
+      ? event.faerunYear + (forYear - parseLocalDate(event.earthDate).getFullYear())
       : event.faerunYear;
     return faerunToEarth(targetYear, event.faerunDayOfYear);
   }
