@@ -108,10 +108,12 @@ async def test_semantic_search(session: ClientSession, query: str, expected_keyw
 
     try:
         # Call the semantic search tool
-        # This searches across ALL stored contexts in post-cortex
+        # Using semantic_search_session to search ONLY the reasoning chains session
+        # This prevents Gale's memories from outranking the cognitive templates
         result = await session.call_tool(
-            "semantic_search_global",
+            "semantic_search_session",
             {
+                "session_id": GALE_SESSION_UUID,  # Only search our chains session!
                 "query": query,
                 "limit": 3  # Get top 3 matches
             }
@@ -180,14 +182,16 @@ async def run_all_tests():
                 print("✅ Connected to post-cortex!")
                 print()
 
-                # List available tools to make sure semantic_search_global exists
+                # List available tools to make sure semantic_search_session exists
                 tools = await session.list_tools()
                 tool_names = [t.name for t in tools.tools]
 
-                if "semantic_search_global" not in tool_names:
-                    print("❌ semantic_search_global tool not found!")
+                if "semantic_search_session" not in tool_names:
+                    print("❌ semantic_search_session tool not found!")
                     print(f"   Available tools: {tool_names}")
                     return
+
+                print(f"📍 Searching only in chains session: {GALE_SESSION_UUID[:8]}...")
 
                 print(f"🔍 Running {len(TEST_CASES)} retrieval tests...")
                 print()
