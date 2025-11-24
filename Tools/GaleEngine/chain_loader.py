@@ -24,6 +24,7 @@ import re
 import yaml
 import json
 import asyncio
+import uuid
 from pathlib import Path
 from typing import Optional
 
@@ -31,6 +32,10 @@ from typing import Optional
 # This is the official way to talk to MCP servers like post-cortex
 from mcp import ClientSession
 from mcp.client.sse import sse_client
+
+# Generate a consistent UUID for the Gale reasoning engine session
+# Using uuid5 with a namespace so it's always the same UUID for the same name
+GALE_SESSION_UUID = str(uuid.uuid5(uuid.NAMESPACE_DNS, "gale.reasoning.engine"))
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # CONFIGURATION - The coordinates of our memory palace
@@ -192,7 +197,7 @@ async def store_chain_in_postcortex(session: ClientSession, payload: dict) -> bo
         result = await session.call_tool(
             "update_conversation_context",
             {
-                "session_id": "gale_reasoning_engine",  # Our session for all Gale chains
+                "session_id": GALE_SESSION_UUID,  # Our session for all Gale chains
                 "interaction_type": "qa",
                 "content": {
                     "chain_id": chain_id,
