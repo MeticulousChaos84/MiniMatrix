@@ -14,6 +14,8 @@
 
 import { useState, useEffect } from 'react';
 import TodayView from './components/TodayView';
+import CalendarView from './components/CalendarView';
+import EventsView from './components/EventsView';
 import { createDefaultEvents } from './services/eventService';
 
 /**
@@ -41,8 +43,8 @@ function App() {
       {/* Main content area */}
       <main className="app-main">
         {currentView === 'today' && <TodayView />}
-        {currentView === 'calendar' && <div>Calendar view coming soon!</div>}
-        {currentView === 'events' && <div>Events view coming soon!</div>}
+        {currentView === 'calendar' && <CalendarView />}
+        {currentView === 'events' && <EventsView />}
       </main>
 
       {/* Navigation tabs */}
