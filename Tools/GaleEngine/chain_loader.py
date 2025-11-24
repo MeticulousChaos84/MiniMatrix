@@ -193,15 +193,21 @@ async def store_chain_in_postcortex(session: ClientSession, payload: dict) -> bo
         # Call the post-cortex tool to store our context
         # The tool name is 'update_conversation_context' based on post-cortex docs
         # Required fields: session_id, interaction_type, content
-        # content must be a dict with string key-value pairs
+        # For 'qa' type, content needs 'question' and 'answer' fields
+        # The question contains searchable trigger patterns
+        # The answer contains the full reasoning chain
+
+        # Get the trigger text for searchability
+        triggers = payload.get('metadata', {}).get('triggers', '')
+
         result = await session.call_tool(
             "update_conversation_context",
             {
                 "session_id": GALE_SESSION_UUID,  # Our session for all Gale chains
                 "interaction_type": "qa",
                 "content": {
-                    "chain_id": chain_id,
-                    "data": payload['content']  # The full YAML chain data
+                    "question": f"When {triggers} - chain_id: {chain_id}",  # Searchable trigger patterns
+                    "answer": payload['content']  # The full YAML chain data
                 }
             }
         )
