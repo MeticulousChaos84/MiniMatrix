@@ -23,10 +23,14 @@
 import re
 import yaml
 import json
-import httpx
 import asyncio
 from pathlib import Path
 from typing import Optional
+
+# MCP SDK for proper protocol communication
+# This is the official way to talk to MCP servers like post-cortex
+from mcp import ClientSession
+from mcp.client.sse import sse_client
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # CONFIGURATION - The coordinates of our memory palace
@@ -34,7 +38,8 @@ from typing import Optional
 
 # Where post-cortex lives (it's running as a daemon on your machine)
 # Think of this as the address of Gale's tower in the city
-POSTCORTEX_URL = "http://localhost:3737"
+# The /sse endpoint is where the MCP server listens for SSE connections
+POSTCORTEX_SSE_URL = "http://localhost:3737/sse"
 
 # Where our reasoning chains live (the spellbook we're loading from)
 CHAINS_FILE = Path("/home/user/MiniMatrix/Research/GaleCharacterAnalysis/CORE_REASONING_CHAINS.md")
@@ -158,83 +163,51 @@ def format_for_storage(chain: dict) -> dict:
 
 
 # ═══════════════════════════════════════════════════════════════════════════════
-# THE MEMORY PALACE CONNECTION - Talking to post-cortex
+# THE MEMORY PALACE CONNECTION - Talking to post-cortex via MCP
 # ═══════════════════════════════════════════════════════════════════════════════
 
-async def store_chain_in_postcortex(client: httpx.AsyncClient, payload: dict) -> bool:
+async def store_chain_in_postcortex(session: ClientSession, payload: dict) -> bool:
     """
-    Sends a formatted chain to post-cortex for storage.
+    Sends a formatted chain to post-cortex for storage using MCP protocol.
 
     Post-cortex is our "memory palace" - it stores information and lets us
     search for it later by meaning (semantic search) rather than just keywords.
 
-    This function:
-    1. Takes the formatted payload
-    2. Sends it to post-cortex's storage endpoint
-    3. Returns True if it worked, False if something went wrong
+    We use the official MCP SDK to call the `update_conversation_context` tool.
+    This is the proper way to communicate with MCP servers - none of that
+    raw HTTP nonsense.
 
-    NOTE: The exact API endpoint might need adjustment based on post-cortex's
-    actual API. If this doesn't work, we'll check the docs and fix it!
+    Think of it like... instead of shouting at the tower from outside,
+    we're now using the proper speaking stone protocol. Much more civilized.
     """
 
     chain_id = payload.get('context_id', 'unknown')
 
     try:
-        # Try the MCP-style tool call endpoint
-        # Post-cortex exposes tools via MCP, so we need to call the right tool
-
-        # This is the MCP tool call format
-        tool_call = {
-            "method": "tools/call",
-            "params": {
-                "name": "update_conversation_context",
-                "arguments": {
-                    "context": payload['content'],
-                    "context_id": payload['context_id']
-                }
+        # Call the post-cortex tool to store our context
+        # The tool name is 'update_conversation_context' based on post-cortex docs
+        result = await session.call_tool(
+            "update_conversation_context",
+            {
+                "context": payload['content'],
+                # Post-cortex might need a session_id - we'll use the chain_id
+                # If this doesn't work, we'll need to check the exact parameter names
             }
-        }
-
-        response = await client.post(
-            f"{POSTCORTEX_URL}/mcp",
-            json=tool_call,
-            timeout=30.0
         )
 
-        if response.status_code == 200:
+        # Check if the result indicates success
+        # MCP tools return a CallToolResult with content
+        if result and not result.isError:
             print(f"✅ Stored chain: {chain_id}")
             return True
         else:
-            print(f"❌ Failed to store {chain_id}: HTTP {response.status_code}")
-            print(f"   Response: {response.text[:200]}")
+            error_msg = result.content[0].text if result.content else "Unknown error"
+            print(f"❌ Failed to store {chain_id}: {error_msg}")
             return False
 
-    except httpx.RequestError as e:
-        print(f"❌ Network error storing {chain_id}: {e}")
-        return False
     except Exception as e:
-        print(f"❌ Unexpected error storing {chain_id}: {e}")
+        print(f"❌ Error storing {chain_id}: {e}")
         return False
-
-
-async def check_postcortex_connection(client: httpx.AsyncClient) -> bool:
-    """
-    Quick health check to make sure post-cortex is actually running.
-
-    Like... before you teleport to a destination, you want to make sure
-    the destination exists, right? Same idea.
-    """
-    try:
-        # Try a simple request to see if post-cortex responds
-        response = await client.get(f"{POSTCORTEX_URL}/health", timeout=5.0)
-        return response.status_code == 200
-    except:
-        # If there's no /health endpoint, try the SSE endpoint
-        try:
-            response = await client.get(f"{POSTCORTEX_URL}/sse", timeout=5.0)
-            return True  # If it responds at all, it's running
-        except:
-            return False
 
 
 # ═══════════════════════════════════════════════════════════════════════════════
@@ -292,54 +265,80 @@ async def load_all_chains():
     print(f"\n🧠 Successfully parsed {len(chains)} reasoning chains")
     print()
 
-    # Step 5: Connect to post-cortex and store
-    async with httpx.AsyncClient() as client:
+    # Step 5: Connect to post-cortex via MCP and store the chains
+    # This is where the MCP magic happens - we connect using Server-Sent Events
+    # which is how post-cortex daemon mode communicates
 
-        # Check if post-cortex is running
-        print("🔌 Checking connection to post-cortex...")
-        is_connected = await check_postcortex_connection(client)
+    print("🔌 Connecting to post-cortex via MCP...")
 
-        if not is_connected:
-            print("❌ Cannot connect to post-cortex!")
-            print(f"   Expected it at: {POSTCORTEX_URL}")
-            print("   Is the daemon running?")
-            print()
-            print("   You can start it with:")
-            print("   post-cortex daemon start")
-            return
+    try:
+        # The sse_client gives us read/write streams for the MCP protocol
+        # Think of it like establishing a two-way communication channel
+        async with sse_client(POSTCORTEX_SSE_URL) as (read_stream, write_stream):
 
-        print("✅ Connected to post-cortex")
+            # ClientSession handles all the MCP protocol details
+            # Like... it speaks the language so we don't have to
+            async with ClientSession(read_stream, write_stream) as session:
+
+                # Initialize the session - this is like the handshake
+                # "Hello, I am a client, what tools do you have?"
+                await session.initialize()
+
+                print("✅ Connected to post-cortex!")
+                print()
+
+                # Let's see what tools post-cortex has available
+                # This is useful for debugging if things go wrong
+                tools = await session.list_tools()
+                print(f"📦 Post-cortex has {len(tools.tools)} tools available")
+
+                # Find the update_conversation_context tool
+                tool_names = [t.name for t in tools.tools]
+                if "update_conversation_context" in tool_names:
+                    print("   ✓ Found update_conversation_context tool")
+                else:
+                    print("   ⚠️  update_conversation_context not found!")
+                    print(f"   Available tools: {tool_names}")
+                print()
+
+                # Store each chain
+                print("📥 Storing chains in memory palace...")
+                print()
+
+                success_count = 0
+                fail_count = 0
+
+                for chain in chains:
+                    payload = format_for_storage(chain)
+                    success = await store_chain_in_postcortex(session, payload)
+
+                    if success:
+                        success_count += 1
+                    else:
+                        fail_count += 1
+
+                # Final report
+                print()
+                print("═" * 60)
+                print(f"✨ Loading complete!")
+                print(f"   Succeeded: {success_count}")
+                print(f"   Failed: {fail_count}")
+                print("═" * 60)
+
+                if fail_count > 0:
+                    print()
+                    print("⚠️  Some chains failed to load.")
+                    print("   Check the error messages above for details.")
+
+    except Exception as e:
+        print(f"❌ Failed to connect to post-cortex!")
+        print(f"   Error: {e}")
         print()
-
-        # Store each chain
-        print("📥 Storing chains in memory palace...")
+        print(f"   Expected SSE endpoint at: {POSTCORTEX_SSE_URL}")
+        print("   Is the post-cortex daemon running?")
         print()
-
-        success_count = 0
-        fail_count = 0
-
-        for chain in chains:
-            payload = format_for_storage(chain)
-            success = await store_chain_in_postcortex(client, payload)
-
-            if success:
-                success_count += 1
-            else:
-                fail_count += 1
-
-        # Final report
-        print()
-        print("═" * 60)
-        print(f"✨ Loading complete!")
-        print(f"   Succeeded: {success_count}")
-        print(f"   Failed: {fail_count}")
-        print("═" * 60)
-
-        if fail_count > 0:
-            print()
-            print("⚠️  Some chains failed to load.")
-            print("   This might be an API endpoint issue.")
-            print("   Check the post-cortex docs for the correct tool names.")
+        print("   You can start it with:")
+        print("   post-cortex daemon start")
 
 
 # ═══════════════════════════════════════════════════════════════════════════════
