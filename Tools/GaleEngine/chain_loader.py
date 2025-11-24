@@ -42,7 +42,8 @@ from mcp.client.sse import sse_client
 POSTCORTEX_SSE_URL = "http://localhost:3737/sse"
 
 # Where our reasoning chains live (the spellbook we're loading from)
-CHAINS_FILE = Path("/home/user/MiniMatrix/Research/GaleCharacterAnalysis/CORE_REASONING_CHAINS.md")
+# This path goes through WSL's /mnt/c/ to reach the Windows file system
+CHAINS_FILE = Path("/mnt/c/Users/graha/OneDrive/Documents/GitHub/MiniMatrix/Research/GaleCharacterAnalysis/CORE_REASONING_CHAINS.md")
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # THE SCROLL PARSER - Extracting spells from the spellbook
