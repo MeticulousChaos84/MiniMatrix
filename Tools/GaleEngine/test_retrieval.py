@@ -193,6 +193,43 @@ async def run_all_tests():
 
                 print(f"📍 Searching only in chains session: {GALE_SESSION_UUID[:8]}...")
 
+                # DEBUG: Check if our session actually exists and has content
+                print(f"\n🔍 DEBUG: Checking session status...")
+                try:
+                    # Try to load the session to see if it exists
+                    session_check = await session.call_tool(
+                        "load_session",
+                        {"session_id": GALE_SESSION_UUID}
+                    )
+                    if session_check and not session_check.isError:
+                        session_info = session_check.content[0].text if session_check.content else "No info"
+                        print(f"   ✅ Session exists!")
+                        # Show first 300 chars of session info
+                        print(f"   Info: {session_info[:300]}...")
+                    else:
+                        print(f"   ❌ Session not found or error loading")
+                        if session_check.content:
+                            print(f"   Error: {session_check.content[0].text}")
+                except Exception as e:
+                    print(f"   ⚠️ Could not check session: {e}")
+
+                # Also list available sessions to see what's there
+                try:
+                    sessions_list = await session.call_tool("list_sessions", {})
+                    if sessions_list and not sessions_list.isError:
+                        list_text = sessions_list.content[0].text if sessions_list.content else ""
+                        print(f"\n   📋 Available sessions:")
+                        # Show first few sessions
+                        for line in list_text.split('\n')[:10]:
+                            if line.strip():
+                                print(f"      {line.strip()}")
+                        if list_text.count('\n') > 10:
+                            print(f"      ... and more")
+                except Exception as e:
+                    print(f"   ⚠️ Could not list sessions: {e}")
+
+                print()
+
                 print(f"🔍 Running {len(TEST_CASES)} retrieval tests...")
                 print()
 
