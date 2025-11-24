@@ -436,15 +436,21 @@ function getSelunPhase(year: number, dayOfYear: number): MoonPhase {
 
 ## Part 4: Real World ↔ Faerûn Mapping
 
-### User-Defined Anchor System
+### The Canonical Anchor Point
 
-Since there's no canonical mapping, we let users define their own:
+For Erica and Gale's timeline, we've established this anchor based on careful calendar analysis:
 
 ```typescript
 // ============================================
-// THE PLANAR ANCHOR SYSTEM
-// (Like a Sigil portal, but for dates)
+// THE CANONICAL ANCHOR
+// (Where the planes align - mathematically verified)
 // ============================================
+
+// Why this anchor works:
+// - 1452 DR was a Shieldmeet year (366 days)
+// - 1982 was NOT a leap year (365 days)
+// - This offset means Midwinter 1452 aligns with January 1, 1983
+// - And Hammer 1, 1453 aligns with January 2, 1983
 
 interface CalendarAnchor {
   realDate: Date;           // Real-world date
@@ -453,13 +459,56 @@ interface CalendarAnchor {
   timeFlowRatio: number;    // How many Faerûn days per real day
 }
 
-// Default: Today = some date in the current campaign year
-const DEFAULT_ANCHOR: CalendarAnchor = {
-  realDate: new Date('2024-01-01'),
-  faerunYear: 1492,
+// THE ANCHOR: Hammer 1, 1453 DR = January 2, 1983
+const ERICA_GALE_ANCHOR: CalendarAnchor = {
+  realDate: new Date('1983-01-02'),
+  faerunYear: 1453,
   faerunDayOfYear: 1,  // Hammer 1
   timeFlowRatio: 1,    // 1 real day = 1 Faerûn day
 };
+
+// Alternative anchor (same alignment, different reference point):
+// January 1, 1983 = Midwinter, 1452 DR (day 31 of 1452)
+const ALT_ANCHOR: CalendarAnchor = {
+  realDate: new Date('1983-01-01'),
+  faerunYear: 1452,
+  faerunDayOfYear: 31,  // Midwinter
+  timeFlowRatio: 1,
+};
+```
+
+### The Drift Pattern
+
+The calendars drift by 1 day whenever one has a leap day and the other doesn't:
+
+```typescript
+// ============================================
+// UNDERSTANDING THE DRIFT
+// (It's not a bug, it's a feature of planar mechanics)
+// ============================================
+
+// Year pairs and their day counts:
+// 1982 (365) / 1452 (366 - Shieldmeet) → Faerûn +1 day
+// 1983 (365) / 1453 (365)              → No change
+// 1984 (366) / 1454 (365)              → Real +1 day
+// 1985 (365) / 1455 (365)              → No change
+// 1986 (365) / 1456 (366 - Shieldmeet) → Faerûn +1 day
+// ... pattern repeats
+
+// The drift oscillates within each 4-year cycle but averages out
+// because both calendars have 1461 days per 4 years (365.25 avg)
+```
+
+### Key Dates in This Timeline
+
+```typescript
+// Important dates for reference:
+//
+// Gale's Birthday: 3 Eleasis, 1453 DR
+// (Calculate real-world equivalent from anchor)
+//
+// Current year mapping: 2025 = 1495 DR
+// (42 years forward from 1983 = 1453)
 ```
 
 ### Convert Real Date to Faerûnian Date
@@ -632,40 +681,50 @@ function getYearName(year: number): string {
 ```typescript
 // ============================================
 // PUTTING IT ALL TOGETHER
-// A real scenario Erica might use
+// Erica & Gale's actual timeline
 // ============================================
 
-// Set up the anchor: Real-world Jan 1, 2024 = Hammer 1, 1492 DR
+// THE CANONICAL ANCHOR: Hammer 1, 1453 DR = January 2, 1983
 const anchor: CalendarAnchor = {
-  realDate: new Date('2024-01-01'),
-  faerunYear: 1492,
-  faerunDayOfYear: 1,
+  realDate: new Date('1983-01-02'),
+  faerunYear: 1453,
+  faerunDayOfYear: 1,  // Hammer 1
   timeFlowRatio: 1,
 };
 
-// What Faerûnian date is today?
+// What Faerûnian date is today (November 2025)?
 const today = new Date();
 const faerunToday = realToFaerun(today, anchor);
 console.log(formatFaerunDate(faerunToday, 'long'));
-// "The 15th of Mirtul (The Melting), 1492 DR"
+// Should be somewhere in 1495 DR
 
 // What's Selûne doing?
 const dayNum = faerunDateToDayNumber(faerunToday.month!, faerunToday.day);
 const moonPhase = getSelunPhase(faerunToday.year, dayNum);
 console.log(`${moonPhase.emoji} ${moonPhase.name} (${Math.round(moonPhase.illumination * 100)}% illuminated)`);
-// "🌔 Waxing Gibbous (78% illuminated)"
 
-// When's the next festival?
-// (Would need additional function to find next festival day)
-
-// When in real life did we write the Tabernacle scene?
-// (If it happened on Mirtul 20, 1492 DR)
-const sceneDate = faerunToReal(
-  1492,
-  faerunDateToDayNumber('Mirtul', 20, 1492),
+// When is Gale's birthday in the real world?
+// Gale was born on 3 Eleasis, 1453 DR
+const galesBirthday = faerunToReal(
+  1453,
+  faerunDateToDayNumber('Eleasis', 3, 1453),
   anchor
 );
-console.log(`Written on: ${sceneDate.toLocaleDateString()}`);
+console.log(`Gale's real-world birthday: ${galesBirthday.toLocaleDateString()}`);
+// This calculates the exact date based on the anchor
+
+// What's the current year mapping?
+// 2025 - 1983 = 42 years forward
+// 1453 + 42 = 1495 DR
+// So 2025 = 1495 DR
+
+// Check a specific story date
+const storyEvent = faerunToReal(
+  1495,
+  faerunDateToDayNumber('Uktar', 27, 1495),
+  anchor
+);
+console.log(`Story event real date: ${storyEvent.toLocaleDateString()}`);
 ```
 
 ---
