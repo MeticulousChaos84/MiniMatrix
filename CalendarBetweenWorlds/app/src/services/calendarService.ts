@@ -83,7 +83,11 @@ export const FESTIVALS = [
  * This is our clapper board moment. *CLAP*
  */
 export const ANCHOR = {
-  realDate: new Date('1983-01-02T00:00:00'),
+  // Using explicit numbers creates LOCAL midnight, not UTC!
+  // new Date('1983-01-02T00:00:00') can be interpreted as UTC midnight,
+  // which is actually the previous evening in US timezones.
+  // new Date(year, month, day) is always local. Month is 0-indexed.
+  realDate: new Date(1983, 0, 2), // January 2, 1983 local time
   faerunYear: 1453,
   faerunDayOfYear: 1, // Hammer 1
 };
