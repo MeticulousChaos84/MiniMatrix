@@ -187,12 +187,13 @@ async def store_chain_in_postcortex(session: ClientSession, payload: dict) -> bo
     try:
         # Call the post-cortex tool to store our context
         # The tool name is 'update_conversation_context' based on post-cortex docs
+        # interaction_type can be: qa, decision, problem, code_change
+        # We're using 'qa' since reasoning chains are like Q&A patterns
         result = await session.call_tool(
             "update_conversation_context",
             {
                 "context": payload['content'],
-                # Post-cortex might need a session_id - we'll use the chain_id
-                # If this doesn't work, we'll need to check the exact parameter names
+                "interaction_type": "qa"
             }
         )
 
