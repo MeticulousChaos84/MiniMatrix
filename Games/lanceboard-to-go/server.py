@@ -513,16 +513,20 @@ def lanceboard_resign() -> dict[str, Any]:
 # =============================================================================
 
 if __name__ == "__main__":
-    # Run with HTTP transport on port 8000
-    # This makes it accessible via http://localhost:8000 (or your domain)
+    # Run with HTTP transport
+    # Port is configurable via environment variable (for hosting platforms)
+    # or defaults to 8000 for local testing
     #
-    # When you upload to your web host, you'll configure it to run this
-    # on whatever port/domain you want, and then you can add that URL
-    # to Claude as a remote MCP server!
+    # Fly.io, Railway, Heroku, etc. all set a PORT environment variable
+    # that tells your app which port to listen on. We need to use it!
     #
     # 🛏️♟️ BEDTIME CHESS ACTIVATED 🛏️♟️
 
-    mcp.run(transport="http", host="0.0.0.0", port=8000)
+    import os
+    port = int(os.environ.get("PORT", 8000))
+
+    print(f"🎲 Lanceboard-To-Go starting on port {port}...")
+    mcp.run(transport="http", host="0.0.0.0", port=port)
 
 
 # =============================================================================
