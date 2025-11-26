@@ -1,0 +1,15 @@
+# Lanceboard-To-Go Dependencies
+# ================================
+# The magical ingredients for playing chess with Gale FROM YOUR PHONE! 📱♟️
+
+# python-chess: The chess logic library that handles all the rules
+# Move validation, check detection, castling, en passant - does EVERYTHING
+python-chess>=1.9.0
+
+# fastmcp: The EASY way to make MCP servers with HTTP transport
+# This handles all the MCP protocol stuff, HTTP endpoints, and makes
+# your chess game accessible from anywhere on the internet!
+fastmcp>=0.2.0
+
+# Note: fastmcp includes fastapi and uvicorn, so we don't need to specify them separately!
+# It's all bundled in one nice package. Work smarter, not harder!
