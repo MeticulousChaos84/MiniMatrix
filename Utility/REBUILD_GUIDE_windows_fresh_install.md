@@ -460,6 +460,508 @@ Windows Defender automatically disables itself. Most third-party AVs are less ag
 
 ---
 
+## Performance Tweaks & Optimization
+
+### Your Hardware Specs
+
+For reference (your current build):
+- CPU: Intel i7-11700 (11th gen, 8 cores, 2.50 GHz base)
+- RAM: 16GB
+- GPU 1: Intel UHD 750 (integrated on CPU)
+- GPU 2: NVIDIA GeForce GTX 1650 Super (discrete)
+- Storage: 500GB HDD (C:) + 1TB SSD (D:)
+- OS: Windows 11 Home
+- Monitors: Dual monitor setup
+
+### 1. Paging File (Virtual Memory) Setup
+
+**What it is:** When RAM gets full, Windows swaps data to disk. The "page file" is that swap space.
+
+**The problem:** By default, Windows puts it on C: and sizes it dynamically, which fragments your HDD.
+
+**The solution:** Put it on D: (SSD = faster) with a fixed size.
+
+**How to configure:**
+
+1. Press `Win + Pause` (or right-click This PC → Properties)
+2. Click "Advanced system settings"
+3. Under Performance, click "Settings"
+4. Go to "Advanced" tab
+5. Under Virtual Memory, click "Change"
+
+**Current setup will show:**
+- C: drive with "System managed size" (BAD)
+
+**Change it to:**
+
+```
+[✓] Automatically manage paging file size for all drives (UNCHECK THIS)
+
+C: drive
+  ( ) System managed size
+  (•) No paging file            ← Select this
+  [Set]
+
+D: drive
+  ( ) System managed size
+  (•) Custom size:              ← Select this
+      Initial size (MB): 4096   ← 4GB (quarter of your RAM)
+      Maximum size (MB): 8192   ← 8GB (half of your RAM)
+  [Set]
+```
+
+**Why these numbers:**
+- With 16GB RAM, you rarely need page file
+- 4-8GB is plenty for edge cases
+- Fixed size prevents fragmentation
+- SSD makes it much faster when needed
+
+**Alternative - Disable Entirely:**
+If you have 16GB+ and don't run VMs:
+```
+C: → No paging file
+D: → No paging file
+```
+
+This frees up 4-8GB of disk space. Windows will warn you - ignore it. Modern systems with 16GB+ don't need page files for normal use.
+
+**After changing:**
+- Click "Set" for each drive
+- Click "OK" on all dialogs
+- Reboot (required for changes to take effect)
+
+---
+
+### 2. Dual GPU Setup (Intel + NVIDIA)
+
+**The problem:** Windows might use the weak Intel GPU for things that should use the NVIDIA card.
+
+**The goal:** Intel for desktop/2D, NVIDIA for games/AI/heavy lifting.
+
+#### Configure NVIDIA Control Panel
+
+**Step 1: Set Global Default to NVIDIA**
+
+1. Right-click Desktop → "NVIDIA Control Panel"
+2. Navigate: "Manage 3D Settings" → "Global Settings" tab
+3. "Preferred graphics processor" → Select "High-performance NVIDIA processor"
+4. Click "Apply"
+
+**Step 2: Set Per-Application Preferences**
+
+Still in NVIDIA Control Panel:
+1. "Program Settings" tab
+2. Click "Add" and select applications:
+   - Python.exe → High-performance NVIDIA
+   - Code.exe (VS Code) → High-performance NVIDIA
+   - Any games → High-performance NVIDIA
+   - Chrome/Firefox → Integrated graphics (saves power)
+
+**Step 3: Windows Graphics Settings**
+
+Windows 11 has its own GPU preference system:
+
+```
+Settings → System → Display → Graphics
+```
+
+Click "Browse" and add:
+- `D:\Dev\Python\python.exe` → High performance
+- VS Code → High performance
+- Games → High performance
+- Browsers → Power saving
+
+#### Monitor Configuration
+
+With dual monitors + dual GPUs:
+
+**Recommended setup:**
+1. Plug BOTH monitors into the NVIDIA card (not motherboard)
+2. This lets NVIDIA handle all display output
+3. Intel GPU goes idle, saving power
+
+**Check current setup:**
+```powershell
+# List display adapters
+Get-WmiObject Win32_VideoController | Select-Object Name, Status, DriverVersion
+```
+
+Should show both Intel UHD 750 and GTX 1650 Super.
+
+#### Update NVIDIA Drivers
+
+**During fresh install:**
+1. Go to https://www.nvidia.com/download/index.aspx
+2. Select:
+   - Product: GeForce GTX 16 Series
+   - Series: GeForce GTX 16 Series
+   - Product: GeForce GTX 1650 SUPER
+   - OS: Windows 11
+   - Download Type: Game Ready Driver (or Studio Driver for creative work)
+3. Install
+4. Choose "Custom" installation
+5. Check "Perform clean installation"
+6. Uncheck "GeForce Experience" (bloatware, eats resources)
+
+**Keep drivers updated:**
+- Check monthly for new drivers
+- Or use Windows Update (usually 1-2 months behind)
+
+---
+
+### 3. Ollama Setup (Local AI Models on D:)
+
+**What it is:** Ollama runs local LLMs (like ChatGPT, but on your machine, private, free).
+
+**Why you want it:** Local AI for coding help, writing, reasoning - no API costs, all private.
+
+**Your hardware can handle:** Models up to ~7-8B parameters (with 16GB RAM).
+
+#### Install Ollama to D:
+
+**Download:** https://ollama.com/download
+
+During install:
+- Default location: `C:\Users\[You]\AppData\Local\Programs\Ollama`
+- Change to: `D:\Dev\Ollama`
+
+**Or install via command line:**
+
+```powershell
+# Download installer
+Invoke-WebRequest -Uri "https://ollama.com/download/OllamaSetup.exe" -OutFile "D:\Downloads\OllamaSetup.exe"
+
+# Run installer
+Start-Process "D:\Downloads\OllamaSetup.exe"
+```
+
+**Configure Ollama to use D: for models:**
+
+Models can get HUGE (4-8GB each). Store them on D::
+
+```powershell
+# Set environment variable for model storage
+[Environment]::SetEnvironmentVariable("OLLAMA_MODELS", "D:\Dev\Ollama\models", "Machine")
+
+# Verify
+$env:OLLAMA_MODELS
+```
+
+**Verify Ollama is running:**
+```powershell
+ollama --version
+```
+
+#### Recommended Models for Your Hardware
+
+**For thinking/reasoning (best with 16GB RAM):**
+
+```bash
+# Qwen 2.5 - 7B (excellent reasoning, 4.7GB)
+ollama pull qwen2.5:7b
+
+# Llama 3.2 - 3B (fast, lighter, 2GB)
+ollama pull llama3.2:3b
+
+# DeepSeek R1 - 8B (good for coding, 4.9GB)
+ollama pull deepseek-r1:8b
+```
+
+**For coding specifically:**
+
+```bash
+# Qwen Coder - 7B (trained for code)
+ollama pull qwen2.5-coder:7b
+
+# CodeLlama - 7B (Meta's code model)
+ollama pull codellama:7b
+```
+
+**Test it:**
+```bash
+# Start a chat
+ollama run qwen2.5:7b
+
+# Ask it something
+>>> Write a Python function to check if a number is prime
+
+# Exit with /bye
+```
+
+#### Using Ollama with VS Code
+
+Install the "Continue" extension for VS Code:
+1. VS Code → Extensions → Search "Continue"
+2. Install "Continue - Codestral, Claude, and more"
+3. Configure to use Ollama:
+   ```json
+   {
+     "models": [
+       {
+         "title": "Qwen 2.5",
+         "provider": "ollama",
+         "model": "qwen2.5:7b"
+       }
+     ]
+   }
+   ```
+
+Now you have local AI code completion!
+
+#### Ollama Service Management
+
+Ollama runs as a background service:
+
+```powershell
+# Check if running
+Get-Service Ollama
+
+# Stop service
+Stop-Service Ollama
+
+# Start service
+Start-Service Ollama
+
+# Disable auto-start (save RAM when not using)
+Set-Service Ollama -StartupType Manual
+```
+
+**Memory usage:** Expect 4-8GB RAM used when a model is loaded. Closes automatically after 5 minutes of inactivity.
+
+---
+
+### 4. Windows Features to Enable
+
+**What these are:** Optional Windows components that aren't enabled by default.
+
+**How to access:**
+```
+Control Panel → Programs → Turn Windows features on or off
+```
+
+Or via PowerShell (faster):
+
+```powershell
+# Enable WSL (already covered in main guide, but for completeness)
+dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart
+dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /norestart
+
+# Enable .NET Framework 3.5 (some older apps need it)
+dism.exe /online /enable-feature /featurename:NetFx3 /all
+
+# Enable Hyper-V (if you want to run VMs - WARNING: uses 4GB+ RAM)
+# Only enable if you actually use VMs
+dism.exe /online /enable-feature /featurename:Microsoft-Hyper-V-All /all
+
+# Enable Windows Sandbox (safe environment for testing sketchy apps)
+dism.exe /online /enable-feature /featurename:Containers-DisposableClientVM /all
+```
+
+**Recommended for dev work:**
+- [x] Windows Subsystem for Linux (WSL)
+- [x] Virtual Machine Platform (required for WSL 2)
+- [x] .NET Framework 3.5 (legacy compatibility)
+- [ ] Hyper-V (only if you run VMs - heavy)
+- [x] Windows Sandbox (useful for testing)
+
+**After enabling, reboot.**
+
+---
+
+### 5. Performance Tweaks for Your Specific Hardware
+
+#### Disable Visual Effects (Speed boost on older hardware)
+
+```
+Control Panel → System → Advanced system settings
+→ Performance → Settings → Visual Effects tab
+```
+
+Select "Adjust for best performance" OR custom:
+- [ ] Animate windows when minimizing/maximizing (OFF)
+- [ ] Animations in the taskbar (OFF)
+- [ ] Fade or slide menus into view (OFF)
+- [ ] Fade or slide tooltips into view (OFF)
+- [x] Show shadows under windows (ON - helps readability)
+- [x] Smooth edges of screen fonts (ON - ClearType, critical)
+- [ ] Everything else (OFF)
+
+**Or via PowerShell:**
+```powershell
+# Disable animations
+Set-ItemProperty -Path "HKCU:\Control Panel\Desktop\WindowMetrics" -Name MinAnimate -Value 0
+
+# Disable transparency
+Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Themes\Personalize" -Name EnableTransparency -Value 0
+```
+
+#### Disable Startup Programs
+
+```
+Task Manager (Ctrl+Shift+Esc) → Startup tab
+```
+
+Disable everything except:
+- NVIDIA stuff (if you disabled GeForce Experience, you won't have this)
+- Audio drivers
+- Maybe OneDrive (if you're using it)
+
+**Disable bloatware:**
+- Microsoft Teams (unless you use it)
+- Skype
+- Spotify web helper
+- Steam (set it to NOT start on boot)
+- Discord (set it to NOT start on boot)
+
+#### Power Plan Settings
+
+```
+Control Panel → Power Options
+```
+
+Select "High performance" (shows more settings):
+1. Click "Change plan settings"
+2. Click "Change advanced power settings"
+
+**Recommended settings:**
+```
+Hard disk → Turn off hard disk after: Never (on HDD, prevents spin-down lag)
+Sleep → Sleep after: Never (or 30 minutes if you want)
+USB settings → USB selective suspend: Disabled
+PCI Express → Link State Power Management: Off
+Processor power management:
+  - Minimum processor state: 5% (saves power when idle)
+  - Maximum processor state: 100%
+  - System cooling policy: Active
+Graphics settings:
+  - NVIDIA GPU: Maximum Performance
+```
+
+#### Disable Background Apps
+
+```
+Settings → Privacy → Background apps
+```
+
+Turn OFF everything you don't use actively.
+
+**Keep enabled:**
+- OneDrive (if using)
+- Maybe VS Code (for updates)
+
+**Disable:**
+- Mail
+- Calendar
+- Maps
+- News
+- Weather
+- Xbox stuff (unless gaming on Xbox app)
+
+#### Disable Search Indexing on HDD (Saves resources)
+
+```
+Control Panel → Indexing Options
+```
+
+Click "Modify" and uncheck C: drive (the HDD).
+
+Keep D: indexed (SSD is fast enough that indexing doesn't hurt).
+
+**Why:** Indexing on HDD causes constant disk thrashing. You don't search C: much anyway since apps are what you launch, not files.
+
+#### Disk Cleanup Script
+
+Run monthly to clear caches:
+
+```powershell
+# Clear temp files
+Remove-Item -Path "$env:TEMP\*" -Recurse -Force -ErrorAction SilentlyContinue
+Remove-Item -Path "C:\Windows\Temp\*" -Recurse -Force -ErrorAction SilentlyContinue
+
+# Clear Windows Update cache
+Stop-Service wuauserv
+Remove-Item -Path "C:\Windows\SoftwareDistribution\Download\*" -Recurse -Force -ErrorAction SilentlyContinue
+Start-Service wuauserv
+
+# Clear browser caches (Chrome)
+Remove-Item -Path "$env:LOCALAPPDATA\Google\Chrome\User Data\Default\Cache\*" -Recurse -Force -ErrorAction SilentlyContinue
+
+Write-Host "✅ Temp files cleared!" -ForegroundColor Green
+```
+
+#### Monitor Performance
+
+**Windows Task Manager** (Ctrl+Shift+Esc):
+- Performance tab shows CPU/RAM/GPU usage
+- Startup tab shows what's slowing boot
+- Processes tab shows what's eating RAM
+
+**Resource Monitor** (resmon):
+- More detailed than Task Manager
+- Shows disk queue length (should be <2)
+- Shows network activity per process
+
+**When to worry:**
+- CPU constantly >80%: Close background apps or upgrade
+- RAM constantly >90%: Close apps or add more RAM
+- Disk at 100%: This is the HDD being slow - putting everything on D: helps
+- GPU at 100%: Normal when gaming/AI, not normal when idle
+
+---
+
+### 6. Dual Monitor Optimization
+
+With two monitors:
+
+**Main monitor (primary):**
+- Set to highest refresh rate available (60Hz, 75Hz, 144Hz)
+- This is where you do intensive work
+
+**Second monitor:**
+- Can be lower refresh rate
+- Good for Discord, documentation, terminals
+
+**Windows settings:**
+```
+Settings → System → Display
+```
+
+- Identify monitors (click "Identify")
+- Set which is #1 and #2
+- Set resolution for each (probably 1920x1080)
+- Set scale (100% or 125% depending on monitor size)
+- "Make this my main display" on your primary
+
+**Multi-monitor taskbar:**
+```
+Settings → Personalization → Taskbar
+→ Taskbar behaviors
+```
+
+- "Show my taskbar on all displays" (personal preference)
+- "When using multiple displays, show taskbar apps on" → "Taskbar where window is open"
+
+---
+
+### 7. Keep C: Drive Under 100GB
+
+**Monthly check:**
+```powershell
+Get-PSDrive C | Select-Object @{n="Used (GB)";e={[math]::Round($_.Used/1GB,2)}}, @{n="Free (GB)";e={[math]::Round($_.Free/1GB,2)}}
+```
+
+**If C: fills up:**
+
+1. Run Disk Cleanup (cleanmgr)
+2. Clear Windows Update cache
+3. Check if WSL moved properly to D:
+4. Check if page file moved to D:
+5. Use WinDirStat to find what's eating space
+
+**Target:** C: should stay 80-100GB used, leaving 400GB free for Windows updates and breathing room.
+
+---
+
 ## Directory Structure Creation
 
 **DO THIS BEFORE INSTALLING ANYTHING!**
