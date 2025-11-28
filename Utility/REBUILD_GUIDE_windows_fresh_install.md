@@ -89,6 +89,156 @@ When Windows installer asks about partitions:
 - [ ] Set timezone
 - [ ] Connect to internet AFTER initial setup (prevents forced updates during setup)
 
+### The Local Account Strategy
+
+**CRITICAL: How to create a local account during Windows 11 setup**
+
+Windows 11 REALLY wants you to use a Microsoft account. Here's how to bypass it:
+
+**Method 1: No Internet During Setup (Easiest)**
+1. When Windows asks you to connect to internet, DON'T
+2. Click "I don't have internet" (or unplug ethernet)
+3. Click "Continue with limited setup"
+4. You'll get the option to create a local account with whatever name you want
+5. Username: Pick something fun! (This becomes your folder name: `C:\Users\YourName`)
+6. Password: Set one (important for security)
+7. Security questions: Answer them (you'll need these if you forget password)
+
+**Method 2: Bypass During Setup (If already connected)**
+1. At the "Let's add your Microsoft account" screen
+2. Try clicking "Create account"
+3. Then look for tiny "Sign in without a Microsoft account" link
+4. Or try the keyboard shortcut: `Shift + F10` to open Command Prompt
+5. Type: `oobe\bypassnro` and press Enter (this restarts setup without internet requirement)
+6. After restart, proceed as Method 1
+
+**Method 3: The Email Trick (If all else fails)**
+1. When it asks for Microsoft account email, type: `no@thankyou.com`
+2. Password: anything
+3. It will fail to sign in
+4. Click "Next" - it should offer local account option
+
+**After you have your local account created:**
+- Username should be YOUR fun name (not "Graha")
+- User folder will be `C:\Users\[YourFunName]`
+- No Microsoft account connected yet
+
+---
+
+## OneDrive Setup (The Right Way)
+
+### The Problem
+
+If you just install OneDrive and sign in like normal, Windows will:
+1. Try to convert your entire local account to a Microsoft account
+2. Change your username to match your Microsoft account name
+3. Start syncing settings you don't want synced
+4. Generally be annoying
+
+### The Solution: OneDrive as a "Service" Not an "Account"
+
+**Step 1: Already have local account set up with fun name**
+- Make sure you did the above section first!
+- Your user folder should be `C:\Users\[YourFunName]`
+
+**Step 2: Install OneDrive BEFORE signing into Windows with Microsoft account**
+- OneDrive comes pre-installed on Windows 11
+- Don't sign in yet!
+
+**Step 3: Sign into OneDrive ONLY, not Windows**
+
+The key: Sign into the **OneDrive app**, not into **Windows itself**.
+
+1. Open the Start menu
+2. Search for "OneDrive"
+3. Open the OneDrive app (should already be installed)
+4. When it asks you to sign in, use your Microsoft account email
+5. **CRITICAL: If Windows asks "Switch to a Microsoft account?" → Click NO or CANCEL**
+6. OneDrive will sign in as just the app, not the whole OS
+
+**Step 4: Be VERY careful during setup**
+
+OneDrive setup will show screens like:
+- "Back up your files"
+- "Get Microsoft 365"
+- "Make OneDrive your default"
+
+Click through these CAREFULLY:
+- Don't click anything that says "Sign in to Windows"
+- Don't click anything that says "Switch account type"
+- You want OneDrive as an APP, not as your Windows account
+
+**Step 5: Configure OneDrive folder location**
+
+During setup, OneDrive asks where to put the sync folder:
+- Default: `C:\Users\[YourName]\OneDrive`
+- Better: `D:\OneDrive` (more space)
+
+Change it to D: if you want.
+
+**Step 6: Verify separation**
+
+After setup, check:
+```powershell
+# Check your username
+whoami
+# Should show: YOUR-PC\YourFunName (not Graha!)
+
+# Check OneDrive status
+Get-Process OneDrive
+# Should be running
+
+# Check account type
+Get-LocalUser $env:USERNAME | Select-Object Name, Enabled, PasswordRequired
+# Should show local account, not Microsoft account
+```
+
+**What it should look like when done right:**
+- Windows login screen: Shows your fun local username
+- User folder: `C:\Users\[YourFunName]`
+- OneDrive: Running and syncing
+- OneDrive folder: Shows your Microsoft account email in the app
+- Settings → Accounts → Your Info: Shows "Local Account" (not Microsoft account)
+
+**If Windows converted your account anyway:**
+
+You'll know because:
+- User folder name changed to "Graha" (or your MS account name)
+- Settings → Accounts shows Microsoft account
+- Windows asks for Microsoft password at login
+
+**How to fix it:**
+1. Settings → Accounts → Your info
+2. Click "Sign in with a local account instead"
+3. Follow prompts to convert BACK to local
+4. Choose your fun username again
+5. OneDrive will still work! It's signed in separately
+
+**Alternative: Separate Admin Account**
+
+If Windows already converted your account and you can't change the username:
+
+1. Create a NEW local account:
+   ```
+   Settings → Accounts → Family & other users → Add account
+   Click "I don't have this person's sign-in information"
+   Click "Add a user without a Microsoft account"
+   Username: YourFunName
+   Make it an Administrator
+   ```
+
+2. Sign out, sign into new account
+
+3. Transfer files from old account to new:
+   ```
+   Copy from: C:\Users\Graha\Documents
+   Copy to: C:\Users\YourFunName\Documents
+   ```
+
+4. Install OneDrive in NEW account (using method above)
+
+5. Delete old "Graha" account when done
+
 ---
 
 ## Initial System Setup
