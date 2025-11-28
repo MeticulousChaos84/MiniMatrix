@@ -981,10 +981,13 @@ New-Item -ItemType Directory -Path "D:\Dev\Node" -Force
 New-Item -ItemType Directory -Path "D:\Dev\npm-global" -Force
 New-Item -ItemType Directory -Path "D:\Dev\VSCode" -Force
 New-Item -ItemType Directory -Path "D:\Dev\WSL" -Force
+New-Item -ItemType Directory -Path "D:\Dev\Ollama" -Force
+New-Item -ItemType Directory -Path "D:\Dev\Ollama\models" -Force
 New-Item -ItemType Directory -Path "D:\Gaming\Saves" -Force
 New-Item -ItemType Directory -Path "D:\Gaming\Mods" -Force
 New-Item -ItemType Directory -Path "D:\MeticulousChaos" -Force
 New-Item -ItemType Directory -Path "D:\Backups" -Force
+New-Item -ItemType Directory -Path "D:\Downloads" -Force
 New-Item -ItemType Directory -Path "D:\Temp" -Force
 
 Write-Host "✅ D: drive structure created!" -ForegroundColor Green
