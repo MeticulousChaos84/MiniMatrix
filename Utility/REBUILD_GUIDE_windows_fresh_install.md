@@ -1176,11 +1176,38 @@ wsl --unregister Ubuntu
 # Import to D:
 wsl --import Ubuntu "D:\Dev\WSL\Ubuntu" "D:\Backups\ubuntu-export.tar"
 
-# Set default user (replace YOUR_USERNAME)
-ubuntu config --default-user YOUR_USERNAME
-
-# Test it works
+# Set default user (the 'ubuntu config' command doesn't exist after import)
+# Instead, we create a wsl.conf file inside the distribution
+# First, launch as root (current default):
 wsl -d Ubuntu
+
+# Inside WSL, create the config file:
+# sudo nano /etc/wsl.conf
+# Add these lines:
+#   [user]
+#   default=YOUR_USERNAME
+# Save with Ctrl+O, Enter, Ctrl+X, then exit
+
+# After creating wsl.conf, exit WSL:
+# exit
+
+# Back in PowerShell, restart WSL to apply the user change:
+wsl --shutdown
+
+# Now test - should log in as YOUR_USERNAME instead of root:
+wsl -d Ubuntu
+```
+
+**Verify it's actually on D: drive:**
+
+```powershell
+# Check the registry where WSL stores distribution paths
+Get-ChildItem -Path HKCU:\Software\Microsoft\Windows\CurrentVersion\Lxss | ForEach-Object { Get-ItemProperty $_.PSPath } | Where-Object { $_.DistributionName -eq "Ubuntu" } | Select-Object DistributionName, BasePath
+
+# Should show: BasePath: D:\Dev\WSL\Ubuntu
+
+# Or just check if the folder has files:
+Get-ChildItem "D:\Dev\WSL\Ubuntu" | Select-Object -First 5
 ```
 
 **Inside WSL, update everything:**
